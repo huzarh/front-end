@@ -1,0 +1,25 @@
+.all {
+  margin: 12px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 23px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  color: white;
+}
+.head1 {
+  color: white;
+}
+.userbox {
+  height: 50px;
+  width: 100%;
+  border: 2px solid rgb(40, 42, 51);
+  border-radius: 20px;
+  background-color: rgb(23, 25, 32);
+  margin-bottom: 10px;
+  padding: 12px;
+}

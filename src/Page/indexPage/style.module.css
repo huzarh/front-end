@@ -1,0 +1,121 @@
+.all {
+  text-align: center;
+  margin: 12px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  background-color: transparent;
+}
+.icon1 {
+  font-size: 26px;
+  color: white;
+}
+div,
+h5 {
+  background-color: transparent;
+}
+.head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  font-size: 23px;
+  margin-bottom: 25px;
+  /* background-color: aliceblue; */
+}
+.head1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 23px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  /* background-color: aliceblue; */
+}
+.button {
+  width: 100%;
+  display: flex;
+  margin-bottom: 30px;
+  /* background-color: aliceblue; */
+}
+.button1,
+.button2 {
+  border-radius: 35px;
+  width: 50%;
+  height: 40px;
+  font-size: 18px;
+}
+.button1 {
+  color: var(--protocolor);
+  border: 2px solid var(--protocolor);
+}
+.button2 {
+  color: white;
+  border: none;
+  background-color: var(--protocolor);
+}
+button:hover {
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.945),
+    0 0 0px 0px rgba(255, 255, 255, 0.532);
+}
+
+.section {
+  padding: 15px;
+  width: 100%;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  background-color: rgb(23, 25, 32);
+  border: 2px solid rgb(40, 42, 51);
+}
+.hr {
+  width: 100%;
+  height: 2px;
+  background-color: rgb(40, 42, 51);
+}
+
+.lesson {
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+}
+.lessonname {
+  text-align: start;
+  display: block;
+}
+.box1,
+.box2,
+.box3 {
+  height: 80px;
+  margin: 8px;
+  width: 80px;
+  border-radius: 50px;
+}
+.box1 {
+  border: 4px solid darkslategrey;
+  background-color: darkorange;
+}
+.box2 {
+  border: 4px solid darkslategrey;
+  background-color: darkorchid;
+}
+.box3 {
+  border: 4px solid darkslategrey;
+  background-color: darkturquoise;
+}
+.d1 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.p {
+  color: rgb(218, 218, 218);
+}

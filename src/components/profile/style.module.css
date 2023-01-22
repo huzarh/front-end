@@ -1,0 +1,110 @@
+.all {
+  margin: 12px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: darkred; */
+}
+.icon2 {
+  margin-right: 20px;
+}
+.box {
+  height: 130px;
+  width: 130px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  border-radius: 100px;
+  border: 4px solid darkgoldenrod;
+}
+.hr {
+  width: 100%;
+  height: 2px;
+  background-color: rgb(40, 42, 51);
+}
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.h2 {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+.h5 {
+  font-size: 14px;
+  color: rgb(154, 151, 151);
+  margin-bottom: 20px;
+}
+.person {
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+  margin: 10px;
+}
+.hr1 {
+  width: 2px;
+  height: 100%;
+  background-color: rgb(40, 42, 51);
+}
+.f {
+  text-align: center;
+  color: white;
+}
+.button {
+  width: 100%;
+  display: flex;
+  margin-bottom: 18px;
+  /* background-color: aliceblue; */
+}
+.button1,
+.button2 {
+  display: flex;
+  border-radius: 35px;
+  width: 50%;
+  height: 40px;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.button2 {
+  color: var(--protocolor);
+  border: 2px solid var(--protocolor);
+}
+.button1 {
+  color: white;
+  border: none;
+  background-color: var(--protocolor);
+}
+.icon3,
+.icon4 {
+  background-color: transparent;
+  margin-right: 10px;
+  font-size: 20px;
+}
+.h3 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.boxs {
+  display: flex;
+  width: 100%;
+}
+.statusbox {
+  height: 80px;
+  width: 50%;
+  border: 2px solid rgb(40, 42, 51);
+  border-radius: 20px;
+  background-color: rgb(23, 25, 32);
+  margin-bottom: 10px;
+}

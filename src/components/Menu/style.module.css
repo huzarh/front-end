@@ -1,0 +1,31 @@
+.all {
+  height: 60px;
+  width: 360px;
+  padding: 10px 10px 10px 10px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  bottom: 0;
+}
+.icons {
+  display: flex;
+  font-size: 30px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.icon1,
+.icon2,
+.icon3,
+.icon4,
+.icon5 {
+  color: rgba(255, 255, 255, 0.662);
+  background-color: transparent;
+}
+.icon1:hover,
+.icon2:hover,
+.icon3:hover,
+.icon4:hover,
+.icon5:hover {
+  color: white;
+}
