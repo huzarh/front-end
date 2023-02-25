@@ -1,31 +1,36 @@
-.all {
-  height: 60px;
-  width: 360px;
-  padding: 10px 10px 10px 10px;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
+.menu {
+  width: 100%;
   position: fixed;
   bottom: 0;
+  margin-bottom: 10px;
+  /* backdrop-filter: blur(10px); */
+  background-color: rgb(19, 20, 25);
+  border-radius: 10px;
+  right: 0;
+  left: 0;
 }
 .icons {
   display: flex;
-  font-size: 30px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
+  margin-top: 5px;
 }
-.icon1,
-.icon2,
-.icon3,
-.icon4,
-.icon5 {
-  color: rgba(255, 255, 255, 0.662);
+.icon {
+  font-size: 35px;
+  color: darkorange;
   background-color: transparent;
 }
-.icon1:hover,
-.icon2:hover,
-.icon3:hover,
-.icon4:hover,
-.icon5:hover {
-  color: white;
+.icon:hover {
+  color: var(--textcolor);
+}
+.Link {
+  background-color: transparent;
+}
+.active {
+  font-size: 45px;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: darkslateblue;
+  color: darkorange;
 }

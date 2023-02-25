@@ -1,40 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
 import css from "./style.module.css";
-import axios from "../../api/index";
-import Loading from "../../components/loading";
-import RouterPage from "../routerPage";
+// import Loading from "../../components/loading";
+import GetStarted from "../getStarted";
+import { connect } from "react-redux";
+// import * as actions from "../../redux/action/loginActions";
 
-class FirstPage extends Component {
-  state = {
-    loading: false,
+const FirstPage = (props) => {
+  return (
+    <div className={css.all1}>
+      <GetStarted />
+    </div>
+  );
+};
+const mapStateToProps = () => {
+  return {};
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // autoLogin: (token, userId) =>
+    //   dispatch(actions.loginUserSuccess(token, userId)),
   };
-
-  componentDidMount = () => {
-    this.setState({ loading: true });
-    axios
-      .get("/api/v1/quiz")
-      .then((response) => {
-        const arr = Object.entries(response.data);
-        arr.forEach((el) => {
-          console.log("===>>" + el[1].question);
-        });
-        this.setState({ loading: false });
-      })
-      .catch((err) => {
-        console.error("aldaa : " + err);
-      });
-  };
-
-  render() {
-    return (
-      <div className={css.all1}>
-        {this.state.loading && (
-          <Loading className={css.loading} loading={this.state.loading} />
-        )}
-        <RouterPage />
-      </div>
-    );
-  }
-}
-
-export default FirstPage;
+};
+export default connect(mapStateToProps, mapDispatchToProps)(FirstPage);

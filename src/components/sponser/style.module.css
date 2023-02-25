@@ -1,0 +1,90 @@
+.App {
+  text-align: start;
+}
+
+.container {
+  width: auto;
+  padding: 10px;
+  object-fit: cover;
+  justify-content: center;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 135px;
+}
+
+.wrapper {
+  position: absolute;
+  display: flex;
+}
+.section11 {
+  display: flex;
+  animation: swipe var(--speed) linear infinite backwards;
+}
+
+@keyframes swipe {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(-100%);
+  }
+}
+.card {
+  display: flex;
+  color: white;
+  /* background-color: rgb(40, 42, 51); */
+  border-radius: 5px;
+  width: 300px;
+  padding-right: 10px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 8px -3px rgba(0, 0, 0, 0.15);
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.image {
+  width: 70px;
+  height: auto;
+  background-color: transparent;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  justify-content: center;
+}
+
+.title {
+  margin: 0 0 5px 0;
+  font-weight: bold;
+}
+
+.content {
+  font-size: 0.8em;
+  margin: 0;
+}
+.stars {
+  display: flex;
+  width: 90%;
+  margin-top: 4px;
+  justify-content: space-around;
+  background-color: transparent;
+}
+.star {
+  width: 15px;
+  background-color: transparent;
+}

@@ -1,13 +1,14 @@
 import React from "react";
 import css from "./style.module.css";
 import { Link } from "react-router-dom";
+import Image from "../../assets/bigLogo.png";
 
-function GetStarted() {
+const GetStarted = () => {
   return (
     <section className={css.all}>
-      {/* <img className={css.Logo} src={Image} /> */}
+      <img className={css.Logo} src={Image} alt="logo" />
       <b className={css.text}>
-        <h1>Elingo</h1>
+        <h1 className={css.h1}>Yardımcı</h1>
         <p className={css.pa}>
           Learn languages whenever and
           <br />
@@ -27,5 +28,5 @@ function GetStarted() {
       </Link>
     </section>
   );
-}
+};
 export default GetStarted;

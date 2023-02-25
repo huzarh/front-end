@@ -1,0 +1,50 @@
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 23px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: var(--textcolor);
+}
+.head1 {
+  color: var(--textcolor);
+}
+.inputSearch {
+  margin: 0;
+  background: transparent;
+  text-align: start;
+  padding: 5px 10px;
+  border: none;
+  border-bottom: 1px solid var(--protocolor);
+  width: 55%;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+  outline: none;
+}
+.section {
+  display: block;
+  border-radius: 15px;
+  background-color: rgb(23, 25, 32);
+  border: 2px solid rgb(40, 42, 51);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+hr {
+  margin: 5px;
+  height: 1px;
+}
+.h22 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0px;
+}
+.h11 {
+  padding: 0%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 0px;
+}

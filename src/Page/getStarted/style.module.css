@@ -1,18 +1,27 @@
 :root {
   --protocolor: rgb(94, 19, 255);
+  --textcolor: white;
 }
 
 .all {
   text-align: center;
-  margin-top: 410px;
-  /* position: absolute; */
+  margin: 0;
+  height: 640px;
+}
+.Logo {
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  margin-top: 60px;
+  margin-bottom: 40px;
 }
 .text {
   text-align: center;
   width: 330px;
 }
 
-h1 {
+.h1 {
+  font-size: 50px;
   margin-bottom: 20px;
   color: var(--protocolor);
 }
@@ -38,7 +47,7 @@ hr {
   width: 100%;
   opacity: 0.3;
   padding: 0;
-  color: white;
+  color: var(--textcolor);
 }
 .button1 {
   background-color: var(--protocolor);

@@ -1,0 +1,102 @@
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 23px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: var(--textcolor);
+}
+.head1 {
+  color: var(--textcolor);
+}
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  background-color: rgb(23, 25, 32);
+  border: 1px solid rgb(40, 42, 51);
+  border-radius: 20px;
+}
+.cardButton {
+  border: none;
+  border-radius: 20px;
+  padding: 3px 15px;
+  background: var(--protocolor);
+  color: var(--textcolor);
+  margin-bottom: 10px;
+}
+.cardTop1,
+.cardTop2,
+.cardTop3 {
+  display: flex;
+  border-radius: 20px 20px 0px 0px;
+  padding: 15px;
+}
+.cardBottom {
+  padding: 15px;
+}
+.cardItem1 {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+.container {
+  width: 100%;
+  height: 10px;
+  background-color: rgb(40, 42, 51);
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.bonus {
+  border-radius: 20px;
+  height: 10px;
+  background: blue;
+}
+.hr {
+  width: 100%;
+  height: 2px;
+  background-color: rgb(40, 42, 51);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.h3 {
+  margin-bottom: 10px;
+}
+.p {
+  text-align: justify;
+  width: 100%;
+}
+.cardItemH3 {
+  color: var(--protocolor);
+}
+.bg {
+  background-color: transparent;
+  margin: 15px;
+  border-radius: 30px;
+}

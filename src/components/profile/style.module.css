@@ -1,6 +1,6 @@
-.all {
+/* .all {
   margin: 12px;
-}
+} */
 
 .head {
   display: flex;
@@ -57,7 +57,7 @@
 }
 .f {
   text-align: center;
-  color: white;
+  color: var(--textcolor);
 }
 .button {
   width: 100%;
@@ -77,11 +77,12 @@
   text-align: center;
 }
 .button2 {
+  background-color: transparent;
   color: var(--protocolor);
   border: 2px solid var(--protocolor);
 }
 .button1 {
-  color: white;
+  color: var(--textcolor);
   border: none;
   background-color: var(--protocolor);
 }
@@ -94,7 +95,7 @@
 .h3 {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin: 0;
 }
 .boxs {
   display: flex;
