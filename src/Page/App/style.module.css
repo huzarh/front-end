@@ -7,21 +7,37 @@
   font-family: "Nunito", sans-serif;
   -webkit-scrollbar: none;
 }
-body {
-  background-color: rgb(19, 20, 25);
+.body {
+  display: flex;
+  background-color: rgb(4, 10, 20);
 }
 .firstScreen {
-  margin: 12px;
+  background-color: rgb(19, 20, 25);
+  width: 100%;
   margin-bottom: 70px;
   color: var(--textcolor);
+  padding: 12px;
 }
-/* Link {
-  background: transparent;
+.appBox {
+  display: none;
+  background-size: cover;
 }
-@media screen and (min-width: 360px) {
-  body {
-    width: 400px;
-    /* background-color: yellow; */
-/* text-align: center;
-    font-size: calc(8px + 2vmin);
-    font-style: normal; */
+@media screen and (min-width: 460px) {
+  .firstScreen {
+    width: 360px;
+    margin: 12px;
+    border-radius: 10px;
+  }
+  .appBox {
+    display: inline;
+    position: fixed;
+    left: 390px;
+    margin: 12px;
+    height: 760px;
+    width: 1025px;
+    border-radius: 10px;
+    background-color: rgb(27, 84, 197);
+    top: 0;
+    opacity: 0.3;
+  }
+}

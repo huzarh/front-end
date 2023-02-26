@@ -1,6 +1,6 @@
-/* .all {
-  margin: 12px;
-} */
+.all {
+  height: 1000px;
+}
 
 .head {
   display: flex;

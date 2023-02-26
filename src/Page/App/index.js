@@ -20,6 +20,7 @@ import { connect } from "react-redux";
 import * as actions from "../../redux/action/loginActions";
 import Menu from "../../components/Menu";
 import Mess from "../../components/messages";
+import Img1 from "../../assets/education.gif";
 
 function App(props) {
   const navigate = useNavigate();
@@ -36,41 +37,48 @@ function App(props) {
   }, [props.autoLogin]);
 
   return (
-    <div className={css.firstScreen}>
-      <Mess
-        mess={open}
-        setMess={setOpen}
-        messName={messName}
-        messText={messText}
-      />
-      <Routes>
-        <Route exact path="/" element={<FirstPage />} />
-        {/* <Route path="/messages" element={<Example />} /> */}
-        <Route
-          path="/login"
-          element={
-            <Login
-              setMess={setOpen}
-              setMessName={setMessName}
-              setMessText={setMessText}
-            />
-          }
+    <div className={css.body}>
+      <div className={css.firstScreen}>
+        <Mess
+          mess={open}
+          setMess={setOpen}
+          messName={messName}
+          messText={messText}
         />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/index-page" element={<IndexPage navigate={navigate} />} />
-        <Route path="/research" element={<Research />} />
-        <Route exact path="/A1" element={<A1 />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/peaple" element={<Peaple />} />
-        <Route path="/A1/yazma" element={<Yazma />} />
-        <Route path="/A1/konushma" element={<Konushma />} />
-        <Route path="/A1/dinleme" element={<Dinleme />} />
-        <Route path="/point" element={<Point />} />
-        <Route path="/post" element={<Post />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-      {userData && <Menu />}
+        <Routes>
+          <Route exact path="/" element={<FirstPage />} />
+          {/* <Route path="/messages" element={<Example />} /> */}
+          <Route
+            path="/login"
+            element={
+              <Login
+                setMess={setOpen}
+                setMessName={setMessName}
+                setMessText={setMessText}
+              />
+            }
+          />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route
+            path="/index-page"
+            element={<IndexPage navigate={navigate} />}
+          />
+          <Route path="/research" element={<Research />} />
+          <Route exact path="/A1" element={<A1 />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/peaple" element={<Peaple />} />
+          <Route path="/A1/yazma" element={<Yazma />} />
+          <Route path="/A1/konushma" element={<Konushma />} />
+          <Route path="/A1/dinleme" element={<Dinleme />} />
+          <Route path="/point" element={<Point />} />
+          <Route path="/post" element={<Post />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+        {userData && <Menu />}
+      </div>
+      {/* <div className={css.appBox}></div> */}
+      <img src={Img1} alt="odev" className={css.appBox} />
     </div>
   );
 }
