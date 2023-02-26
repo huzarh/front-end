@@ -28,7 +28,6 @@ const Sponsors = () => {
       img: "https://avataaars.io/?avatarStyle=Circle&topType=LongHairBigHair&accessoriesType=Round&hairColor=Black&facialHairType=Blank&facialHairColor=Black&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Deer&eyeType=Close&eyebrowType=RaisedExcited&mouthType=Twinkle&skinColor=Tanned",
     },
   ].map((image) => ({
-    id: crypto.randomUUID(),
     image,
   }));
   return (

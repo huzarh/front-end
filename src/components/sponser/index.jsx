@@ -6,8 +6,8 @@ const Banner = ({ images, speed = 5000 }) => {
       <div className={css.inner}>
         <div className={css.wrapper}>
           <section className={css.section11} style={{ "--speed": `${speed}ms` }}>
-            {images.map(({ id, image }) => (
-              <div className={css.container} key={id}>
+            {images.map(({ image },i) => (
+              <div className={css.container} key={i}>
                 <div className={css.card} style={{background:image.bg}}>
                     <div className={css.avatar}>
                     <img className={css.image} src={image.img} alt="img" />
@@ -28,8 +28,8 @@ const Banner = ({ images, speed = 5000 }) => {
             ))}
           </section>
           <section className={css.section11} style={{ "--speed": `${speed}ms` }}>
-            {images.map(({ id, image }) => (
-              <div className={css.container} key={id}>
+            {images.map(({image },i) => (
+              <div className={css.container} key={i}>
               <div className={css.card} style={{background:image.bg}} >
                   <div className={css.avatar}>
                   <img className={css.image} src={image.img}  alt="img" />
@@ -50,8 +50,8 @@ const Banner = ({ images, speed = 5000 }) => {
             ))}
           </section>
           <section className={css.section11} style={{ "--speed": `${speed}ms` }}>
-            {images.map(({ id, image }) => (
-              <div className={css.container} key={id}>
+            {images.map(({image },i) => (
+              <div className={css.container} key={i}>
               <div className={css.card} style={{background:image.bg}} >
                   <div className={css.avatar}>
                   <img className={css.image} src={image.img}  alt="img" />
