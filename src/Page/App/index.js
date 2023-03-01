@@ -21,6 +21,7 @@ import * as actions from "../../redux/action/loginActions";
 import Menu from "../../components/Menu";
 import Mess from "../../components/messages";
 import Img1 from "../../assets/education.gif";
+// import CustomizedTimeline from "./timeLine";
 
 function App(props) {
   const navigate = useNavigate();
@@ -73,6 +74,7 @@ function App(props) {
           <Route path="/A1/dinleme" element={<Dinleme />} />
           <Route path="/point" element={<Point />} />
           <Route path="/post" element={<Post />} />
+          {/* <Route path="/time" element={<CustomizedTimeline />} /> */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         {userData && <Menu />}

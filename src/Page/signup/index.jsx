@@ -19,7 +19,7 @@ const Signup =(props)=> {
   
   const signup = () => {
     if(password1 === password2){
-      props.signupUser(name,email,password1,(role=== "" ? "user" : role));
+      props.signupUser(name,email,password1,(role === "" ? "user" : role));
     }else{
       setError("Passwordaa zuv oruulnuu !!!");
     }
@@ -49,7 +49,7 @@ const Signup =(props)=> {
           <p className={css.p}>Rol</p>
           <select className={css.select}  onChange={e=>setRole(e.target.value)}>
             <option value="user" >Öğrenci</option>
-            <option value="Admin" >Öğretmen</option>
+            <option value="admin" >Öğretmen</option>
             <option value="operator">Operatör</option>
           </select>
         </label>&nbsp;&nbsp;&nbsp; 

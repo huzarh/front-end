@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BiArrowBack, BiSearch, BiCommand } from "react-icons/bi";
+import {
+  BiArrowBack,
+  BiSearch,
+  BiCommand,
+  BiCommentDetail,
+} from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { cloudData, cloudDataBooks } from "../../redux/action/cloudActions";
@@ -10,10 +15,11 @@ import css from "./style.module.css";
 import TimeAgo from "react-timeago";
 // import VariableWidth from "../../components/hoverText";
 import img from "../../assets/emoji4.png";
+import ScrollDialog from "./demo";
 
 const Point = (props) => {
   // const navigate = useNavigate();
-
+  // console.log(props.BooksData.data[4]);
   const [showAboutMenu, setshowAboutMenu] = useState(false);
 
   const handleHover = () => {
@@ -31,20 +37,23 @@ const Point = (props) => {
     props.cloudDataBooks();
   }, []);
 
-  var add1 = [];
+  var add11 = [];
+
   props.BooksData &&
     props.BooksData.data.map((e) => {
-      add1.push(e);
+      add11.push(e);
       // elment.push(e.content);
     });
+
+  const add1 = add11.reverse();
   // var aaaa3 = add1[12].content.join(" ");
   // var words = text.split(" ");
   // var a = [];
 
-  var add = [];
+  // var add = [];
 
-  props.BackData && props.BackData.data.map((user) => add.push(user));
-  add.sort((a, b) => b.userPoint - a.userPoint);
+  // props.BackData && props.BackData.data.map((user) => add.push(user));
+  // add.sort((a, b) => b.userPoint - a.userPoint);
   const userId = localStorage.getItem("userId");
 
   return (
@@ -63,47 +72,13 @@ const Point = (props) => {
           <Link to="/index-page">
             <BiArrowBack />
           </Link>
-          &nbsp;&nbsp;Ders
+          &nbsp;&nbsp;Okul dersler
         </div>
         <BiSearch />
       </div>
 
-      <div>
-        {/* <button onClick={Point}>point</button> */}
+      {/* <button onClick={Point}>point</button> */}
 
-        {/* <section className={css.section}>
-            {add.map((e,i)=>(
-                
-                <div className={(i === 0) ? css.active1 :  (i === 1) ? css.active2 : (i === 2) ? css.active3 : css.active} key={i}>
-                
-                <div className={css.hr}/>
-
-                { (i === 0) 
-                ?
-                <div key={i} className={css.users}>
-                <div style={{display:'flex'}}>1&nbsp;&nbsp;<p>{e.name}&nbsp;&nbsp;&nbsp;&nbsp;</p></div><p>{e.userPoint} XP</p>
-                </div> 
-                : (i === 1) ?
-                <div key={i} className={css.users}>
-                <div style={{display:'flex'}}>2&nbsp;&nbsp;<p>{e.name}</p></div><p>{e.userPoint} XP</p>
-                </div>
-                : (i === 2) ?
-                <div key={i} className={css.users}>
-                <div style={{display:'flex'}}>3&nbsp;&nbsp;<p>{e.name}</p></div><p>{e.userPoint} XP</p>
-                </div>
-                :
-                <div key={i} className={css.users}>
-                <p>{e.name}</p><p>{e.userPoint} XP</p>
-                </div>
-                }
-                
-                <div className={css.hr}/>
-                </div>
-                
-            ))}
-            
-            </section> */}
-      </div>
       <div className={css.container}>
         {add1.map((e, i) => (
           <div className={css.card} key={i}>
@@ -132,10 +107,16 @@ const Point = (props) => {
               <h5 className={css.content}>{e.content}</h5>
             )}
             {/* <h5 className={css.content}>{e.content}</h5> */}
-
-            <div className={css.head3}>
-              {/* <VariableWidth text={e.name} title={e.content} /> */}
-              <h5>{e.name}</h5>
+            <div className={css.head2}>
+              <div className={css.head3}>
+                {/* <VariableWidth text={e.name} title={e.content} /> */}
+                <h5>{e.name}</h5>
+              </div>
+              {e.comment ? (
+                <ScrollDialog com={e.comment.com} author={e.comment.userId} />
+              ) : (
+                <ScrollDialog com={"hoosn"} />
+              )}
             </div>
           </div>
         ))}
@@ -183,12 +164,12 @@ const actionTsatsruulagch = (dispatch) => {
 };
 export default connect(getaction, actionTsatsruulagch)(Point);
 
-const Submenu = (props) => {
-  return (
-    <h4 className="nav__submenu">
-      <div className={css.hovers}>
-        <p>{props.parametr}</p>
-      </div>
-    </h4>
-  );
-};
+// const Submenu = (props) => {
+//   return (
+//     <h4 className="nav__submenu">
+//       <div className={css.hovers}>
+//         <p>{props.parametr}</p>
+//       </div>
+//     </h4>
+//   );
+// };

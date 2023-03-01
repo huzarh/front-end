@@ -5,12 +5,15 @@ import { cloudSaveBooks } from "../../redux/action/cloudSelect";
 
 function Post(props) {
   const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
+  // const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const { name } = userData.user;
+
   const a1 = {
     name: title,
     photo: "uzrg",
-    author: author,
+    author: name,
     rating: 5,
     price: 2470,
     balance: 3,
@@ -19,6 +22,7 @@ function Post(props) {
     available: ["old"],
     category: "5e90434cd433fa11b078ed8a",
   };
+
   const post = () => {
     props.button();
     props.cloudSaveBooks(
@@ -37,39 +41,18 @@ function Post(props) {
   return (
     <div>
       <div className={css.createPost}>
-        <button onClick={props.button}>X</button>
+        {/* <button onClick={props.button}>X</button> */}
         <div className={css.container}>
           <h1>Create a Post</h1>
           <hr />
-          <div style={{ display: "flex" }}>
-            <div>
-              <label>
-                <b className={css.b}>Author:</b>
-              </label>
-              <input
-                onChange={(e) => setAuthor(e.target.value)}
-                type="text"
-                placeholder="Enter Author"
-                name="Author"
-                id="Author"
-                required
-              />
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <div>
-              <label>
-                <b className={css.b}>Title:</b>
-              </label>
-              <input
-                onChange={(e) => setTitle(e.target.value)}
-                type="text"
-                placeholder="Enter Title"
-                name="title"
-                id="title"
-                required
-              />
-            </div>
-          </div>
+          <label>
+            <b className={css.b}>Title:</b>
+          </label>
+          <input
+            onChange={(e) => setTitle(e.target.value)}
+            type="text"
+            placeholder="Enter Title"
+          />
 
           <label>
             <b className={css.b}>Description:</b>
@@ -78,9 +61,6 @@ function Post(props) {
             onChange={(e) => setDescription(e.target.value)}
             type="text"
             placeholder="Enter Description"
-            name="psw"
-            id="psw"
-            required
           />
 
           {/* <label for="file-upload">
@@ -92,20 +72,20 @@ function Post(props) {
           </label> */}
           <div style={{ display: "flex" }}>
             <button
-              style={{ background: "darkred" }}
-              className={css.submitbtn}
-              onClick={props.button}
-            >
-              CLOUSE POST
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <button
               style={{ background: "darkgreen" }}
               type="submit"
               className={css.submitbtn}
               onClick={post}
             >
               SUBMIT
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button
+              style={{ background: "darkred" }}
+              className={css.submitbtn}
+              onClick={props.button}
+            >
+              CLOUSE POST
             </button>
           </div>
         </div>

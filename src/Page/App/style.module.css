@@ -17,6 +17,9 @@
   margin-bottom: 70px;
   color: var(--textcolor);
   padding: 12px;
+
+  height: 100%;
+  padding-bottom: 400px;
 }
 .appBox {
   display: none;

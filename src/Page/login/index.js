@@ -12,11 +12,6 @@ const Login = (props) => {
 
   const login = () => {
     props.login(email, password);
-    // function mess () {
-    //   props.setMess(true);
-    //   props.setMessName("error");
-    //   props.setMessText(props.error.response.data.error.message);
-    // }
   };
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
@@ -39,9 +34,6 @@ const Login = (props) => {
 
   useEffect(() => {
     props.error && Messages(props.error.response.data.error.message);
-    // if (props.error !== null) {
-    //   Messages(props.error.response.data.error.message);
-    // }
   }, [props.error]);
 
   return (

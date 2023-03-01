@@ -39,8 +39,8 @@ const Profile = (props)=>{
                 <div className={css.person}>
                     <Link to="/peaple">
                     <div className={css.f}>
-                        <span>0</span>
-                        <h5 className={css.h5}>followers</h5>
+                        <span>- - 0 - -</span>
+                        <h5 className={css.h5}>list</h5>
                     </div>
                     </Link>
                     <div className={css.hr1} />
