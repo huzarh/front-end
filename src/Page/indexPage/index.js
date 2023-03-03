@@ -24,13 +24,13 @@ const IndexPage = (props) => {
             <div>💟&nbsp;&nbsp;Challenge</div>
             <BiExit className={css.icon1} onClick={logout} />
           </div>
-          <div className={css.button}>
+          {/* <div className={css.button}>
             <button className={css.button1}>Target</button>
             &nbsp;&nbsp;
             <button className={css.button2} onClick={handleClick}>
               Badges
             </button>
-          </div>
+          </div> */}
         </div>
         <section className={css.section}>
           <div className={css.head1}>

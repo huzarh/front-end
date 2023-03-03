@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://64.226.76.186:5000/api/v1",
+  baseURL: "http://turk--ce.com/api/v1",
 });
-// .defaults.withCredentials = true
+// .defaults.withCredentials = true /api/v1/categories

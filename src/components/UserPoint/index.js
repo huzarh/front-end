@@ -57,7 +57,7 @@ const Point = (props) => {
   const userId = localStorage.getItem("userId");
 
   return (
-    <div>
+    <div className={css.body}>
       {/* {add1[12].content.map((e) => (
         <p className={css.nav__menu} onMouseLeave={handleLeave}>
           <a onMouseEnter={handleHover}>{e}</a>
@@ -69,7 +69,7 @@ const Point = (props) => {
       {props.loading && <Loading />}
       <div className={css.head}>
         <div>
-          <Link to="/index-page">
+          <Link to="">
             <BiArrowBack />
           </Link>
           &nbsp;&nbsp;Okul dersler
@@ -115,7 +115,9 @@ const Point = (props) => {
               {e.comment ? (
                 <ScrollDialog com={e.comment.com} author={e.comment.userId} />
               ) : (
-                <ScrollDialog com={"hoosn"} />
+                <ScrollDialog
+                  com={"Şuanda comment yok çalışıyorlar hhh!!!!!!!!!"}
+                />
               )}
             </div>
           </div>

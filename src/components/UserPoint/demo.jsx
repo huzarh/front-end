@@ -68,7 +68,7 @@ export default function ScrollDialog(props) {
             ref={descriptionElementRef}
             tabIndex={-1}
           >
-              {props.com}  <strong>ha</strong>
+              {props.com}  <strong>DEV</strong>
             {/* {[...new Array(1)]
               .map(
                 () => `Cras mattis consectetur purus sit amet fermentum.

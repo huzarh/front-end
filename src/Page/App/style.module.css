@@ -14,12 +14,12 @@
 .firstScreen {
   background-color: rgb(19, 20, 25);
   width: 100%;
-  margin-bottom: 70px;
+  /* margin-bottom: 70px; */
   color: var(--textcolor);
   padding: 12px;
 
   height: 100%;
-  padding-bottom: 400px;
+  /* padding-bottom: 400px; */
 }
 .appBox {
   display: none;

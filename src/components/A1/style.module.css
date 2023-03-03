@@ -1,5 +1,5 @@
 .head {
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: space-between;
   font-size: 23px;
@@ -11,14 +11,16 @@
   color: var(--textcolor);
 }
 .column {
-  float: left;
-  width: 25%;
+  float: none;
+  width: 100%;
   padding: 0 10px;
+  margin-bottom: 20px;
 }
 
 /* Remove extra left and right margins, due to padding */
 .row {
   margin: 0 -5px;
+  padding-bottom: 50px;
 }
 
 /* Clear floats after the columns */
@@ -29,13 +31,13 @@
 }
 
 /* Responsive columns */
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .column {
     width: 100%;
     display: block;
     margin-bottom: 20px;
   }
-}
+} */
 
 /* Style the counter cards */
 .card {
@@ -46,7 +48,7 @@
 .cardButton {
   border: none;
   border-radius: 20px;
-  padding: 3px 15px;
+  padding: 0px 15px;
   background: var(--protocolor);
   color: var(--textcolor);
   margin-bottom: 10px;

@@ -6,6 +6,7 @@ import css from "./style.module.css";
 import img1 from "../../assets/emoji2.png"
 import img2 from "../../assets/emoji1.png"
 import img3 from "../../assets/emoji5.png"
+import Research from "../research/index"
 
 
 function A1() {
@@ -13,7 +14,7 @@ function A1() {
   const ders = [
     {
       bgColor: 'darkorange',
-      buttonValue:'Ders 1',
+      buttonValue:'Sınava girmek',
       name: 'Yazma',
       url:"/A1/yazma",
       text:'1500XP kazanın ve Yardımcıdan özel bir bonus alın!',
@@ -25,7 +26,7 @@ function A1() {
       },
     },{
       bgColor: 'darkorchid',
-      buttonValue:'Ders 2',
+      buttonValue:'Sınava girmek',
       name: 'Konushma',
       url:"/A1/konushma",
       text:'3000XP kazanın ve Yardımcıdan özel bir bonus alın!',
@@ -37,7 +38,7 @@ function A1() {
       },
     },{
       bgColor: 'darkturquoise',
-      buttonValue:'Ders 3',
+      buttonValue:'Sınava girmek',
       name: 'Dinleme',
       url:"/A1/dinleme",
       text:'2000XP kazanın ve Yardımcıdan özel bir bonus alın!',
@@ -61,6 +62,7 @@ function A1() {
         </div>
       </div>
       
+      
       <div className={css.row}>
         
           
@@ -69,7 +71,8 @@ function A1() {
               <div className={css.card}>
                 <div style={{background: e.bgColor}} className={css.cardTop1}>
                 <div>
-                    <button className={css.cardButton}>{e.buttonValue}</button>
+                  <div className={css.cardButton}><Research /></div>
+                    {/* <button className={css.cardButton}>{e.buttonValue}</button> */}
                     <h3 className={css.h3}>{e.name} 10</h3>
                     <p className={css.p}>{e.text}</p>
                 </div>
@@ -83,7 +86,7 @@ function A1() {
                   </div>
                   <div className={css.cardItem1}><h4 className={css.cardItemH3}>{e.bonus}/2000</h4><p>3 days left</p></div>
                   <div className={css.hr} />
-                  <Link to={e.url}><div className={css.cardItem1}><h4>Meydan okumayı kabul etmek</h4><p>〉</p></div></Link>
+                  <Link to={e.url}><div className={css.cardItem1}><h4>Ders çalışmak</h4><p>〉</p></div></Link>
                 </div>
               </div>
               </div>

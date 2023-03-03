@@ -28,7 +28,7 @@ const Voice = (props) => {
   
   return (
     <div>
-      <button style={{border:'none',color:'white'
+      <button style={{border:'none',color:'white',backgroundColor:"transparent"
 }} onClick={() => {handleTextToSpeech(text); setText(props.voice)}}>{isPlaying ? "Stop" : "Play"}</button>
     </div>
   );

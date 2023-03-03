@@ -31,7 +31,12 @@ export default function Research() {
 
   return (
     <div>
-      <Button onClick={handleClickOpen("body")}>scroll=body</Button>
+      <Button
+        onClick={handleClickOpen("body")}
+        style={{ color: "white", padding: "3px 0" }}
+      >
+        Sınava girmek
+      </Button>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -46,19 +51,12 @@ export default function Research() {
             ref={descriptionElementRef}
             tabIndex={-1}
           >
-            {[...new Array(2)]
-              .map(
-                () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
-              )
-              .join("\n")}
+            {[...new Array(40)].map(() => `Sınava Yook!!!!    .`).join("\n")}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
+          <Button onClick={handleClose}>Sınava göndermek</Button>
         </DialogActions>
       </Dialog>
     </div>

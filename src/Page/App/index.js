@@ -77,7 +77,12 @@ function App(props) {
           {/* <Route path="/time" element={<CustomizedTimeline />} /> */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>
-        {userData && <Menu />}
+        {/* {userData && <Menu />} */}
+        {window.location.pathname === "/index-page" ||
+        window.location.pathname === "/profile" ||
+        window.location.pathname === "/point" ? (
+          <Menu />
+        ) : null}
       </div>
       {/* <div className={css.appBox}></div> */}
       <img src={Img1} alt="odev" className={css.appBox} />
