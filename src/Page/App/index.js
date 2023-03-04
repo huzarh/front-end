@@ -35,7 +35,7 @@ function App(props) {
     } else {
       props.autoLogin(userData);
     }
-  }, [props.autoLogin]);
+  }, []);
 
   return (
     <div className={css.body}>

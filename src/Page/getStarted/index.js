@@ -16,8 +16,8 @@ const GetStarted = () => {
         </p>
       </b>
 
-      <hr className={css.hr}/>
-      <Link to="/research">
+      <hr className={css.hr} />
+      <Link to="/">
         <button type="button" className={css.button1}>
           GET STARTED
         </button>
