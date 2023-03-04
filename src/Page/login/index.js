@@ -5,6 +5,7 @@ import { BiArrowBack } from "react-icons/bi";
 import { connect } from "react-redux";
 import * as actions from "../../redux/action/loginActions";
 import Loading from "../../components/loading";
+
 const Login = (props) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -13,11 +14,11 @@ const Login = (props) => {
   const login = () => {
     props.login(email, password);
   };
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      console.log(`Sending item to the backend: ${email}`);
-    }
-  };
+  // const handleKeyPress = (event) => {
+  //   if (event.key === "Enter") {
+  //     console.log(`Sending item to the backend: ${email}`);
+  //   }
+  // };
   useEffect(() => {
     if (props.authSuccess === true) {
       navigate("/index-page");

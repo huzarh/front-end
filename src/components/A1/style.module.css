@@ -52,6 +52,7 @@
   background: var(--protocolor);
   color: var(--textcolor);
   margin-bottom: 10px;
+  width: 50%;
 }
 .cardTop1,
 .cardTop2,

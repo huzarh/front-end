@@ -58,10 +58,6 @@ h5 {
   border: none;
   background-color: var(--protocolor);
 }
-button:hover {
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.945),
-    0 0 0px 0px rgba(255, 255, 255, 0.532);
-}
 
 .section {
   padding: 15px;

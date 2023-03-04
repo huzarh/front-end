@@ -6,7 +6,6 @@ import css from "./style.module.css";
 import img1 from "../../assets/emoji2.png"
 import img2 from "../../assets/emoji1.png"
 import img3 from "../../assets/emoji5.png"
-import Research from "../research/index"
 
 
 function A1() {
@@ -71,7 +70,7 @@ function A1() {
               <div className={css.card}>
                 <div style={{background: e.bgColor}} className={css.cardTop1}>
                 <div>
-                  <div className={css.cardButton}><Research /></div>
+                <Link to="/research"><div className={css.cardButton}>sinav</div></Link>
                     {/* <button className={css.cardButton}>{e.buttonValue}</button> */}
                     <h3 className={css.h3}>{e.name} 10</h3>
                     <p className={css.p}>{e.text}</p>

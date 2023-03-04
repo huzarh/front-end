@@ -65,7 +65,16 @@ function App(props) {
             path="/index-page"
             element={<IndexPage navigate={navigate} />}
           />
-          <Route path="/research" element={<Research />} />
+          <Route
+            path="/research"
+            element={
+              <Research
+                setMess={setOpen}
+                setMessName={setMessName}
+                setMessText={setMessText}
+              />
+            }
+          />
           <Route exact path="/A1" element={<A1 />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/peaple" element={<Peaple />} />

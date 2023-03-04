@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.sec {
+  color: rgb(0, 0, 0);
+  background-color: rgb(136, 136, 136);
+  padding: 10px;
+  border-radius: 5px;
+}
+.cards {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  margin: 10px 0;
+  border-radius: 5px;
+}
+.cevap {
+  padding: 5px 50px 5px 5px;
+  margin: 10px 0;
+  text-align: start;
+  width: 100%;
+  background-color: rgba(81, 108, 148, 0.544);
+  border-radius: 3px;
+  border: none;
+  font-size: 12px;
+}
+.cevapActive {
+  padding: 5px;
+  margin: 10px 0;
+  text-align: start;
+  width: 100%;
+  background-color: rgb(125, 191, 39);
+  border-radius: 3px;
+  border: none;
+}
+.cevap:hover {
+  border: 1px solid darkblue;
+}
+.submit {
+  font-size: 16px;
+  padding: 5px;
+  background-color: darkblue;
+  color: white;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+}
+.subClose {
+  font-size: 16px;
+  padding: 5px;
+  background-color: darkred;
+  color: white;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+}
+p {
+  font-size: 14px;
+}
