@@ -1,5 +1,5 @@
 
-import React ,{useState,useEffect}from "react";
+import React from "react";
 import { BiCategory ,BiHomeAlt,BiUserCircle} from 'react-icons/bi';
 import {useNavigate} from "react-router-dom";
 import css from "./style.module.css"
@@ -7,30 +7,18 @@ import css from "./style.module.css"
 const Menu =(props)=> {
     const navigate = useNavigate();
         
-    const [isClicked, setIsClicked] = useState([false]);
-    const [isClicked1, setIsClicked1] = useState(false);
-    const [isClicked2, setIsClicked2] = useState(false);
-    useEffect(() => {
-      navigate("/index-page");
-    }, []);
+    // useEffect(() => {
+    //   navigate("/index-page");
+    // }, []);
 
     const Active = () => {
       navigate("/index-page");
-      setIsClicked(true);
-      setIsClicked1(false);
-      setIsClicked2(false);
     };
     const Active1 = () => {
-      navigate("/point");
-        setIsClicked(false);
-        setIsClicked1(true);
-        setIsClicked2(false);
+      navigate("/posts");
       };
       const Active2 = () => {
         navigate("/profile");
-        setIsClicked(false);
-        setIsClicked1(false);
-        setIsClicked2(true);
       };
             // if (props.showSidebar) {
             //     classes = [css.Sidebar, css.Open];
@@ -39,12 +27,12 @@ const Menu =(props)=> {
         return(
             <div className={css.menu}>
                 <div className={css.icons}>
-                 <BiHomeAlt className={isClicked ? css.active : css.icon} onClick={Active}/>
+                 <BiHomeAlt className={ window.location.pathname === '/index-page' ? css.active : css.icon} onClick={Active}/>
                 {/* <BiBarChartAlt2 className={css.icon2}/> */}
-                 <BiCategory  className={isClicked1 ? css.active : css.icon} onClick={Active1}/>
+                 <BiCategory  className={window.location.pathname === '/posts' ? css.active : css.icon} onClick={Active1}/>
                 {/* <BiBadgeCheck className={css.icon4}/> */}
                  
-                <BiUserCircle className={isClicked2 ? css.active : css.icon} onClick={Active2}/>
+                <BiUserCircle className={window.location.pathname === '/profile' ? css.active : css.icon} onClick={Active2}/>
                 </div>
             </div>
         );

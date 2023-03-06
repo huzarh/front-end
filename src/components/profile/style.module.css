@@ -120,9 +120,11 @@
   float: left;
   width: 50%;
   padding: 5px;
+  padding-top: 10px;
 }
 
 .row {
+  padding-top: 10px;
   margin: 0 -5px;
 }
 
@@ -136,7 +138,6 @@
   .column {
     width: 100%;
     display: block;
-    margin-bottom: 20px;
   }
 }
 
@@ -152,15 +153,15 @@
   background-color: darkorange;
 }
 .cardItem {
-  border-radius: 10px -50px -50px 10px;
+  border-radius: 10px 0px 0px 10px;
   background-color: transparent;
-  width: 70%;
+  width: 60%;
 }
 .cardItem1 {
   border-radius: 10px;
   text-align: center;
   background-color: darkred;
-  width: 30%;
+  width: 40%;
 }
 
 .cardItemi {

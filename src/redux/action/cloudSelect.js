@@ -12,7 +12,7 @@ export const cloudSave = (userPoint, userId) => {
         "Authorization"
       ] = `Bearer ${localStorage.getItem("token")}`;
 
-      const response = await axios.patch(`/users/point/${userId}`, data);
+      const response = await axios.patch(`/users/posts/${userId}`, data);
 
       console.log("saveData success ===>", response.data.success);
 

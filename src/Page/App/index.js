@@ -81,7 +81,7 @@ function App(props) {
           <Route path="/A1/yazma" element={<Yazma />} />
           <Route path="/A1/konushma" element={<Konushma />} />
           <Route path="/A1/dinleme" element={<Dinleme />} />
-          <Route path="/point" element={<Point />} />
+          <Route path="/posts" element={<Point />} />
           <Route path="/post" element={<Post />} />
           {/* <Route path="/time" element={<CustomizedTimeline />} /> */}
           <Route path="*" element={<ErrorPage />} />
@@ -89,7 +89,7 @@ function App(props) {
         {/* {userData && <Menu />} */}
         {window.location.pathname === "/index-page" ||
         window.location.pathname === "/profile" ||
-        window.location.pathname === "/point" ? (
+        window.location.pathname === "/posts" ? (
           <Menu />
         ) : null}
       </div>
