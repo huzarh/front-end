@@ -64,30 +64,26 @@ const Profile = (props)=>{
             {/* <div className={css.button1}>sinav</div> */}
             <div className={css.row}>
                 <div className={css.column}>
-                    <Link to="/research">
+                    <Link to="/A1/snv">
                     <div className={css.card} >
-                        <div className={css.cardItem}><h3 className={css.cardItemi}>Sinav </h3></div>
+                        <div className={css.cardItem}><h3 className={css.cardItemi}>Sinav </h3><p> <strong>100</strong> Puan alin</p></div>
                         <div className={css.cardItem1}><h3 className={css.cardItemi}>A1</h3></div>
                     </div>
                     </Link>
                 </div>
 
                 <div className={css.column}>
-                    <Link to="/research">
                     <div className={css.card} >
                         <div className={css.cardItem}><h3 className={css.cardItemi}>Sinav</h3></div>
                         <div className={css.cardItem1}><h3 className={css.cardItemi}>A2</h3></div>
                     </div>
-                    </Link>
                 </div>
                 
                 <div className={css.column}>
-                    <Link to="/research">
                     <div className={css.card} >
                         <div className={css.cardItem}><h3 className={css.cardItemi}>Sinav</h3></div>
                         <div className={css.cardItem1}><h3 className={css.cardItemi}>B1</h3></div>
                     </div>
-                    </Link>
                 </div>
                 </div>
 

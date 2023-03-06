@@ -66,7 +66,7 @@ function App(props) {
             element={<IndexPage navigate={navigate} />}
           />
           <Route
-            path="/research"
+            path="/A1/snv"
             element={
               <Research
                 setMess={setOpen}

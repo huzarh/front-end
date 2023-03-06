@@ -11,7 +11,7 @@
 // // import PrivateRoute from "../../utils/PrivateRoute";
 // // import PublicRoute from "../../utils/PublicRoute";
 
-// import Research from "../../components/research";
+// import Research from "../../components/A1/snv";
 // import Profile from "../../components/profile";
 // import Peaple from "../../components/people";
 
@@ -60,7 +60,7 @@
 //         <PublicRoute path="/login" element={<Login />} />
 //         <Route path="/forgot-password" element={<ForgotPassword />} />
 //         <PrivateRoute path="/index-page" element={<IndexPage />} />
-//         <Route path="/research" element={<Research />} />
+//         <Route path="/A1/snv" element={<Research />} />
 //         <Route path="/profile" element={<Profile />} />
 //         <Route path="/peaple" element={<Peaple />} />
 
@@ -82,7 +82,7 @@
 //       <Route path="/login" element={<Login />} />
 //       <Route path="/forgot-password" element={<ForgotPassword />} />
 //       <Route path="/index-page" element={<IndexPage />} />
-//       <Route path="/research" element={<Research />} />
+//       <Route path="/A1/snv" element={<Research />} />
 //       <Route path="/profile" element={<Profile />} />
 //       <Route path="/peaple" element={<Peaple />} />
 //     </Routes>
