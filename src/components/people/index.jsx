@@ -39,39 +39,36 @@ const Peaple=(props)=>{
       <section className={css.section}>
         {add.map((e, i) => (
           <div className={ i === 0  ? css.active1 : i === 1 ? css.active2 : i === 2 ? css.active3 : css.active} key={i} >
-            <div className={css.hr} />
 
             {i === 0 ? ( 
 
               <div key={i} className={css.users}>
-                <div style={{ display: "flex" }}>
-                  1&nbsp;&nbsp;<p>{e.name}&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                </div>
-                <p>{e.userPoint} XP</p>
+                <div className={css.s}>
+                <img src="https://d35aaqx5ub95lt.cloudfront.net/images/leagues/9e4f18c0bc42c7508d5fa5b18346af11.svg" alt="rating" />&nbsp;&nbsp;{e.name} </div>
+                {e.userPoint} P
               </div>
               
             ) : i === 1 ? (
               <div key={i} className={css.users}>
-                <div style={{ display: "flex" }}>
-                  2&nbsp;&nbsp;<p>{e.name}</p>
-                </div>
-                <p>{e.userPoint} XP</p>
+                <div className={css.s}>
+                 <img src="https://d35aaqx5ub95lt.cloudfront.net/images/leagues/cc7b8f8582e9cfb88408ab851ec2e9bd.svg" alt="rating" />&nbsp;&nbsp;{e.name}</div>
+                {e.userPoint} P
               </div>
             ) : i === 2 ? (
               <div key={i} className={css.users}>
-                <div style={{ display: "flex" }}>
-                  3&nbsp;&nbsp;<p>{e.name}</p>
+                <div className={css.s}>
+                <img src="https://d35aaqx5ub95lt.cloudfront.net/images/leagues/eef523c872b71178ef5acb2442d453a2.svg" alt="rating" />&nbsp;&nbsp;<h4 >{e.name}</h4>
                 </div>
-                <p>{e.userPoint} XP</p>
+                {e.userPoint} P
               </div>
             ) : (
-              <div key={i} className={css.users}>
-                <p>{e.name}</p>
-                <p>{e.userPoint} XP</p>
-              </div>
+              <div key={i} className={css.users} style={{opacity: 0.6}}>
+                <div className={css.s}>
+                &nbsp;&nbsp;{1+i} &nbsp;&nbsp;<h4 >{e.name}</h4>
+                </div>
+                {e.userPoint} P
+              </div> 
             )}
-
-            <div className={css.hr} />
           </div>
         ))}
       </section>

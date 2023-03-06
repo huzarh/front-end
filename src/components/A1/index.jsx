@@ -70,7 +70,7 @@ function A1() {
               <div className={css.card}>
                 <div style={{background: e.bgColor}} className={css.cardTop1}>
                 <div>
-                <Link to="/research"><div className={css.cardButton}>sinav</div></Link>
+                 <div className={css.cardButton}>Ders</div>
                     {/* <button className={css.cardButton}>{e.buttonValue}</button> */}
                     <h3 className={css.h3}>{e.name} 10</h3>
                     <p className={css.p}>{e.text}</p>

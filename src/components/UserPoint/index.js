@@ -14,8 +14,8 @@ import Loading from "../loading/index";
 import css from "./style.module.css";
 import TimeAgo from "react-timeago";
 // import VariableWidth from "../../components/hoverText";
-import img from "../../assets/emoji4.png";
-import ScrollDialog from "./demo";
+import img from "../../assets/photo1678109528.jpeg";
+import ScrollDialog from "./com";
 
 const Point = (props) => {
   // const navigate = useNavigate();
@@ -58,12 +58,6 @@ const Point = (props) => {
 
   return (
     <div className={css.body}>
-      {/* {add1[12].content.map((e) => (
-        <p className={css.nav__menu} onMouseLeave={handleLeave}>
-          <a onMouseEnter={handleHover}>{e}</a>
-          {showAboutMenu && <Submenu parametr={e} />}
-        </p>
-      ))} */}
       {props.error && <h5>Alldaaa : {props.error}</h5>}
 
       {props.loading && <Loading />}
@@ -77,14 +71,19 @@ const Point = (props) => {
         <BiSearch />
       </div>
 
-      {/* <button onClick={Point}>point</button> */}
-
       <div className={css.container}>
         {add1.map((e, i) => (
           <div className={css.card} key={i}>
             <div className={css.head2}>
               <div style={{ display: "flex" }}>
-                <img src={img} alt="box" className={css.box} />
+                <img
+                  src={
+                    "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                  }
+                  alt="box"
+                  className={css.box}
+                />
+
                 <div className={css.headIteam}>
                   <h4>{e.author}</h4>
                   <TimeAgo style={{ fontSize: 12 }} date={e.createdAt} />
@@ -94,29 +93,29 @@ const Point = (props) => {
                 <BiCommand style={{ fontSize: "20px" }} />
               </div>
             </div>
-            {/* <img
-              src={
-                "https://template.canva.com/EAFNd1JnDes/4/0/400w-RFC4kVyOJUU.jpg"
-              }
-              alt="box"
-            /> */}
 
             {e.name === "jhg" || "neghoyr" ? (
               <h5 className={css.content}>{e.content.join(" ")}</h5>
             ) : (
               <h5 className={css.content}>{e.content}</h5>
             )}
+            {e.author === "Hüzeyir" && <img src={img} alt="box" />}
             {/* <h5 className={css.content}>{e.content}</h5> */}
-            <div className={css.head2}>
+            <div className={css.head22}>
               <div className={css.head3}>
                 {/* <VariableWidth text={e.name} title={e.content} /> */}
                 <h5>{e.name}</h5>
               </div>
               {e.comment ? (
-                <ScrollDialog com={e.comment.com} author={e.comment.userId} />
+                <ScrollDialog />
               ) : (
                 <ScrollDialog
-                  com={"Şuanda comment yok çalışıyorlar hhh!!!!!!!!!"}
+                  com={
+                    e.author === "Hüzeyir"
+                      ? ""
+                      : "comment yok çalışıyor !!!!!!!!!"
+                  }
+                  author={e.author}
                 />
               )}
             </div>

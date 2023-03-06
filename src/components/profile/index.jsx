@@ -2,12 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BiArrowBack ,BiShareAlt,BiSpreadsheet,BiEditAlt,BiMessageSquareDetail,BiBookBookmark} from "react-icons/bi";
 import css from "./style.module.css";
-import Img from "../../assets/profile.jpeg";
+import Img from "../../assets/sinav1.jpg";
 // import Menu from "../Menu";
 import { connect } from "react-redux";
 import Sponsors from "../sponser/index";
 import TransitionsModal from "../../components/createPost"
-// import ReactTimeAgo from 'react-time-ago'
 
 const Profile = (props)=>{
     const userData = JSON.parse(localStorage.getItem("userData"));
@@ -51,21 +50,48 @@ const Profile = (props)=>{
                     <div className={css.hr1} />
                     <div className={css.f}>
                     <span>{props.userPoint}</span>
-                        <h5 className={css.h5}>lifetime XP</h5>
+                        <h5 className={css.h5}>P puan</h5>
                     </div>
                 </div>
                 <div className={css.button}>
               <button className={css.button1}><BiEditAlt className={css.icon3}/>Edit Profile</button>
               &nbsp;&nbsp;
-              {/* <button className={css.button2}>Create Post</button> */}
              <div className={css.button2}> <BiMessageSquareDetail className={css.icon4}/><TransitionsModal /></div>
             </div>
-            
             </section>
             <h3 className={css.h3}>Your Statistics&nbsp;<BiBookBookmark/></h3>
-            <Sponsors/>
+            {/* <Sponsors/> */}
+            {/* <div className={css.button1}>sinav</div> */}
+            <div className={css.row}>
+                <div className={css.column}>
+                    <Link to="/research">
+                    <div className={css.card} >
+                        <div className={css.cardItem}><h3 className={css.cardItemi}>Sinav </h3></div>
+                        <div className={css.cardItem1}><h3 className={css.cardItemi}>A1</h3></div>
+                    </div>
+                    </Link>
+                </div>
+
+                <div className={css.column}>
+                    <Link to="/research">
+                    <div className={css.card} >
+                        <div className={css.cardItem}><h3 className={css.cardItemi}>Sinav</h3></div>
+                        <div className={css.cardItem1}><h3 className={css.cardItemi}>A2</h3></div>
+                    </div>
+                    </Link>
+                </div>
+                
+                <div className={css.column}>
+                    <Link to="/research">
+                    <div className={css.card} >
+                        <div className={css.cardItem}><h3 className={css.cardItemi}>Sinav</h3></div>
+                        <div className={css.cardItem1}><h3 className={css.cardItemi}>B1</h3></div>
+                    </div>
+                    </Link>
+                </div>
+                </div>
+
         </div>
-        {/* <Menu /> */}
         </>
     )
 }
