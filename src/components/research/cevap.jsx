@@ -31,7 +31,7 @@ const Cevap =(props)=>{
   }
   return (
     <div>
-      <button className={css.submit}  onClick={props.onClick}>Create Post</button>
+      <button className={css.submit}  onClick={props.onClick}>Gönder</button>
       
       <Modal
         aria-labelledby="transition-modal-title"
