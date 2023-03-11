@@ -29,6 +29,7 @@ function App(props) {
   const [messName, setMessName] = useState("");
   const [messText, setMessText] = useState("");
   const userData = JSON.parse(localStorage.getItem("userData"));
+
   useEffect(() => {
     if (userData === null) {
       navigate("/");
@@ -37,6 +38,26 @@ function App(props) {
     }
   }, []);
 
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    function handleNetworkChange() {
+      setIsOnline(navigator.onLine);
+    }
+
+    window.addEventListener("online", handleNetworkChange);
+    window.addEventListener("offline", handleNetworkChange);
+
+    return () => {
+      window.removeEventListener("online", handleNetworkChange);
+      window.removeEventListener("offline", handleNetworkChange);
+    };
+  }, []);
+  {
+    /* {isOnline
+        ? (setOpen(true), setMessName("success"), setMessText("You are online"))
+        : (setOpen(true), setMessName("error"), setMessText("You are offline"))} */
+  }
   return (
     <div className={css.body}>
       <div className={css.firstScreen}>

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {
   BiArrowBack,
   BiSearch,
-  BiCommand,
+  BiDotsVerticalRounded,
   BiCommentDetail,
 } from "react-icons/bi";
 import { Link } from "react-router-dom";
@@ -90,7 +90,7 @@ const Point = (props) => {
                 </div>
               </div>
               <div style={{ alignIteams: "start" }}>
-                <BiCommand style={{ fontSize: "20px" }} />
+                <BiDotsVerticalRounded style={{ fontSize: "25px" }} />
               </div>
             </div>
 
@@ -106,6 +106,7 @@ const Point = (props) => {
                 {/* <VariableWidth text={e.name} title={e.content} /> */}
                 <h5>{e.name}</h5>
               </div>
+
               {e.comment ? (
                 <ScrollDialog />
               ) : (

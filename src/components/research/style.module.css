@@ -16,6 +16,7 @@
   background-color: rgb(255, 255, 255);
   margin: 10px 0;
   border-radius: 5px;
+  color: black;
 }
 .cevap {
   padding: 5px 50px 5px 5px;
@@ -61,4 +62,18 @@
 }
 p {
   font-size: 14px;
+}
+.btnCard {
+  display: flex;
+  justify-content: space-between;
+}
+.submitbtn {
+  color: white;
+  padding: 16px 20px;
+  margin: 23px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border-radius: 10px;
 }

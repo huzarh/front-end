@@ -66,7 +66,7 @@ const Profile = (props)=>{
                 <div className={css.column}>
                     <Link to="/A1/snv">
                     <div className={css.card} >
-                        <div className={css.cardItem}><h3 className={css.cardItemi}>Sinav </h3><p> <strong>100</strong> Puan alin</p></div>
+                        <div className={css.cardItem}><h3 className={css.cardItemi}>Sinav </h3><p> <strong>1000</strong> Puan alin</p></div>
                         <div className={css.cardItem1}><h3 className={css.cardItemi}>A1</h3></div>
                     </div>
                     </Link>

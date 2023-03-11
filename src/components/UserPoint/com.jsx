@@ -35,7 +35,7 @@ export default function ScrollDialog(props) {
 
   return (
     <div>
-      <BiSpreadsheet style={{ fontSize: "20px" }}  onClick={handleClickOpen()}/> 
+      <BiSpreadsheet style={{ fontSize: "20px" }}  onClick={handleClickOpen()}/>
       
       <Dialog
         open={open}
