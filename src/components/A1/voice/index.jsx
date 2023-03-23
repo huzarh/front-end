@@ -12,7 +12,7 @@ const Voice = (props) => {
     } else {
       const speech = new SpeechSynthesisUtterance(text);
       speech.lang = 'tr-TR';
-      speech.rate = 0.8;
+      speech.rate = 1;
       speech.pitch = 1;
       speech.onboundary = function(event) {
         console.log(event.charIndex);
@@ -28,8 +28,8 @@ const Voice = (props) => {
   
   return (
     <div>
-      <button style={{border:'none',color:'white',backgroundColor:"transparent"
-}} onClick={() => {handleTextToSpeech(text); setText(props.voice)}}>{isPlaying ? "Stop" : "Play"}</button>
+      <button style={{border:'none',color:'white',backgroundColor:"grey",borderRadius:'5px',padding:'0 5px'
+}} onClick={() => {handleTextToSpeech(text); setText(props.voice)}}>{isPlaying ? "Stop" : "Play"} 🎵</button>
     </div>
   );
 };

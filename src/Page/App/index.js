@@ -20,6 +20,7 @@ import { connect } from "react-redux";
 import * as actions from "../../redux/action/loginActions";
 import Menu from "../../components/Menu";
 import Mess from "../../components/messages";
+import Chat from "../../components/chat";
 import Img1 from "../../assets/education.gif";
 // import CustomizedTimeline from "./timeLine";
 
@@ -60,6 +61,7 @@ function App(props) {
   }
   return (
     <div className={css.body}>
+      {/* <div className={css.appBox}></div> */}
       <div className={css.firstScreen}>
         <Mess
           mess={open}
@@ -69,6 +71,7 @@ function App(props) {
         />
         <Routes>
           <Route exact path="/" element={<FirstPage />} />
+          <Route exact path="/chat" element={<Chat />} />
           {/* <Route path="/messages" element={<Example />} /> */}
           <Route
             path="/login"
@@ -114,8 +117,6 @@ function App(props) {
           <Menu />
         ) : null}
       </div>
-      {/* <div className={css.appBox}></div> */}
-      <img src={Img1} alt="odev" className={css.appBox} />
     </div>
   );
 }

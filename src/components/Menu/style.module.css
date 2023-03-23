@@ -37,7 +37,21 @@
 }
 @media screen and (min-width: 460px) {
   .menu {
-    width: 360px;
-    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    top: 10px;
+  }
+  .icons {
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 300px;
+    padding: 5px;
+    background-color: rgb(19, 20, 25);
   }
 }

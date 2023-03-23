@@ -77,3 +77,5 @@ p {
   opacity: 0.9;
   border-radius: 10px;
 }
+@media screen and (min-width: 460px) {
+}

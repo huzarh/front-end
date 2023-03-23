@@ -5,6 +5,9 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import css from "./style.module.css";
 import {useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
+import { cloudSave } from "../../redux/action/cloudSelect";
+// import * as actions from "../../redux/action/loginActions";
 
 const style = {
   position: 'absolute',
@@ -19,14 +22,16 @@ const style = {
   padding:'30px 15px'
 };
 
-const Cevap =(props)=>{
+const Cevap = (props) =>{
+
   const navigate = useNavigate();
   const userData = JSON.parse(localStorage.getItem("userData"));
   var too = 0;
   for (let i = 0; i < props.doruCevap.length; i++) {
     props.doruCevap[i] === props.cevap[i] && too++;
   }
-  const Geri =()=>{
+  const cloudSave =()=> {
+    props.cloudSave(100, userData.user._id);
     navigate("/profile");
   }
   return (
@@ -63,7 +68,7 @@ const Cevap =(props)=>{
               Tekrar çalışmak
             </button>&nbsp;&nbsp;&nbsp;&nbsp;
             <button
-              onClick={Geri}
+              onClick={cloudSave}
               style={{ background: "darkred" }}
               className={css.submitbtn}
             >
@@ -76,4 +81,17 @@ const Cevap =(props)=>{
     </div>
   );
 }
-export default Cevap;
+const mapStateToProps = (state) => {
+  return {
+    loading: state.cloudReducer.loading,
+    error: state.cloudReducer.error,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    cloudSave: (point, userId) => dispatch(cloudSave(point, userId)),
+    // autoLogin: (authData) => dispatch(actions.loginUserSuccess(authData)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cevap);

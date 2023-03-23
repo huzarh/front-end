@@ -9,7 +9,7 @@
 }
 .body {
   display: flex;
-
+  font-family: "Nunito", sans-serif;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -25,18 +25,14 @@
 .firstScreen {
   background-color: rgb(19, 20, 25);
   width: 100%;
-  /* margin-bottom: 70px; */
   color: var(--textcolor);
   padding: 12px;
-
-  height: 100%;
-  /* padding-bottom: 400px; */
 }
 .appBox {
   display: none;
   background-size: cover;
 }
-@media screen and (min-width: 460px) {
+/* @media screen and (min-width: 460px) {
   .firstScreen {
     width: 360px;
     margin: 12px;
@@ -44,14 +40,12 @@
   }
   .appBox {
     display: inline;
-    position: fixed;
-    left: 390px;
     margin: 12px;
-    height: 760px;
-    width: 1025px;
+    height: 765px;
+    width: 525px;
     border-radius: 10px;
     background-color: rgb(27, 84, 197);
     top: 0;
     opacity: 0.3;
   }
-}
+} */

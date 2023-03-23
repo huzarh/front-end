@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "./style.module.css";
 // import Menu from "../../components/Menu";
 import { BiExit } from "react-icons/bi";
@@ -7,8 +7,10 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import * as actions2 from "../../redux/action/signupActions";
 import * as actions3 from "../../redux/action/loginActions";
+import axios from "../../api/index";
 
 const IndexPage = (props) => {
+  // const [ask,setAsk]=useState('');
   const logout = () => {
     props.logout();
     props.navigate("/");
@@ -16,22 +18,39 @@ const IndexPage = (props) => {
   const handleClick = () => {
     props.setMess(true);
   };
+
+  async function Answer() {
+    console.log("start");
+    const data = {
+      prompt: "döner nasıl yapacağız ?",
+    };
+    try {
+      const response = await axios.post("/books/generateImage", data);
+
+      console.log("AI success ===>", response.data);
+    } catch (error) {
+      console.error("AI errCatch ===>", error);
+    }
+    console.log("end");
+  }
   return (
-    <>
-      <div className={css.all}>
-        <div className={css.top}>
-          <div className={css.head}>
-            <div>💟&nbsp;&nbsp;Challenge</div>
-            <BiExit className={css.icon1} onClick={logout} />
-          </div>
-          {/* <div className={css.button}>
+    <div className={css.all}>
+      <div className={css.top}>
+        <div className={css.head}>
+          <div>💟&nbsp;&nbsp;Challenge</div>
+
+          <BiExit className={css.icon1} onClick={logout} />
+        </div>
+        <button onClick={Answer}>Answer</button>
+        {/* <div className={css.button}>
             <button className={css.button1}>Target</button>
             &nbsp;&nbsp;
             <button className={css.button2} onClick={handleClick}>
               Badges
             </button>
           </div> */}
-        </div>
+      </div>
+      <div className={css.sections}>
         <section className={css.section}>
           <div className={css.head1}>
             <div>This Year</div> <h5 className={css.p}>6 badges</h5>
@@ -211,8 +230,7 @@ const IndexPage = (props) => {
           </div>
         </section>
       </div>
-      {/* <Menu /> */}
-    </>
+    </div>
   );
 };
 const mapStateToProps = (state) => {

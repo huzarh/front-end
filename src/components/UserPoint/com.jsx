@@ -1,10 +1,7 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import {BiCommand,BiSpreadsheet} from "react-icons/bi";
 import css from "./style.module.css";
 import img from "../../assets/emoji7.png";
@@ -35,7 +32,7 @@ export default function ScrollDialog(props) {
 
   return (
     <div>
-      <BiSpreadsheet style={{ fontSize: "20px" }}  onClick={handleClickOpen()}/>
+      <BiSpreadsheet style={{ fontSize: "20px"}}  onClick={handleClickOpen()}/>
       
       <Dialog
         open={open}
