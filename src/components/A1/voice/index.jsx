@@ -12,8 +12,8 @@ const Voice = (props) => {
     } else {
       const speech = new SpeechSynthesisUtterance(text);
       speech.lang = 'tr-TR';
-      speech.rate = 1;
-      speech.pitch = 1;
+      speech.rate = 0.85;
+      speech.pitch = 0.7;
       speech.onboundary = function(event) {
         console.log(event.charIndex);
         // console.log(speech.text.substring(event.charIndex));

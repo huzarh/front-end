@@ -8,6 +8,10 @@
   margin: 0;
 }
 .chat-window .chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   height: 45px;
   border-radius: 6px;
   background: #263238;
@@ -98,12 +102,12 @@
 .chat-window .chatfooter button:hover {
   color: #43a047;
 }
-#ai {
-  background-color: #263238;
-  margin-right: 10%;
-}
 #user {
   background-color: darkkhaki;
+  margin-right: 10%;
+}
+#ai {
+  background-color: #263238;
   margin-left: 17%;
 }
 .message-content {
@@ -111,4 +115,9 @@
   padding: 10px;
   border-radius: 5px;
   margin: 10px;
+}
+a {
+  margin-top: 10px;
+  color: white;
+  text-decoration: none;
 }
