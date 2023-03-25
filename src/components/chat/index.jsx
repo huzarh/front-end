@@ -45,7 +45,7 @@ function Chat() {
             return (
               <div key={i} >
                   <div className="message-content"  id={e.author ? 'user' : 'ai'}>
-                  <div style={{border:'none',color:'white',backgroundColor:"grey",borderRadius:'5px',padding:'0 5px',width:'70px'}}>{window.innerWidth > 500 ? <Voice voice={e.data} /> : e.author ? 'soru' : 'cevap' }</div>
+                  <div style={{border:'none',color:'#263238',backgroundColor:"rgb(214, 214, 214)",borderRadius:'5px',padding:'0 5px',width:'70px'}}>{window.innerWidth > 500 ? <Voice voice={e.data} /> : e.author ? 'soru' : 'cevap' }</div>
                   <br />
                     <p>{e.data}</p>
                     
