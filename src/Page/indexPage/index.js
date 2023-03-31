@@ -18,21 +18,6 @@ const IndexPage = (props) => {
   const handleClick = () => {
     props.setMess(true);
   };
-
-  async function Answer() {
-    console.log("start");
-    const data = {
-      prompt: "döner nasıl yapacağız ?",
-    };
-    try {
-      const response = await axios.post("/books/generateImage", data);
-
-      console.log("AI success ===>", response.data);
-    } catch (error) {
-      console.error("AI errCatch ===>", error);
-    }
-    console.log("end");
-  }
   return (
     <div className={css.all}>
       <div className={css.top}>
@@ -41,7 +26,6 @@ const IndexPage = (props) => {
 
           <BiExit className={css.icon1} onClick={logout} />
         </div>
-        <button onClick={Answer}>Answer</button>
         {/* <div className={css.button}>
             <button className={css.button1}>Target</button>
             &nbsp;&nbsp;

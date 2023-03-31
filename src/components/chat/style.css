@@ -121,3 +121,12 @@ a {
   color: white;
   text-decoration: none;
 }
+@media screen and (max-width: 600px) {
+  ul,
+  p {
+    font-size: 16px;
+  }
+  .chat-window {
+    width: 100%;
+  }
+}

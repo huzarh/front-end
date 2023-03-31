@@ -15,24 +15,24 @@ import cloudReducer from "./redux/reducer/cloudReducer";
 import { BrowserRouter } from "react-router-dom";
 import authReducer from "./redux/reducer/authReducer";
 
-const logger = (store) => {
-  return (next) => {
-    return (action) => {
-      // console.log("log ==>", action);
-      // console.log("store ==>", store.getState());
-      const result = next(action);
-      console.log("all Store ===>", store.getState());
-      return result;
-    };
-  };
-};
+// const logger = (store) => {
+//   return (next) => {
+//     return (action) => {
+//       console.log("log ==>", action);
+//       console.log("store ==>", store.getState());
+//       const result = next(action);
+//       console.log("all Store ===>", store.getState());
+//       return result;
+//     };
+//   };
+// };
 
 const reducers = combineReducers({
   cloudReducer,
   authReducer,
 });
-
-const middlewares = [logger, thunk];
+// logger,
+const middlewares = [thunk];
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

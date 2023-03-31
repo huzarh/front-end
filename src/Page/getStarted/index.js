@@ -11,8 +11,8 @@ const GetStarted = () => {
         <b className={css.text}>
           <h1 className={css.h1}>Yardımcı</h1>
           <p className={css.pa}>
-            Learn languages whenever and wherever you want. It's free and
-            forever.
+            İstediğiniz zaman ve istediğiniz yerde dil öğrenin. Ücretsiz ve
+            sonsuza kadar.
           </p>
         </b>
 
@@ -20,12 +20,12 @@ const GetStarted = () => {
         <div className={css.buttons}>
           <Link to="/">
             <button type="button" className={css.button1}>
-              GET STARTED
+              BAŞLAMAK
             </button>
           </Link>
           <br />
           <Link to="/login">
-            <button className={css.button2}>I ALREADY HAVE AN ACCOUNT</button>
+            <button className={css.button2}>ZATEN HESABIM VAR</button>
           </Link>
         </div>
       </div>

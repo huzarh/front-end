@@ -29,7 +29,7 @@ const Profile = (props)=>{
                 <div className={css.head}><Link to={"/index-page"}><BiArrowBack className={css.icon1} /></Link><div className={css.icons}><BiShareAlt className={css.icon2}/><BiSpreadsheet/></div></div>
                 <div className={css.user}>
                     <div> 
-                        <img src={'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'} alt="profile" className={css.box}/>
+                        <img src={`https://api.dicebear.com/6.x/initials/svg?seed=${name}`} alt="profile" className={css.box}/>
                         <h2 className={css.h2}>{name}</h2>
                         <h5 className={css.h5}>{day} {month} {getFullYear}'ten beri katıldı </h5>
                     </div>
