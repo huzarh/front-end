@@ -13,7 +13,6 @@ import Yazma from "../../components/A1/yazma";
 import Konushma from "../../components/A1/konushma";
 import Dinleme from "../../components/A1/dinleme";
 import Point from "../../components/UserPoint";
-import Post from "../../components/post";
 import ErrorPage from "../../components/errorPage";
 import Signup from "../signup";
 import { connect } from "react-redux";
@@ -21,7 +20,10 @@ import * as actions from "../../redux/action/loginActions";
 import Menu from "../../components/Menu";
 import Mess from "../../components/messages";
 import Chat from "../../components/chat";
+import Aa1 from "../indexPage/a1.jsx";
 import Img1 from "../../assets/education.gif";
+import "./GlobalCssSlider.css";
+import Exam from "../../components/exam";
 // import CustomizedTimeline from "./timeLine";
 
 function App(props) {
@@ -71,7 +73,8 @@ function App(props) {
         />
         <Routes>
           <Route exact path="/" element={<FirstPage />} />
-          <Route exact path="/chat" element={<Chat />} />
+          <Route path="/a1" element={<Aa1 />} />
+          <Route path="/chat" element={<Chat />} />
           {/* <Route path="/messages" element={<Example />} /> */}
           <Route
             path="/login"
@@ -106,7 +109,6 @@ function App(props) {
           <Route path="/A1/konushma" element={<Konushma />} />
           <Route path="/A1/dinleme" element={<Dinleme />} />
           <Route path="/posts" element={<Point />} />
-          <Route path="/post" element={<Post />} />
           {/* <Route path="/time" element={<CustomizedTimeline />} /> */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>

@@ -47,7 +47,7 @@ function Chat() {
           {sendMess.map((e, i) => {
             return (
               <div key={i} >
-                   <div className="message-content"  id={e.author ? 'user' : 'ai'}>
+                  <div className="message-content"  id={e.author ? 'user' : 'ai'}>
                   <div style={{border:'none',color:'#263238',backgroundColor:"rgb(214, 214, 214)",borderRadius:'5px',padding:'0 5px',width:'70px'}}>{window.innerWidth > 500 ? <Voice voice={e.data} /> : e.author ? 'soru' : 'cevap' }</div>
                   <br />
                   <Ch e={e.data}/>
@@ -55,7 +55,7 @@ function Chat() {
               </div>
             );
           })} 
-          {/* <p>Yaziyor <iframe style={{width:"40px",border:"none"}} src="https://embed.lottiefiles.com/animation/97930"></iframe></p></div> */}
+          {/* <p>Yaziyor <iframe style={{wdth:"40px",border:"none"}} src="https://embed.lottiefiles.com/animation/97930"></iframe></p></div> */}
           {write && <div style={{background:"none"}} id={'ai'}> <iframe style={{height:"30px", width:"96%",border:"none",margin:"0px",padding:"0px" ,borderRadius:'5px',background:"black" }} src="https://embed.lottiefiles.com/animation/74609"></iframe></div>}
         </div>
       <div className="chatfooter">
@@ -64,6 +64,7 @@ function Chat() {
           value={value}
           placeholder="Mısal soru : mantı nasıl yapacağım ?"
           onChange={(event) => { setValue(event.target.value); }}
+          onKeyPress={(event) => event.key === "Enter" && !write && sendMessage()}
         />
         {/* BiSend */}
         

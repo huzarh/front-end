@@ -50,6 +50,7 @@ function Post(props) {
           </label>
           <input
             onChange={(e) => setTitle(e.target.value)}
+            className={css.text}
             type="text"
             placeholder="Enter Title"
           />
@@ -59,6 +60,7 @@ function Post(props) {
           </label>
           <input
             onChange={(e) => setDescription(e.target.value)}
+            className={css.text}
             type="text"
             placeholder="Enter Description"
           />

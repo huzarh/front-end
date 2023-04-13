@@ -116,6 +116,39 @@ h5 {
 .p {
   color: rgb(218, 218, 218);
 }
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.column {
+  margin: 5px;
+  background-image: url(https://media.istockphoto.com/id/1309073267/vector/gradient-swirl-abstract-glow-modern-lines-background-pattern.jpg?s=612x612&w=0&k=20&c=gaoyQtHh6KTSVuIFPQ7qnkmA85YPughI78Gzy50j5-Q=);
+  color: white;
+  float: left;
+  width: 47%;
+  border-radius: 10px;
+  font-size: 100px;
+}
+
+.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  background-image: url(https://images.ctfassets.net/hrltx12pl8hq/1fR5Y7KaK9puRmCDaIof7j/09e2b2b9eaf42d450aba695056793607/vector1.jpg?fit=fill&w=800&h=300);
+  color: white;
+  float: left;
+  border-radius: 10px;
+  flex: 4;
+  height: 150px;
+  width: 97%;
+  font-size: 100px;
+  color: rgb(32, 29, 41);
+}
+.clmn {
+  padding: 35px;
+}
 @media screen and (min-width: 460px) {
   .sections {
     display: flex;

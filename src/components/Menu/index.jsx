@@ -1,6 +1,6 @@
 
 import React from "react";
-import { BiCategory ,BiHomeAlt,BiUserCircle} from 'react-icons/bi';
+import { BiMessageSquareDetail ,BiBookBookmark,BiUser} from 'react-icons/bi';
 import {useNavigate} from "react-router-dom";
 import css from "./style.module.css"
 
@@ -27,12 +27,12 @@ const Menu =(props)=> {
         return(
             <div className={css.menu}>
                 <div className={css.icons}>
-                 <BiHomeAlt className={ window.location.pathname === '/index-page' ? css.active : css.icon} onClick={Active}/>
+                 <BiBookBookmark className={ window.location.pathname === '/index-page' ? css.active : css.icon} onClick={Active}/>
                 {/* <BiBarChartAlt2 className={css.icon2}/> */}
-                 <BiCategory  className={window.location.pathname === '/posts' ? css.active : css.icon} onClick={Active1}/>
+                 <BiMessageSquareDetail  className={window.location.pathname === '/posts' ? css.active : css.icon} onClick={Active1}/>
                 {/* <BiBadgeCheck className={css.icon4}/> */}
                  
-                <BiUserCircle className={window.location.pathname === '/profile' ? css.active : css.icon} onClick={Active2}/>
+                <BiUser className={window.location.pathname === '/profile' ? css.active : css.icon} onClick={Active2}/>
                 </div>
             </div>
         );
