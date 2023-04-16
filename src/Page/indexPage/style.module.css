@@ -1,13 +1,8 @@
-.all {
-  text-align: center;
-}
 h1,
 h2,
-h3,
 h4,
 h5,
-h6,
-p {
+h6 {
   background-color: transparent;
 }
 .icon1 {
@@ -67,11 +62,6 @@ h5 {
   background-color: rgb(23, 25, 32);
   border: 2px solid rgb(40, 42, 51);
 }
-.hr {
-  width: 100%;
-  height: 2px;
-  background-color: rgb(40, 42, 51);
-}
 
 .lesson {
   margin: 0;
@@ -114,7 +104,11 @@ h5 {
   justify-content: flex-start;
 }
 .p {
-  color: rgb(218, 218, 218);
+  color: white;
+}
+.row {
+  margin: 0 -5px;
+  padding-bottom: 50px;
 }
 .row:after {
   content: "";
@@ -122,35 +116,80 @@ h5 {
   clear: both;
 }
 .column {
-  margin: 5px;
-  background-image: url(https://media.istockphoto.com/id/1309073267/vector/gradient-swirl-abstract-glow-modern-lines-background-pattern.jpg?s=612x612&w=0&k=20&c=gaoyQtHh6KTSVuIFPQ7qnkmA85YPughI78Gzy50j5-Q=);
-  color: white;
-  float: left;
-  width: 47%;
-  border-radius: 10px;
-  font-size: 100px;
+  float: none;
+  width: 100%;
+  max-width: 346px;
+  padding: 0 5px;
+  margin-bottom: 20px;
 }
-
-.active {
+.card {
+  background-color: rgb(23, 25, 32);
+  border: 1px solid rgb(40, 42, 51);
+  border-radius: 20px;
+}
+.cardButton {
+  border: none;
+  border-radius: 20px;
+  padding: 0px 15px;
+  background: var(--protocolor);
+  color: var(--textcolor);
+  margin-right: 100%;
+  margin-bottom: 10px;
+  min-width: 70px;
+}
+.cardTop1,
+.cardTop2,
+.cardTop3 {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5px;
-  background-image: url(https://images.ctfassets.net/hrltx12pl8hq/1fR5Y7KaK9puRmCDaIof7j/09e2b2b9eaf42d450aba695056793607/vector1.jpg?fit=fill&w=800&h=300);
-  color: white;
-  float: left;
-  border-radius: 10px;
-  flex: 4;
-  height: 150px;
-  width: 97%;
-  font-size: 100px;
-  color: rgb(32, 29, 41);
+  border-radius: 20px 20px 0px 0px;
+  padding: 15px;
 }
-.clmn {
-  padding: 35px;
+.cardBottom {
+  padding: 15px;
+}
+.cardItem1 {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+.container {
+  width: 100%;
+  height: 10px;
+  background-color: rgb(40, 42, 51);
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.bonus {
+  border-radius: 20px;
+  height: 10px;
+  background: blue;
+}
+.hr {
+  width: 100%;
+  height: 1.5px;
+  background-color: rgb(40, 42, 51);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.h3 {
+  margin-bottom: 10px;
+}
+.p {
+  text-align: justify;
+  max-width: 150px;
+}
+.cardItemH3 {
+  color: var(--protocolor);
+}
+.bg {
+  background-color: transparent;
+  border-radius: 20px;
+  color: rgb(214, 214, 214);
+  width: 140px;
+  margin-left: 10px;
 }
 @media screen and (min-width: 460px) {
-  .sections {
+  .row {
     display: flex;
   }
   .section {

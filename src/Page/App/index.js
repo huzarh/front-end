@@ -24,6 +24,7 @@ import Aa1 from "../indexPage/a1.jsx";
 import Img1 from "../../assets/education.gif";
 import "./GlobalCssSlider.css";
 import Exam from "../../components/exam";
+import Context from "../../components/context/Context";
 // import CustomizedTimeline from "./timeLine";
 
 function App(props) {
@@ -32,6 +33,7 @@ function App(props) {
   const [messName, setMessName] = useState("");
   const [messText, setMessText] = useState("");
   const userData = JSON.parse(localStorage.getItem("userData"));
+  const ctext = "djsbcevfd";
 
   useEffect(() => {
     if (userData === null) {
@@ -72,8 +74,16 @@ function App(props) {
           messText={messText}
         />
         <Routes>
+          <Route
+            path="/A1"
+            element={
+              <Context.Provider value={ctext}>
+                <Aa1 />
+              </Context.Provider>
+            }
+          />
           <Route exact path="/" element={<FirstPage />} />
-          <Route path="/a1" element={<Aa1 />} />
+
           <Route path="/chat" element={<Chat />} />
           {/* <Route path="/messages" element={<Example />} /> */}
           <Route
@@ -102,7 +112,7 @@ function App(props) {
               />
             }
           />
-          <Route exact path="/A1" element={<A1 />} />
+          {/* <Route exact path="/A1" element={<A1 />} /> */}
           <Route path="/profile" element={<Profile />} />
           <Route path="/peaple" element={<Peaple />} />
           <Route path="/A1/yazma" element={<Yazma />} />

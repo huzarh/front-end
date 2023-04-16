@@ -1,7 +1,10 @@
 import Box from '@mui/material/Box';
 import * as React from 'react';
 import MobileStepper from '@mui/material/MobileStepper';
-import exam from "./style.module.css"
+import exam from "./style.module.css";
+import {useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
+import { cloudSave } from "../../redux/action/cloudSelect";
 const quiz = [
   {
     soru: 'Doğru cevaplanız !',
@@ -30,12 +33,15 @@ const Exam = (props)=> {
   const [aStep, setAStep] = React.useState(0);
   const [text, setText] = React.useState('');
   const [puan, setPuan] = React.useState(0);
+  const navigate = useNavigate();
+  const userData = JSON.parse(localStorage.getItem("userData"));
   const maxSteps = quiz.length;
 
   const Next = () => {
     if(quiz[aStep].cevap.toLowerCase() === text.toLowerCase()){
     setAStep((prevActiveStep) => prevActiveStep + 1);
     setPuan(puan + 100);
+    
     }
     setText('');
   };
@@ -43,6 +49,10 @@ const Exam = (props)=> {
   const Back = () => {
     setAStep((prevActiveStep) => prevActiveStep - 1);
   };
+  const cloudSave =(e)=> {
+    props.cloudSave(e, userData.user._id);
+    navigate("/index-page");
+  }
 
   return (
     <div>
@@ -78,15 +88,25 @@ const Exam = (props)=> {
                value={text}
                onChange={(event) =>setText(event.target.value)}
                type="text" onKeyPress={(event) => event.key === "Enter" && aStep !== maxSteps - 1 && Next()}/> 
-               <button onClick={()=>aStep !== maxSteps - 1 && Next()}>NEXT</button> 
+               <button onClick={()=>aStep !== maxSteps - 1 ? (Next(),cloudSave(puan)):props.onClick()}>NEXT</button> 
                <button onClick={()=>aStep !== 0 && Back()||props.onClick()}>BACK</button>
           </div>
       </Box>
       </div>
-
       {/* <h1>...</h1> */}
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    loading: state.cloudReducer.loading,
+    error: state.cloudReducer.error,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    cloudSave: (point, userId) => dispatch(cloudSave(point, userId))
+  };
+};
 
-export default Exam;
+export default connect(mapStateToProps, mapDispatchToProps)(Exam);
