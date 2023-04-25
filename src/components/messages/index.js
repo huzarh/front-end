@@ -2,20 +2,27 @@ import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import Context from "../context/Context";
+import { Apps } from "@mui/icons-material";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
 export default function CustomizedSnackbars(props) {
+  const messContext = React.useContext(Context);
   //   const [open, setOpen] = React.useState(false);
 
-  const handleClose = (event, reason) => {
+  const handleClose = (reason) => {
     if (reason === "clickaway") {
       return;
     }
 
-    props.setMess(false);
+    messContext.setAppStore({
+      open: false,
+      messName: "error",
+      messText: "",
+    });
   };
 
   return (
@@ -25,16 +32,16 @@ export default function CustomizedSnackbars(props) {
           vertical: "top",
           horizontal: "right",
         }}
-        open={props.mess}
+        open={messContext.appStore.open}
         autoHideDuration={5000}
         onClose={handleClose}
       >
         <Alert
           onClose={handleClose}
-          severity={props.messName}
+          severity={messContext.appStore.messName}
           sx={{ width: "100%" }}
         >
-          {props.messText}
+          {messContext.appStore.messText}
         </Alert>
       </Snackbar>
     </Stack>

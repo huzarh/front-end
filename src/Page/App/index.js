@@ -24,7 +24,7 @@ import Aa1 from "../indexPage/a1.jsx";
 import Img1 from "../../assets/education.gif";
 import "./GlobalCssSlider.css";
 import Exam from "../../components/exam";
-import DataContext from "../../components/context/Context";
+import { AppStore } from "../../components/context/Context";
 import LGame from "../../components/LGame";
 // import CustomizedTimeline from "./timeLine";
 function App(props) {
@@ -67,59 +67,59 @@ function App(props) {
     <div className={css.body}>
       {/* <div className={css.appBox}></div> */}
       <div className={css.firstScreen}>
-        <Mess
-          mess={open}
-          setMess={setOpen}
-          messName={messName}
-          messText={messText}
-        />
-        <Routes>
-          <Route path="/A1" element={<Aa1 />} />
-          <Route path="/speech" element={<LGame />} />
-          <Route exact path="/" element={<FirstPage />} />
+        <AppStore>
+          <Mess
+            mess={open}
+            setMess={setOpen}
+            messName={messName}
+            messText={messText}
+          />
 
-          <Route path="/chat" element={<Chat />} />
-          {/* <Route path="/messages" element={<Example />} /> */}
-          <Route
-            path="/login"
-            element={
-              <Login
-                setMess={setOpen}
-                setMessName={setMessName}
-                setMessText={setMessText}
-              />
-            }
-          />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route
-            path="/index-page"
-            element={
-              <DataContext.Provider value={"" + ctext}>
-                <IndexPage navigate={navigate} />
-              </DataContext.Provider>
-            }
-          />
-          <Route
-            path="/A1/snv"
-            element={
-              <Research
-                setMess={setOpen}
-                setMessName={setMessName}
-                setMessText={setMessText}
-              />
-            }
-          />
-          {/* <Route exact path="/A1" element={<A1 />} /> */}
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/peaple" element={<Peaple />} />
-          <Route path="/A1/yazma" element={<Yazma />} />
-          <Route path="/A1/konushma" element={<Konushma />} />
-          <Route path="/A1/dinleme" element={<Dinleme />} />
-          <Route path="/posts" element={<Point />} />
-          {/* <Route path="/time" element={<CustomizedTimeline />} /> */}
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+          <Routes>
+            <Route path="/A1" element={<Aa1 />} />
+
+            <Route path="/speech" element={<LGame />} />
+            <Route exact path="/" element={<FirstPage />} />
+
+            <Route path="/chat" element={<Chat />} />
+            {/* <Route path="/messages" element={<Example />} /> */}
+            <Route
+              path="/login"
+              element={
+                <Login
+                  setMess={setOpen}
+                  setMessName={setMessName}
+                  setMessText={setMessText}
+                />
+              }
+            />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route
+              path="/index-page"
+              element={<IndexPage navigate={navigate} />}
+            />
+            <Route
+              path="/A1/snv"
+              element={
+                <Research
+                  setMess={setOpen}
+                  setMessName={setMessName}
+                  setMessText={setMessText}
+                />
+              }
+            />
+            {/* <Route exact path="/A1" element={<A1 />} /> */}
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/peaple" element={<Peaple />} />
+            <Route path="/A1/yazma" element={<Yazma />} />
+            <Route path="/A1/konushma" element={<Konushma />} />
+            <Route path="/A1/dinleme" element={<Dinleme />} />
+            <Route path="/posts" element={<Point />} />
+            {/* <Route path="/time" element={<CustomizedTimeline />} /> */}
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </AppStore>
         {/* {userData && <Menu />} */}
         {window.location.pathname === "/index-page" ||
         window.location.pathname === "/profile" ||

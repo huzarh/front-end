@@ -1,14 +1,19 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { BiArrowBack } from "react-icons/bi";
 import Paper from '@mui/material/Paper';
 import Step from '@mui/material/Step';
 import StepContent from '@mui/material/StepContent';
+import { FcUndo } from "react-icons/fc";
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import ReactPlayer from "react-player";
+import { Link, useNavigate } from "react-router-dom";
 import Exam from '../../components/exam';
+
+import css from "./style.module.css";
 const steps = [
   {
     label: 'KONU',
@@ -109,7 +114,8 @@ const steps = [
 export default function VerticalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [aStep, setAStep] = React.useState(0);
-  const [text, setText] = React.useState('');
+  const [text, setText] = React.useState('')
+  const navigate = useNavigate();
   // const maxSteps = quiz.length;
 
   // const Next = () => {
@@ -137,6 +143,9 @@ export default function VerticalLinearStepper() {
 
   return (
     <div>
+      <div className={css.head}>
+          <FcUndo className={css.icon1} onClick={()=>navigate("/index-page")} /><div>türkçe a1&nbsp;&nbsp;📕</div>
+      </div>
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((e, i) => (
           <Step key={i}>
@@ -161,7 +170,7 @@ export default function VerticalLinearStepper() {
                   <Button variant="outlined" onClick={handleBack} sx={{display:i === 0 ? 'none':null,width:'100%', mt: 1, mr: 1 ,background:'oringe'}} >  gerı dönmek </Button>
               <br />
                <p>{e.description}</p>
-               <img src="https://media.tenor.com/mWpYDtV1zTkAAAAC/minions-shh.gif" style={{width:"290px",height:"150px",borderRadius:'10px',margin:'10px 0',backgroundSize:'cover'}} /><br/>
+               <img src="https://media.tenor.com/mWpYDtV1zTkAAAAC/minions-shh.gif" style={{width:"100%",height:"auto",borderRadius:'10px',margin:'10px 0',backgroundSize:'cover'}} /><br/>
                <p>Kullanımı</p>
                <h5>Ornek</h5>
                <br/><div style={{margin:'10px 0',padding:'10px',borderRadius:'10px',background:'rgb(32, 29, 41)'}}>

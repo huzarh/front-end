@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import { BiArrowBack ,BiShareAlt,BiSpreadsheet,BiEditAlt,BiMessageSquareDetail,BiBookBookmark} from "react-icons/bi";
 import css from "./style.module.css";
 import Img from "../../assets/sinav1.jpg";
@@ -9,6 +9,7 @@ import Sponsors from "../sponser/index";
 import TransitionsModal from "../../components/createPost"
 
 const Profile = (props)=>{
+    const navigate = useNavigate();
     const userData = JSON.parse(localStorage.getItem("userData"));
     const {createdAt,name} = userData.user
 
@@ -26,7 +27,7 @@ const Profile = (props)=>{
         <div className={css.all}>
             <section>
                 {/* <ReactTimeAgo date={year2002} locale="en-US"/> */}
-                <div className={css.head}><Link to={"/index-page"}><BiArrowBack className={css.icon1} /></Link><div className={css.icons}><BiShareAlt className={css.icon2}/><BiSpreadsheet/></div></div>
+                <div className={css.head}><BiArrowBack className={css.icon1} onClick={()=>navigate("/index-page")} /><div className={css.icons}><BiShareAlt className={css.icon2}/><BiSpreadsheet/></div></div>
                 <div className={css.user}>
                     <div> 
                         <img src={`https://api.dicebear.com/6.x/initials/svg?seed=${name}`} alt="profile" className={css.box}/>

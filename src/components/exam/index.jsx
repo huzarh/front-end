@@ -5,9 +5,11 @@ import exam from "./style.module.css";
 import {useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { cloudSave } from "../../redux/action/cloudSelect";
+import Context from '../context/Context';
 
 
 const Exam = (props)=> {
+  const messContext = React.useContext(Context);
   const [aStep, setAStep] = React.useState(0);
   const [text, setText] = React.useState('');
   const [puan, setPuan] = React.useState(0);
@@ -23,7 +25,12 @@ const Exam = (props)=> {
       setAStep((prevActiveStep) => prevActiveStep + 1);
       setPuan(puan + 500);
     }
-  }
+  }else{
+  messContext.setAppStore({
+    open: true,
+    messName: "error",
+    messText: "hhhhaaattttaaaaa !!!!"
+  })}
     setText('');
   };
 

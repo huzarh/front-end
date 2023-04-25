@@ -30,9 +30,9 @@ const IndexPage = (props) => {
       buttonValue:'Sınava girmek',
       name: 'A1',
       url:"/A1",
-      text:'2000P kazanın ve Yardımcıdan özel bir bonus alın!',
+      text:'2000P kazanın ve konulardan özel bir bonus alın!',
       img:img1,
-      bonus:20,
+      bonus:1,
       bonusValue:(p)=>{
         const bonusV = p*100/2000
         return `${bonusV}%`;
@@ -42,7 +42,7 @@ const IndexPage = (props) => {
       buttonValue:'Sınava girmek',
       name: 'A2',
       url:"/A2",
-      text:'2000P kazanın ve Yardımcıdan özel bir bonus alın!',
+      text:'2000P kazanın ve konulardan özel bir bonus alın!',
       img:img2,
       bonus:0,
       bonusValue:(p)=>{
@@ -54,7 +54,7 @@ const IndexPage = (props) => {
       buttonValue:'Sınava girmek',
       name: 'B1',
       url:"/B1",
-      text:'2000P kazanın ve Yardımcıdan özel bir bonus alın!',
+      text:'2000P kazanın ve konulardan özel bir bonus alın!',
       img:img3,
       bonus:0,
       bonusValue:(p)=>{
@@ -66,7 +66,7 @@ const IndexPage = (props) => {
       buttonValue:'Sınava girmek',
       name: 'B2',
       url:"/B2",
-      text:'2000P kazanın ve Yardımcıdan özel bir bonus alın!',
+      text:'2000P kazanın ve konulardan özel bir bonus alın!',
       img:img1,
       bonus:0,
       bonusValue:(p)=>{
@@ -78,7 +78,7 @@ const IndexPage = (props) => {
       buttonValue:'Sınava girmek',
       name: 'C1',
       url:"/C1",
-      text:'2000P kazanın ve Yardımcıdan özel bir bonus alın!',
+      text:'2000P kazanın ve konulardan özel bir bonus alın!',
       img:img1,
       bonus:0,
       bonusValue:(p)=>{

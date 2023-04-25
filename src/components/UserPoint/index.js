@@ -63,12 +63,7 @@ const Point = (props) => {
 
       {props.loading && <Loading />}
       <div className={css.head}>
-        <div>
-          <Link to="">
-            <BiArrowBack />
-          </Link>
-          &nbsp;&nbsp;Türkçe Öğretimi
-        </div>
+        <div>🧠&nbsp;&nbsp;Türkçe Öğretimi</div>
         <BiSearch />
       </div>
       <Chat />
