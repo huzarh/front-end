@@ -11,14 +11,11 @@ import image from "../../assets/289065768_1141379429761857_3254050950829227489_n
 import img1 from "../../assets/emoji2.png"
 import img2 from "../../assets/emoji1.png"
 import img3 from "../../assets/emoji5.png"
-import context from "../../components/context/Context";
 
 
 
 const IndexPage = (props) => {
-  const appData = useContext(context);
 
-  console.log('==>',context);
   // const [ask,setAsk]=useState('');
   const logout = () => {
     props.logout();
@@ -93,7 +90,7 @@ const IndexPage = (props) => {
     <div>
       <div className={css.top}>
         <div className={css.head}>
-          <div>💟&nbsp;&nbsp;Dersler</div>
+          <div>📚&nbsp;&nbsp;Dersler</div>
 
           <BiExit className={css.icon1} onClick={logout} />
         </div>
@@ -115,7 +112,7 @@ const IndexPage = (props) => {
                 <div>
                  <div className={css.cardButton}>Ders</div>
                     {/* <button className={css.cardButton}>{e.buttonValue}</button> */}
-                    <h3 className={css.h3}>{appData} 10</h3>
+                    <h3 className={css.h3}>Ders 10</h3>
                     <p className={css.p}>{e.text}</p>
                 </div>
                 <div>

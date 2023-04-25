@@ -118,7 +118,6 @@ h5 {
 .column {
   float: none;
   width: 100%;
-  max-width: 346px;
   padding: 0 5px;
   margin-bottom: 20px;
 }
@@ -143,6 +142,7 @@ h5 {
   display: flex;
   border-radius: 20px 20px 0px 0px;
   padding: 15px;
+  justify-content: space-between;
 }
 .cardBottom {
   padding: 15px;
@@ -189,9 +189,14 @@ h5 {
   margin-left: 10px;
 }
 @media screen and (min-width: 460px) {
-  .row {
-    display: flex;
+  .column {
+    width: 350px;
+    float: left;
   }
+  .row {
+    display: inline;
+  }
+
   .section {
     margin: 10px;
   }

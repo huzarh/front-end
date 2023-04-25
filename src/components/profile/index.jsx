@@ -62,7 +62,7 @@ const Profile = (props)=>{
             <h3 className={css.h3}>Your Statistics&nbsp;<BiBookBookmark/></h3>
             {/* <Sponsors/> */}
             {/* <div className={css.button1}>sinav</div> */}
-            <div className={css.row}>
+            {/* <div className={css.row}>
                 <div className={css.column}>
                     <Link to="/A1/snv">
                     <div className={css.card} >
@@ -85,9 +85,9 @@ const Profile = (props)=>{
                         <div className={css.cardItem1}><h3 className={css.cardItemi}>B1</h3></div>
                     </div>
                 </div>
-                </div>
+                </div>*/}
 
-        </div>
+        </div> 
         </>
     )
 }

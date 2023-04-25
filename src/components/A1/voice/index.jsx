@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 const Voice = (props) => {
   const [isPlaying, setIsPlaying] = useState(false);
   // const [utterance, setUtterance] = useState(null);
-  const [text, setText] = useState('');
   
   const handleTextToSpeech = (text) => {
     if (isPlaying) {
@@ -28,7 +27,7 @@ const Voice = (props) => {
   
   return (
     <div>
-      <button style={{border:'none',color:'#263238',backgroundColor:"transparent" }} onClick={() => {handleTextToSpeech(text); setText(props.voice)}}>{isPlaying ? "Stop" : "Play"} 🎵</button>
+      <button style={{border:'none',color:'#263238',backgroundColor:"transparent" }} onClick={()=>handleTextToSpeech(props.voice)}>{isPlaying ? "Stop" : "Play"} 🎵</button>
     </div>
   );
 };

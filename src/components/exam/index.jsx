@@ -5,28 +5,6 @@ import exam from "./style.module.css";
 import {useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { cloudSave } from "../../redux/action/cloudSelect";
-const quiz = [
-  {
-    soru: 'Doğru cevaplanız !',
-    cevap: 'Ben derse geliyorum',
-    ornek: ['geliyorum','Ben' ,'derse'],
-  },
-  {
-    soru: 'Doğru cevaplanız !',
-    cevap: 'O spor yapıyor',
-    ornek:['yapıyor','spor','O'],
-  },
-  {
-    soru: 'Doğru cevaplanız !',
-    cevap: 'Sen neden yazmıyorsun',
-    ornek: ['Sen','yazmıyorsun','neden','haha','dese','ndeeden','nqedeewn'],
-  },
-  {
-    soru: 'Doğru cevaplanız !',
-    cevap: 'Onlar sınava çalışıyorlar',
-    ornek: ['çalışıyorlar','Onlar','sınava'],
-  },
-];
 
 
 const Exam = (props)=> {
@@ -35,14 +13,17 @@ const Exam = (props)=> {
   const [puan, setPuan] = React.useState(0);
   const navigate = useNavigate();
   const userData = JSON.parse(localStorage.getItem("userData"));
-  const maxSteps = quiz.length;
+  const maxSteps = props.quiz.length;
 
   const Next = () => {
-    if(quiz[aStep].cevap.toLowerCase() === text.toLowerCase()){
-    setAStep((prevActiveStep) => prevActiveStep + 1);
-    setPuan(puan + 100);
-    
+  if(props.quiz[aStep].cevap.toLowerCase() === text.toLowerCase()){
+    if (puan === 2000){ 
+      props.nextStep()
+    }else{
+      setAStep((prevActiveStep) => prevActiveStep + 1);
+      setPuan(puan + 500);
     }
+  }
     setText('');
   };
 
@@ -75,11 +56,12 @@ const Exam = (props)=> {
       
       
       variant="progress" steps={maxSteps} position="static" activeStep={aStep} sx={{bgcolor:'transparent', flexGrow: 1,p:'10px 0'}} />
+      {/* <div style={{width:'100%',height:'10px',background:'grey'}}><div style={{background:'blue',width:`${puan*100/2000}%`,height:'100%'}}></div></div> */}
       <div style={{padding:'10px',height:'auto'}}> 
-       <div style={{display:'flex',justifyContent:'space-between'}}><p>{quiz[aStep].soru}</p><p>{puan}</p></div><br />
+       <div style={{display:'flex',justifyContent:'space-between'}}><p>{props.quiz[aStep].soru}</p><p>{puan}</p></div><br />
         {/* <p>çalışıyorlar</p><p  >Onlar</p><p>sınava</p> */}
         
-        <div className={exam.word}>{quiz[aStep].ornek.map((e,i)=><button key={i} onClick={()=>setText(text !== '' ? text + ' ' + e : text+e)}>{e}</button>)}</div>
+        <div className={exam.word}>{props.quiz[aStep].ornek.map((e,i)=><button key={i} onClick={()=>setText(text !== '' ? text + ' ' + e : text+e)}>{e}</button>)}</div>
         </div>
       <Box>
           <div className={exam.item}>
@@ -88,8 +70,8 @@ const Exam = (props)=> {
                value={text}
                onChange={(event) =>setText(event.target.value)}
                type="text" onKeyPress={(event) => event.key === "Enter" && aStep !== maxSteps - 1 && Next()}/> 
-               <button onClick={()=>aStep !== maxSteps - 1 ? (Next(),cloudSave(puan)):props.onClick()}>NEXT</button> 
-               <button onClick={()=>aStep !== 0 && Back()||props.onClick()}>BACK</button>
+               <button onClick={()=>Next()}>NEXT</button> 
+               {/*aStep !== maxSteps - 1 &&  <button onClick={()=>aStep !== 0 && Back()||props.onClick()}>BACK</button> */}
           </div>
       </Box>
       </div>

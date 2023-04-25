@@ -24,9 +24,9 @@ import Aa1 from "../indexPage/a1.jsx";
 import Img1 from "../../assets/education.gif";
 import "./GlobalCssSlider.css";
 import Exam from "../../components/exam";
-import Context from "../../components/context/Context";
+import DataContext from "../../components/context/Context";
+import LGame from "../../components/LGame";
 // import CustomizedTimeline from "./timeLine";
-
 function App(props) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -74,14 +74,8 @@ function App(props) {
           messText={messText}
         />
         <Routes>
-          <Route
-            path="/A1"
-            element={
-              <Context.Provider value={ctext}>
-                <Aa1 />
-              </Context.Provider>
-            }
-          />
+          <Route path="/A1" element={<Aa1 />} />
+          <Route path="/speech" element={<LGame />} />
           <Route exact path="/" element={<FirstPage />} />
 
           <Route path="/chat" element={<Chat />} />
@@ -100,7 +94,11 @@ function App(props) {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
             path="/index-page"
-            element={<IndexPage navigate={navigate} />}
+            element={
+              <DataContext.Provider value={"" + ctext}>
+                <IndexPage navigate={navigate} />
+              </DataContext.Provider>
+            }
           />
           <Route
             path="/A1/snv"

@@ -1,95 +1,102 @@
-import * as React from 'react';
-import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
-import TimelineDot from '@mui/lab/TimelineDot';
-import FastfoodIcon from '@mui/icons-material/Fastfood';
-import LaptopMacIcon from '@mui/icons-material/LaptopMac';
-import HotelIcon from '@mui/icons-material/Hotel';
-import RepeatIcon from '@mui/icons-material/Repeat';
-import Typography from '@mui/material/Typography';
+// import Box from '@mui/material/Box';
+// import * as React from 'react';
+// import MobileStepper from '@mui/material/MobileStepper';
+// import exam from "./style.module.css";
+// import {useNavigate } from "react-router-dom";
+// const quiz = [
+//   {
+//     soru: 'Doğru cevaplanız !',
+//     cevap: 'Ben derse geliyorum',
+//     ornek: ['geliyorum','Ben' ,'derse'],
+//   },
+//   {
+//     soru: 'Doğru cevaplanız !',
+//     cevap: 'O spor yapıyor',
+//     ornek:['yapıyor','spor','O'],
+//   },
+//   {
+//     soru: 'Doğru cevaplanız !',
+//     cevap: 'Sen neden yazmıyorsun',
+//     ornek: ['Sen','yazmıyorsun','neden','haha','dese','ndeeden','nqedeewn'],
+//   },
+//   {
+//     soru: 'Doğru cevaplanız !',
+//     cevap: 'Onlar sınava çalışıyorlar',
+//     ornek: ['çalışıyorlar','Onlar','sınava'],
+//   },
+// ];
 
-export default function CustomizedTimeline() {
-  return (
-    <Timeline position="alternate">
-      <TimelineItem>
-        <TimelineOppositeContent
-          sx={{ m: 'auto 0' }}
-          align="right"
-          variant="body2"
-          color="text.secondary"
-        >
-          9:30 am
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineConnector />
-          <TimelineDot>
-            <FastfoodIcon />
-          </TimelineDot>
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography variant="h6" component="span">
-            Eat
-          </Typography>
-          <Typography>Because you need strength</Typography>
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineOppositeContent
-          sx={{ m: 'auto 0' }}
-          variant="body2"
-          color="text.secondary"
-        >
-          10:00 am
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineConnector />
-          <TimelineDot color="primary">
-            <LaptopMacIcon />
-          </TimelineDot>
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography variant="h6" component="span">
-            Code
-          </Typography>
-          <Typography>Because it&apos;s awesome!</Typography>
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineSeparator>
-          <TimelineConnector />
-          <TimelineDot color="primary" variant="outlined">
-            <HotelIcon />
-          </TimelineDot>
-          <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
-        </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography variant="h6" component="span">
-            Sleep
-          </Typography>
-          <Typography>Because you need rest</Typography>
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineSeparator>
-          <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
-          <TimelineDot color="secondary">
-            <RepeatIcon />
-          </TimelineDot>
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography variant="h6" component="span">
-            Repeat
-          </Typography>
-          <Typography>Because this is the life you love!</Typography>
-        </TimelineContent>
-      </TimelineItem>
-    </Timeline>
-  );
-}
+
+// const LGame = (props)=> {
+//   const [aStep, setAStep] = React.useState(0);
+//   const [text, setText] = React.useState('');
+//   const [puan, setPuan] = React.useState(0);
+//   const navigate = useNavigate();
+//   const userData = JSON.parse(localStorage.getItem("userData"));
+//   const maxSteps = quiz.length;
+
+//   const Next = () => {
+//     if(quiz[aStep].cevap.toLowerCase() === text.toLowerCase()){
+//       if(puan !== 1500){
+//     setAStep((prevActiveStep) => prevActiveStep + 1);
+//     setPuan(puan + 500);
+//   }else{
+//     cloudSave(puan)
+//     console.log('hello world =====>',puan);
+//   }
+    
+//     }
+//     setText('');
+//   };
+
+//   const Back = () => {
+//     setAStep((prevActiveStep) => prevActiveStep - 1);
+//   };
+//   const cloudSave =(e)=> {
+//     props.cloudSave(e, userData.user._id);
+//     navigate("/index-page");
+//   }
+
+//   return (
+//     <div>
+//       {/* ---- EXAM ---- */}
+//       <div className={exam.body}>
+//       <MobileStepper 
+//       LinearProgressProps={{
+//         sx: {
+//           width:'100%',
+//           bgcolor:'darkorange',
+//           '& .MuiLinearProgress-bar': {
+//             bgcolor:"blue",
+//             borderRadius:'10px'
+//           },
+//           height:'10px',
+//           borderRadius:'10px'
+          
+//         }// and set this class
+//       }}
+      
+//       variant="progress" steps={maxSteps} position="static" activeStep={aStep} sx={{bgcolor:'transparent', flexGrow: 1,p:'10px 0'}} />
+//       <div style={{padding:'10px',height:'auto'}}> 
+//        <div style={{display:'flex',justifyContent:'space-between'}}><p>{quiz[aStep].soru}</p><p>{puan}</p></div><br />
+//         {/* <p>çalışıyorlar</p><p  >Onlar</p><p>sınava</p> */}
+//         <div className={exam.word}>{quiz[aStep].ornek.map((e,i)=><button key={i} onClick={()=>setText(text !== '' ? text + ' ' + e : text+e)}>{e}</button>)}</div>
+//         </div>
+//       <Box>
+//           <div className={exam.item}>
+//               <input
+//                placeholder=' ___   ____   ____   ____   ____   ____   ___'
+//                value={text}
+//                onChange={(event) =>setText(event.target.value)}
+//                type="text" onKeyPress={(event) => event.key === "Enter" && aStep !== maxSteps - 1 && Next()}/> 
+//                <button onClick={()=>Next()}>NEXT</button> 
+//                {/*aStep !== maxSteps - 1 &&  <button onClick={()=>aStep !== 0 && Back()||props.onClick()}>BACK</button> */}
+//           </div>
+//       </Box>
+//       </div>
+//       {/* <h1>...</h1> */}
+//     </div>
+//   );
+// }
+
+// export default LGame;
