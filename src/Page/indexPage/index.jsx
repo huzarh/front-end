@@ -30,7 +30,7 @@ const IndexPage = (props) => {
       buttonValue:'Sınava girmek',
       name: 'A1',
       url:"/A1",
-      text:'2000P kazanın ve konulardan özel bir bonus alın!',
+      text:'şu an yok',
       img:img1,
       bonus:1,
       bonusValue:(p)=>{
@@ -90,7 +90,7 @@ const IndexPage = (props) => {
     <div>
       <div className={css.top}>
         <div className={css.head}>
-          <div>📚&nbsp;&nbsp;Dersler</div>
+          <div>📚&nbsp;&nbsp;Seviyeler</div>
 
           <BiExit className={css.icon1} onClick={logout} />
         </div>
@@ -112,7 +112,7 @@ const IndexPage = (props) => {
                 <div>
                  <div className={css.cardButton}>Ders</div>
                     {/* <button className={css.cardButton}>{e.buttonValue}</button> */}
-                    <h3 className={css.h3}>Ders 10</h3>
+                    <h3 className={css.h3}>A1 Konuları</h3>
                     <p className={css.p}>{e.text}</p>
                 </div>
                 <div>
@@ -123,9 +123,9 @@ const IndexPage = (props) => {
                   <div className={css.container}>
                     <div style={{width:e.bonusValue(e.bonus)}} className={css.bonus}></div>
                   </div>
-                  <div className={css.cardItem1}><h4 className={css.cardItemH3}>{e.bonus}/2000</h4><p>3 days</p></div>
+                  <div className={css.cardItem1}><h4 className={css.cardItemH3}>{e.bonus}/2000</h4><p>30 min</p></div>
                   <div className={css.hr} />
-                  <Link to={e.bonus && e.url}><div className={css.cardItem1}><h4>Ders çalışmak</h4><p>〉</p></div></Link>
+                  <Link to={e.bonus && e.url}><div className={css.cardItem1}><h4>Başla !</h4><p>〉</p></div></Link>
                 </div>
               </div>
               </div>

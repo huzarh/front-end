@@ -5,7 +5,8 @@
 }
 .sec {
   color: rgb(0, 0, 0);
-  background-color: rgb(136, 136, 136);
+  /* background-color: transparent; */
+  background-color: rgb(4, 10, 20);
   padding: 10px;
   border-radius: 5px;
 }
@@ -14,17 +15,18 @@
   align-items: flex-start;
   flex-direction: column;
   padding: 10px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(32, 29, 41);
   margin: 10px 0;
   border-radius: 5px;
-  color: black;
+  color: rgb(229, 229, 229);
 }
 .cevap {
+  color: #4a9cee;
   padding: 5px 50px 5px 5px;
   margin: 10px 0;
   text-align: start;
   width: 100%;
-  background-color: rgba(81, 108, 148, 0.544);
+  background-color: rgb(19, 20, 25);
   border-radius: 3px;
   border: none;
   font-size: 12px;
@@ -34,31 +36,33 @@
   margin: 10px 0;
   text-align: start;
   width: 100%;
-  background-color: rgb(125, 191, 39);
+  background-color: rgb(19, 20, 25);
   border-radius: 3px;
   border: none;
+  color: #1976d2;
+  border: 1px solid #1976d2;
 }
 .cevap:hover {
-  border: 1px solid darkblue;
+  border: 1px solid #1976d2;
 }
 .submit {
   font-size: 16px;
   padding: 5px;
-  background-color: darkblue;
-  color: white;
+  background-color: transparent;
+  border: 1px solid #1976d2;
+  color: #1976d2;
   margin: 10px 0;
   border-radius: 5px;
-  border: none;
   width: 100%;
 }
 .subClose {
   font-size: 16px;
   padding: 5px;
-  background-color: darkred;
-  color: white;
+  background-color: rgb(4, 10, 20);
+  color: #1976d2;
   margin: 10px 0;
   border-radius: 5px;
-  border: none;
+  border: 1px solid #1976d2;
   width: 100%;
 }
 p {
@@ -77,6 +81,9 @@ p {
   width: 100%;
   opacity: 0.9;
   border-radius: 10px;
+}
+.sec:hover {
+  background-color: rgb(4, 10, 20);
 }
 @media screen and (min-width: 460px) {
 }

@@ -26,8 +26,8 @@ const Profile = (props)=>{
         <>
         <div className={css.all}>
             <section>
-                {/* <ReactTimeAgo date={year2002} locale="en-US"/> */}
-                <div className={css.head}><BiArrowBack className={css.icon1} onClick={()=>navigate("/index-page")} /><div className={css.icons}><BiShareAlt className={css.icon2}/><BiSpreadsheet/></div></div>
+                {/* <ReactTimeAgo date={year2002} locale="en-US"/> mjn<BiArrowBack className={css.icon1} onClick={()=>navigate("/index-page")} />*/}
+                <div className={css.head}> 🪐<div className={css.icons}><BiShareAlt className={css.icon2}/><BiSpreadsheet/></div></div>
                 <div className={css.user}>
                     <div> 
                         <img src={`https://api.dicebear.com/6.x/initials/svg?seed=${name}`} alt="profile" className={css.box}/>

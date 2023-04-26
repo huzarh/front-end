@@ -12,11 +12,13 @@ import * as React from 'react';
 import ReactPlayer from "react-player";
 import { Link, useNavigate } from "react-router-dom";
 import Exam from '../../components/exam';
+import failed from '../../assets/audio1.mp3'
 
 import css from "./style.module.css";
+import Research from '../../components/research';
 const steps = [
   {
-    label: 'KONU',
+    label: 'ALPABE',
     description: `anlamı`,
     quiz:[
       {
@@ -47,7 +49,7 @@ const steps = [
     ]
   },
   {
-    label: 'KONU',
+    label: 'GÜNLÜK İFADELER',
     description: `anlamı`,
     quiz:[
       {
@@ -78,7 +80,7 @@ const steps = [
     ]
   },
   {
-    label: 'KONU',
+    label: 'BU-ŞU-0',
     description: `anlamı`,
     quiz:[
       {
@@ -112,22 +114,8 @@ const steps = [
 
 
 export default function VerticalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [aStep, setAStep] = React.useState(0);
-  const [text, setText] = React.useState('')
+  const [activeStep, setActiveStep] = React.useState(2);
   const navigate = useNavigate();
-  // const maxSteps = quiz.length;
-
-  // const Next = () => {
-  //   if(quiz[aStep].cevap.toLowerCase() === text.toLowerCase()){
-  //   setAStep((prevActiveStep) => prevActiveStep + 1);
-  //   }
-  //   setText('');
-  // };
-
-  // const Back = () => {
-  //   setAStep((prevActiveStep) => prevActiveStep - 1);
-  // };
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -144,7 +132,7 @@ export default function VerticalLinearStepper() {
   return (
     <div>
       <div className={css.head}>
-          <FcUndo className={css.icon1} onClick={()=>navigate("/index-page")} /><div>türkçe a1&nbsp;&nbsp;📕</div>
+          <FcUndo className={css.icon1} onClick={()=>navigate("/index-page")} /><div>Türkçe A1&nbsp;&nbsp;📕</div>
       </div>
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((e, i) => (
@@ -160,14 +148,13 @@ export default function VerticalLinearStepper() {
                 text:{fill:'black',fontSize:'16px'}
               }
             }}
-              optional={
-                i === (steps.length - 1) && (<Typography color="darkgoldenrod" variant="caption">son konu</Typography>)}
+              optional={i === (steps.length - 1) && (<Typography color="darkgoldenrod" variant="caption">son konu</Typography>)}
             > 
               <p style={{color:'white'}} >{e.label}</p>
             </StepLabel>
  
             <StepContent>
-                  <Button variant="outlined" onClick={handleBack} sx={{display:i === 0 ? 'none':null,width:'100%', mt: 1, mr: 1 ,background:'oringe'}} >  gerı dönmek </Button>
+                  <Button variant="outlined" onClick={handleBack} sx={{display:i === 0 ? 'none':null,width:'100%', mt: 1, mr: 1 ,background:'oringe'}} >  geri dön </Button>
               <br />
                <p>{e.description}</p>
                <img src="https://media.tenor.com/mWpYDtV1zTkAAAAC/minions-shh.gif" style={{width:"100%",height:"auto",borderRadius:'10px',margin:'10px 0',backgroundSize:'cover'}} /><br/>
@@ -180,7 +167,7 @@ export default function VerticalLinearStepper() {
                  <h5>Ornek</h5>
                  <h5>Ornek</h5>
                  
-               <ReactPlayer url="https://www.bensound.com/bensound-music/bensound-memories.mp3"  width="270px" height="20px" style={{margin:'10px 0'}} playing={false} controls={true} />
+               <ReactPlayer url={failed} width="270px" volume={0.05} height="20px" style={{margin:'10px 0'}} playing={false} controls={true} />
               </div>
                
               <Typography>{e.description}</Typography>
@@ -205,7 +192,7 @@ export default function VerticalLinearStepper() {
 
       {activeStep === steps.length && (
         <>
-        <h1>A1 hepsin yaptin: <button onClick={handleReset}>tekrar çalismak</button></h1>
+        <Research/>
         </>
       )}
     

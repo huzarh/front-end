@@ -6,6 +6,9 @@ import {useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { cloudSave } from "../../redux/action/cloudSelect";
 import Context from '../context/Context';
+import ReactPlayer from "react-player";
+import failed from '../../assets/audio2.mp3'
+import succ from '../../assets/audio1.mp3'
 
 
 const Exam = (props)=> {
@@ -13,20 +16,27 @@ const Exam = (props)=> {
   const [aStep, setAStep] = React.useState(0);
   const [text, setText] = React.useState('');
   const [puan, setPuan] = React.useState(0);
+  const [audio,setAudio] = React.useState({
+    audioPlay:false,
+    audioType:null
+  });
   const navigate = useNavigate();
   const userData = JSON.parse(localStorage.getItem("userData"));
   const maxSteps = props.quiz.length;
 
   const Next = () => {
   if(props.quiz[aStep].cevap.toLowerCase() === text.toLowerCase()){
+    sound(succ);
     if (puan === 2000){ 
       props.nextStep()
     }else{
+      
       setAStep((prevActiveStep) => prevActiveStep + 1);
       setPuan(puan + 500);
     }
   }else{
-  messContext.setAppStore({
+    sound(failed);
+    messContext.setAppStore({
     open: true,
     messName: "error",
     messText: "hhhhaaattttaaaaa !!!!"
@@ -41,6 +51,11 @@ const Exam = (props)=> {
     props.cloudSave(e, userData.user._id);
     navigate("/index-page");
   }
+  const sound = (e) => {
+    const audio = new Audio(e);
+    audio.volume= 0.05;
+    audio.play();
+  };
 
   return (
     <div>
@@ -69,7 +84,7 @@ const Exam = (props)=> {
         {/* <p>çalışıyorlar</p><p  >Onlar</p><p>sınava</p> */}
         
         <div className={exam.word}>{props.quiz[aStep].ornek.map((e,i)=><button key={i} onClick={()=>setText(text !== '' ? text + ' ' + e : text+e)}>{e}</button>)}</div>
-        </div>
+        </div> 
       <Box>
           <div className={exam.item}>
               <input
