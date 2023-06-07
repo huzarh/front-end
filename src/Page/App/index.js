@@ -26,6 +26,7 @@ import "./GlobalCssSlider.css";
 import Exam from "../../components/exam";
 import { AppStore } from "../../components/context/Context";
 import LGame from "../../components/LGame";
+import Soz from "./reactSTT"
 // import CustomizedTimeline from "./timeLine";
 function App(props) {
   const navigate = useNavigate();
@@ -78,6 +79,7 @@ function App(props) {
           <Routes>
             <Route path="/A1" element={<Aa1 />} />
 
+
             <Route path="/speech" element={<LGame />} />
             <Route exact path="/" element={<FirstPage />} />
 
@@ -116,6 +118,7 @@ function App(props) {
             <Route path="/A1/konushma" element={<Konushma />} />
             <Route path="/A1/dinleme" element={<Dinleme />} />
             <Route path="/posts" element={<Point />} />
+            <Route path="/stt" element={<Soz />} />
             {/* <Route path="/time" element={<CustomizedTimeline />} /> */}
             <Route path="*" element={<ErrorPage />} />
           </Routes>

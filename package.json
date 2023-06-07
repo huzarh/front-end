@@ -26,6 +26,7 @@
     "react-scroll-to-bottom": "^4.2.0",
     "react-select": "^5.7.0",
     "react-speech-kit": "^3.0.1",
+    "react-stt": "^1.0.4",
     "react-timeago": "^7.1.0",
     "react-translate": "^7.0.1",
     "reactjs-bottom-navigation": "^1.0.4",
