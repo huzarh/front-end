@@ -120,7 +120,7 @@ export default function Research(props) {
   return (
     <div className={css.sec}>
       <section  >
-      <Link to='/profile'><button className={css.subClose}>Kapat</button></Link>
+      <Link to=''><button className={css.subClose}>Kapat</button></Link>
       <div className={css.cards}><p>Merhaba, benim adım Leyla. 19 yaşındayım. Ailem Edirne’de yaşıyor. Ben Sakarya’da yalnız yaşıyorum. Evimde yatak odası, salon, mutfak, balkon ve banyo var. Evim Gül Sokak’ta. Evimin karşısında bir market var. Bu marketten alışveriş yapıyorum. Marketin yanında bir spor salonu var. Komşum ile beraber spor salonuna gidiyoruz. Her gün 16.20’den 17.20’ye kadar spor yapıyoruz. Yan sokağın adı Bülbül Sokak. Burada bir kafe var. Kafenin adı Divan Kafe. Çok güzel ve çok sakin bir yer. Orada bazen tatlı yiyoruz, bazen kahve içiyoruz, bazen ders çalışıyoruz. Arkadaşlarımın evi benim evimin yakınında. Onlar Sümbül Sokak’ta oturuyor. Biz genellikle beraber vakit geçiriyoruz. Evimi, sokağımı, arkadaşlarımı ve Sakarya’yı çok seviyorum.</p></div>
       <div className={css.cards}><h5>Aşağıdaki soruları metne göre cevaplayınız.</h5></div>
       {data.map((el) => (
