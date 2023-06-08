@@ -18,7 +18,38 @@ import css from "./style.module.css";
 import Research from '../../components/research';
 const steps = [
   {
-    label: 'ALPABE',
+    label: 'ALFABE',
+    description: `anlami`,
+    quiz:[
+      {
+        soru: 'Soru cumlesi ?',
+        cevap: 'Ornek ornek ornek',
+        ornek: ['ornek','Ornek' ,'ornek'],
+      },
+      {
+        soru: 'Soru cumlesi ?',
+        cevap: 'Ornek ornek ornek',
+        ornek: ['ornek','Ornek' ,'ornek'],
+      },
+      {
+        soru: 'Soru cumlesi ?',
+        cevap: 'Ornek ornek ornek',
+        ornek: ['ornek','Ornek' ,'ornek'],
+      },
+      {
+        soru: 'Soru cumlesi ?',
+        cevap: 'Ornek ornek ornek',
+        ornek: ['ornek','Ornek' ,'ornek'],
+      },
+      {
+        soru: 'Soru cumlesi ?',
+        cevap: 'Ornek ornek ornek',
+        ornek: ['ornek','Ornek' ,'ornek'],
+      }
+    ]
+  },
+  {
+    label: 'TANIŞMA',
     description: `anlamı`,
     quiz:[
       {
@@ -49,38 +80,7 @@ const steps = [
     ]
   },
   {
-    label: 'GÜNLÜK İFADELER',
-    description: `anlamı`,
-    quiz:[
-      {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
-      },
-      {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
-      },
-      {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
-      },
-      {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
-      },
-      {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
-      }
-    ]
-  },
-  {
-    label: 'BU-ŞU-0',
+    label: 'NERELİSİN?',
     description: `anlamı`,
     quiz:[
       {
@@ -167,7 +167,7 @@ export default function VerticalLinearStepper() {
                  <h5>Ornek</h5>
                  <h5>Ornek</h5>
                  
-               <ReactPlayer url={failed} width="270px" volume={0.05} height="20px" style={{margin:'10px 0'}} playing={false} controls={true} />
+               <ReactPlayer url={failed} width="100%" volume={0.05} height="20px" style={{margin:'10px 0'}} playing={false} controls={true} />
               </div>
                
               <Typography>{e.description}</Typography>

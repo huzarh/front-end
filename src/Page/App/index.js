@@ -21,9 +21,7 @@ import Menu from "../../components/Menu";
 import Mess from "../../components/messages";
 import Chat from "../../components/chat";
 import Aa1 from "../indexPage/a1.jsx";
-import Img1 from "../../assets/education.gif";
 import "./GlobalCssSlider.css";
-import Exam from "../../components/exam";
 import { AppStore } from "../../components/context/Context";
 import LGame from "../../components/LGame";
 import Soz from "./reactSTT"
