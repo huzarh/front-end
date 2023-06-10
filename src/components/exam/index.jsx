@@ -139,11 +139,12 @@ const [recognition, setRecognition] = useState(null);
                onChange={(event) =>setText(event.target.value)}
                type="text" onKeyDown={(event) => event.key === "Enter" && aStep !== maxSteps - 1 && Next()}/> 
               <div style={{display:"flex",alignItems:"center"}}> <button onClick={()=>Next()}>NEXT</button> 
-              &nbsp;&nbsp;&nbsp; <button onClick={toggleListening}  style={{background:"darkred",width:"70px"}}>
+              &nbsp;&nbsp;&nbsp; 
+              <button onClick={toggleListening}  style={{background:"darkred",width:"70px"}}>
                   {isListening ?<BiStopCircle fontSize={25}/> : <BiMicrophone fontSize={25} onClick={toggleListening} />} 
                </button></div>
           
-               {/*aStep !== maxSteps - 1 &&  <button onClick={()=>aStep !== 0 && Back()||props.onClick()}>BACK</button> */}
+               {/*aStep onTouchStartCapture={()=>recognition.start()} onTouchEndCapture={()=>recognition.abort()} !== maxSteps - 1 &&  <button onClick={()=>aStep !== 0 && Back()||props.onClick()}>BACK</button> */}
           </div>
       </Box>
       </div>
