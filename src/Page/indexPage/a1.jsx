@@ -13,13 +13,14 @@ import ReactPlayer from "react-player";
 import { Link, useNavigate } from "react-router-dom";
 import Exam from '../../components/exam';
 import failed from '../../assets/audio1.mp3'
-
+import vd from '../../assets/Buz Mavisi Eğlenceli Renkli Sunum.mp4';
 import css from "./style.module.css";
 import Research from '../../components/research';
 const steps = [
   {
     label: 'ALFABE',
     description: `anlami`,
+    video:vd,
     quiz:[
       {
         soru: 'Soru cumlesi ?',
@@ -80,7 +81,255 @@ const steps = [
     ]
   },
   {
-    label: 'Simdiki Zaman',
+    label: 'NERELİSİN ?',
+    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
+    quiz:[
+      {
+        soru: 'Simdiki Zaman hangisidir ?',
+        cevap: 'Ali yemek pişiriyor',
+        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
+      },
+      {
+        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
+        cevap: 'Kitap okumak',
+        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
+      },
+      {
+        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
+        cevap: 'Biz geçmişte bekledik',
+        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
+      },
+      {
+        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
+        cevap: 'Şimdiki zaman',
+        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
+      },
+      {
+        soru: 'Ali hangi saatte kalkar ?',
+        cevap: 'Sabah',
+        ornek: ['Sabah','Öğle' ,'Akşam'],
+      }
+    ]
+  },
+  {
+    label: 'GÜNLER – AYLAR - MEVSİMLER',
+    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
+    quiz:[
+      {
+        soru: 'Simdiki Zaman hangisidir ?',
+        cevap: 'Ali yemek pişiriyor',
+        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
+      },
+      {
+        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
+        cevap: 'Kitap okumak',
+        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
+      },
+      {
+        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
+        cevap: 'Biz geçmişte bekledik',
+        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
+      },
+      {
+        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
+        cevap: 'Şimdiki zaman',
+        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
+      },
+      {
+        soru: 'Ali hangi saatte kalkar ?',
+        cevap: 'Sabah',
+        ornek: ['Sabah','Öğle' ,'Akşam'],
+      }
+    ]
+  },
+  {
+    label: 'KİM ? - NE ?',
+    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
+    quiz:[
+      {
+        soru: 'Simdiki Zaman hangisidir ?',
+        cevap: 'Ali yemek pişiriyor',
+        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
+      },
+      {
+        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
+        cevap: 'Kitap okumak',
+        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
+      },
+      {
+        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
+        cevap: 'Biz geçmişte bekledik',
+        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
+      },
+      {
+        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
+        cevap: 'Şimdiki zaman',
+        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
+      },
+      {
+        soru: 'Ali hangi saatte kalkar ?',
+        cevap: 'Sabah',
+        ornek: ['Sabah','Öğle' ,'Akşam'],
+      }
+    ]
+  },
+  {
+    label: 'BU - ŞU - O',
+    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
+    quiz:[
+      {
+        soru: 'Simdiki Zaman hangisidir ?',
+        cevap: 'Ali yemek pişiriyor',
+        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
+      },
+      {
+        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
+        cevap: 'Kitap okumak',
+        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
+      },
+      {
+        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
+        cevap: 'Biz geçmişte bekledik',
+        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
+      },
+      {
+        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
+        cevap: 'Şimdiki zaman',
+        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
+      },
+      {
+        soru: 'Ali hangi saatte kalkar ?',
+        cevap: 'Sabah',
+        ornek: ['Sabah','Öğle' ,'Akşam'],
+      }
+    ]
+  },
+  {
+    label: 'ÇOĞUL EKİ (-lAr)',
+    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
+    quiz:[
+      {
+        soru: 'Simdiki Zaman hangisidir ?',
+        cevap: 'Ali yemek pişiriyor',
+        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
+      },
+      {
+        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
+        cevap: 'Kitap okumak',
+        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
+      },
+      {
+        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
+        cevap: 'Biz geçmişte bekledik',
+        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
+      },
+      {
+        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
+        cevap: 'Şimdiki zaman',
+        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
+      },
+      {
+        soru: 'Ali hangi saatte kalkar ?',
+        cevap: 'Sabah',
+        ornek: ['Sabah','Öğle' ,'Akşam'],
+      }
+    ]
+  },
+  {
+    label: 'SORU EKİ (mI ?)',
+    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
+    quiz:[
+      {
+        soru: 'Simdiki Zaman hangisidir ?',
+        cevap: 'Ali yemek pişiriyor',
+        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
+      },
+      {
+        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
+        cevap: 'Kitap okumak',
+        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
+      },
+      {
+        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
+        cevap: 'Biz geçmişte bekledik',
+        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
+      },
+      {
+        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
+        cevap: 'Şimdiki zaman',
+        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
+      },
+      {
+        soru: 'Ali hangi saatte kalkar ?',
+        cevap: 'Sabah',
+        ornek: ['Sabah','Öğle' ,'Akşam'],
+      }
+    ]
+  },
+  {
+    label: 'BURASI – ŞURASI – ORASI',
+    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
+    quiz:[
+      {
+        soru: 'Simdiki Zaman hangisidir ?',
+        cevap: 'Ali yemek pişiriyor',
+        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
+      },
+      {
+        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
+        cevap: 'Kitap okumak',
+        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
+      },
+      {
+        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
+        cevap: 'Biz geçmişte bekledik',
+        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
+      },
+      {
+        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
+        cevap: 'Şimdiki zaman',
+        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
+      },
+      {
+        soru: 'Ali hangi saatte kalkar ?',
+        cevap: 'Sabah',
+        ornek: ['Sabah','Öğle' ,'Akşam'],
+      }
+    ]
+  },
+  {
+    label: 'EŞYALAR',
+    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
+    quiz:[
+      {
+        soru: 'Simdiki Zaman hangisidir ?',
+        cevap: 'Ali yemek pişiriyor',
+        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
+      },
+      {
+        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
+        cevap: 'Kitap okumak',
+        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
+      },
+      {
+        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
+        cevap: 'Biz geçmişte bekledik',
+        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
+      },
+      {
+        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
+        cevap: 'Şimdiki zaman',
+        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
+      },
+      {
+        soru: 'Ali hangi saatte kalkar ?',
+        cevap: 'Sabah',
+        ornek: ['Sabah','Öğle' ,'Akşam'],
+      }
+    ]
+  },
+  {
+    label: 'RENKLER',
     description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
     quiz:[
       {
@@ -114,7 +363,7 @@ const steps = [
 
 
 export default function VerticalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(2);
+  const [activeStep, setActiveStep] = React.useState(0);
   const navigate = useNavigate();
 
   const handleNext = () => {
@@ -158,8 +407,11 @@ export default function VerticalLinearStepper() {
               <br />
               <br />
                <p>{e.description}</p>
-               <img src="https://media.tenor.com/mWpYDtV1zTkAAAAC/minions-shh.gif" style={{width:"100%",height:"auto",borderRadius:'10px',margin:'10px 0',backgroundSize:'cover'}} /><br/>
-              
+               {e.video ? <video  style={{width:"100%",height:"auto",borderRadius:'10px',margin:'10px 0',backgroundSize:'cover'}} controls>
+                <source src={e.video ? e.video : null} type="video/mp4" />
+               </video>:
+               <img src="https://media.tenor.com/mWpYDtV1zTkAAAAC/minions-shh.gif" style={{width:"100%",height:"auto",borderRadius:'10px',margin:'10px 0',backgroundSize:'cover'}} />
+              }<br/>
                <div style={{margin:'10px 0',padding:'10px',borderRadius:'10px',background:'rgb(32, 29, 41)'}}>
                  
                  

@@ -24,11 +24,11 @@ const Exam = (props)=> {
   const navigate = useNavigate();
   const userData = JSON.parse(localStorage.getItem("userData"));
   const maxSteps = props.quiz.length;
-
+// props.quiz[aStep].cevap.toLowerCase() === text.toLowerCase()
   const Next = () => {
-  if(props.quiz[aStep].cevap.toLowerCase() === text.toLowerCase()){
+  if(true){
     sound(succ);
-    if (puan === 2000){ 
+    if (puan === 0){ 
       props.nextStep()
     }else{
       
