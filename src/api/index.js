@@ -1,10 +1,10 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: "https://back-end-9zp5.onrender.com/api/v1",
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
   },
 });
-// .defaults.withCredentials = true /api/v1/categories
+// .defaults.withCredentials = true /api/v1/categories   // "homepage": "https://huzarh.github.io/front-end",
