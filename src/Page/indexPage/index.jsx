@@ -31,10 +31,10 @@ const IndexPage = (props) => {
       url:"/A1",
       text:'şu an yok',
       img:img1,
-      bonus:1,
+      bonus:Number(localStorage.getItem("konu"))+0.1,
       bonusValue:(p)=>{
-        const bonusV = p*100/2000
-        return `${bonusV}%`;
+        const bonusV = p*100/11
+        return Math.floor(bonusV);
       },
     },{
       bgColor: 'darkorchid',
@@ -46,7 +46,7 @@ const IndexPage = (props) => {
       bonus:0,
       bonusValue:(p)=>{
         const bonusV = p*100/2000
-        return `${bonusV}%`;
+        return bonusV;
       },
     },{
       bgColor: 'darkturquoise',
@@ -58,7 +58,7 @@ const IndexPage = (props) => {
       bonus:0,
       bonusValue:(p)=>{
         const bonusV = p*100/2000
-        return `${bonusV}%`;
+        return bonusV;
       },
     },{
       bgColor: 'darkorange',
@@ -70,7 +70,7 @@ const IndexPage = (props) => {
       bonus:0,
       bonusValue:(p)=>{
         const bonusV = p*100/2000
-        return `${bonusV}%`;
+        return bonusV;
       },
     },{
       bgColor: 'darkorange',
@@ -82,7 +82,7 @@ const IndexPage = (props) => {
       bonus:0,
       bonusValue:(p)=>{
         const bonusV = p*100/2000
-        return `${bonusV}%`;
+        return bonusV;
       },
     }]
   return (
@@ -111,7 +111,7 @@ const IndexPage = (props) => {
                 <div>
                  <div className={css.cardButton}>Ders</div>
                     {/* <button className={css.cardButton}>{e.buttonValue}</button> */}
-                    <h3 className={css.h3}>A1 Konuları</h3>
+                    <h3 className={css.h3}>{e.name} Konuları</h3>
                     <p className={css.p}>{e.text}</p>
                 </div>
                 <div>
@@ -120,9 +120,9 @@ const IndexPage = (props) => {
                 </div>
                 <div className={css.cardBottom}>
                   <div className={css.container}>
-                    <div style={{width:e.bonusValue(e.bonus)}} className={css.bonus}></div>
+                    <div style={{width:`${e.bonusValue(e.bonus)}%`}} className={css.bonus}></div>
                   </div>
-                  <div className={css.cardItem1}><h4 className={css.cardItemH3}>{e.bonus}/2000</h4><p>30 min</p></div>
+                  <div className={css.cardItem1}><h4 className={css.cardItemH3}>{e.bonusValue(e.bonus)*10}/1000</h4><p>30 min</p></div>
                   <div className={css.hr} />
                   <Link to={e.bonus && e.url}><div className={css.cardItem1}><h4>Başla !</h4><p>〉</p></div></Link>
                 </div>

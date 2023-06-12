@@ -1,4 +1,4 @@
-import React, { useEffect, useState ,useCallback} from "react";
+import React, { useEffect, useState } from "react";
 import FirstPage from "../firstPage/index";
 import css from "./style.module.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -32,37 +32,14 @@ function App({autoLogin}) {
   const [messText, setMessText] = useState("");
   const userData = JSON.parse(localStorage.getItem("userData"));
 
-  const handleAutoLogin = useCallback(() => {
+  useEffect(() => {
     if (userData === null) {
       navigate('/');
     } else {
       autoLogin(userData);
     }
-  }, [autoLogin, userData ,navigate]);
-
-  useEffect(() => {
-    handleAutoLogin();
-  }, [handleAutoLogin]);
-
-  // const [isOnline, setIsOnline] = useState(navigator.onLine);
-
-  // useEffect(() => {
-  //   function handleNetworkChange() {
-  //     setIsOnline(navigator.onLine);
-  //   }
-
-  //   window.addEventListener("online", handleNetworkChange);
-  //   window.addEventListener("offline", handleNetworkChange);
-
-  //   return () => {
-  //     window.removeEventListener("online", handleNetworkChange);
-  //     window.removeEventListener("offline", handleNetworkChange);
-  //   };
-  // }, []);
-
-    /* {isOnline
-        ? (setOpen(true), setMessName("success"), setMessText("You are online"))
-        : (setOpen(true), setMessName("error"), setMessText("You are offline"))} */
+    // eslint-disable-next-line
+  },[]);
 
   return (
     <div className={css.body}>

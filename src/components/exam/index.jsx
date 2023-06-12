@@ -12,33 +12,37 @@ import succ from '../../assets/audio1.mp3'
 
 const Exam = (props)=> {
   const messContext = useContext(Context);
-  const [aStep, setAStep] = useState(0);
+  const [kStep, setKStep] = useState(0);
   const [text, setText] = useState('');
-  const [puan, setPuan] = useState(0);;
+  const [puan, setPuan] = useState(0);
   const maxSteps = props.quiz.length;
-// props.quiz[aStep].cevap.toLowerCase() === text.toLowerCase()
+// props.quiz[kStep].cevap.toLowerCase() === text.toLowerCase()
   const Next = () => {
-  if(true){
-    sound(succ);
-    if (puan === 0){ 
-      props.nextStep()
+  if (props.storeStep < Number(localStorage.getItem("konu"))) {
+    props.nextStep();
+    } else {
+    if(true){
+      sound(succ);
+        if (puan === 2000){
+          localStorage.setItem('konu',props.storeStep + 1); 
+          props.nextStep();
+        }else{
+          setKStep((changeDinlemeStep) => changeDinlemeStep + 1);
+          setPuan(puan + 500);
+        }
     }else{
-      
-      setAStep((prevActiveStep) => prevActiveStep + 1);
-      setPuan(puan + 500);
+      sound(failed);
+      messContext.setAppStore({
+      open: true,
+      messName: "error",
+      messText: "YANLIŞ !"
+    })}
+      setText('');
     }
-  }else{
-    sound(failed);
-    messContext.setAppStore({
-    open: true,
-    messName: "error",
-    messText: "hhhhaaattttaaaaa !!!!"
-  })}
-    setText('');
   };
 
   // const Back = () => {
-  //   setAStep((prevActiveStep) => prevActiveStep - 1);
+  //   setKStep((changeDinlemeStep) => changeDinlemeStep - 1);
   // };
   // const cloudSave =(e)=> {
   //   props.cloudSave(e, userData.user._id);
@@ -75,7 +79,8 @@ const [recognition, setRecognition] = useState(null);
         recognition.abort();
       }
     };
-  }, [recognition.abort,recognition]);
+    // eslint-disable-next-line
+  }, []);
   const toggleListening = () => {
     if (isListening) {
       try {
@@ -114,13 +119,13 @@ const [recognition, setRecognition] = useState(null);
       }}
       
       
-      variant="progress" steps={maxSteps} position="static" activeStep={aStep} sx={{bgcolor:'transparent', flexGrow: 1,p:'10px 0'}} />
+      variant="progress" steps={maxSteps} position="static" activeStep={kStep} sx={{bgcolor:'transparent', flexGrow: 1,p:'10px 0'}} />
       {/* <div style={{width:'100%',height:'10px',background:'grey'}}><div style={{background:'blue',width:`${puan*100/2000}%`,height:'100%'}}></div></div> */}
       <div style={{padding:'10px',height:'auto'}}> 
-       <div style={{display:'flex',justifyContent:'space-between'}}><p>{props.quiz[aStep].soru}</p>&nbsp;&nbsp;&nbsp;&nbsp;<p>{puan}</p></div><br />
+       <div style={{display:'flex',justifyContent:'space-between'}}><p>{props.quiz[kStep].soru}</p>&nbsp;&nbsp;&nbsp;&nbsp;<p>{puan}</p></div><br />
         {/* <p>çalışıyorlar</p><p  >Onlar</p><p>sınava</p> */}
         
-        <div className={exam.word}>{props.quiz[aStep].ornek.map((e,i)=><button key={i} onClick={()=>setText(text !== '' ? text + ' ' + e : text+e)}>{e}</button>)}</div>
+        <div className={exam.word}>{props.quiz[kStep].ornek.map((e,i)=><button key={i} onClick={()=>setText(text !== '' ? text + ' ' + e : text+e)}>{e}</button>)}</div>
         </div> 
       <Box>
           <div className={exam.item}>
@@ -129,14 +134,14 @@ const [recognition, setRecognition] = useState(null);
                placeholder=' ___   ____   ____   ____   ____   ____   ___'
                value={text}
                onChange={(event) =>setText(event.target.value)}
-               type="text" onKeyDown={(event) => event.key === "Enter" && aStep !== maxSteps - 1 && Next()}/> 
+               type="text" onKeyDown={(event) => event.key === "Enter" && kStep !== maxSteps - 1 && Next()}/> 
               <div style={{display:"flex",alignItems:"center"}}> <button onClick={()=>Next()}>NEXT</button> 
               &nbsp;&nbsp;&nbsp; 
               <button onClick={toggleListening}  style={{background:"darkred",width:"70px"}}>
                   {isListening ?<BiStopCircle fontSize={25}/> : <BiMicrophone fontSize={25} onClick={toggleListening} />} 
                </button></div>
           
-               {/*aStep onTouchStartCapture={()=>recognition.start()} onTouchEndCapture={()=>recognition.abort()} !== maxSteps - 1 &&  <button onClick={()=>aStep !== 0 && Back()||props.onClick()}>BACK</button> */}
+               {/*kStep onTouchStartCapture={()=>recognition.start()} onTouchEndCapture={()=>recognition.abort()} !== maxSteps - 1 &&  <button onClick={()=>kStep !== 0 && Back()||props.onClick()}>BACK</button> */}
           </div>
       </Box>
       </div>

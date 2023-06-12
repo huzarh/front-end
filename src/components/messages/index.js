@@ -32,7 +32,7 @@ export default function CustomizedSnackbars(props) {
           horizontal: "right",
         }}
         open={messContext.appStore.open}
-        autoHideDuration={5000}
+        autoHideDuration={1200}
         onClose={handleClose}
       >
         <Alert

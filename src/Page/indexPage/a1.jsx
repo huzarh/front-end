@@ -14,6 +14,7 @@ import failed from '../../assets/audio1.mp3'
 import vd from '../../assets/Buz Mavisi Eğlenceli Renkli Sunum.mp4';
 import css from "./style.module.css";
 import Research from '../../components/research';
+
 const steps = [
   {
     label: 'ALFABE',
@@ -361,8 +362,13 @@ const steps = [
 
 
 export default function VerticalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(0);
+  
+
+  const [activeStep, setActiveStep] = React.useState(Number(localStorage.getItem("konu")));
   const navigate = useNavigate();
+  // React.useEffect(()=>{
+  //   setActiveStep(localStorage.getItem("konu"));
+  // },[])
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -423,7 +429,7 @@ export default function VerticalLinearStepper() {
 
               {/* ------- Exam ------- */}
 
-               <Exam onClick={handleReset} quiz={e.quiz} nextStep={handleNext} />
+               <Exam onClick={handleReset} quiz={e.quiz} nextStep={handleNext} storeStep={activeStep}/>
                
 
               {/* ------- Next step button -------  */}
