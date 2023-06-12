@@ -3,11 +3,9 @@ import React,{useContext,useEffect,useState} from 'react';
 import { BiMicrophone,BiStopCircle } from "react-icons/bi";
 import MobileStepper from '@mui/material/MobileStepper';
 import exam from "./style.module.css";
-import {useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { cloudSave } from "../../redux/action/cloudSelect";
 import Context from '../context/Context';
-import ReactPlayer from "react-player";
 import failed from '../../assets/audio2.mp3'
 import succ from '../../assets/audio1.mp3'
 
@@ -16,13 +14,7 @@ const Exam = (props)=> {
   const messContext = useContext(Context);
   const [aStep, setAStep] = useState(0);
   const [text, setText] = useState('');
-  const [puan, setPuan] = useState(0);
-  const [audio,setAudio] = useState({
-    audioPlay:false,
-    audioType:null
-  });
-  const navigate = useNavigate();
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  const [puan, setPuan] = useState(0);;
   const maxSteps = props.quiz.length;
 // props.quiz[aStep].cevap.toLowerCase() === text.toLowerCase()
   const Next = () => {
@@ -45,13 +37,13 @@ const Exam = (props)=> {
     setText('');
   };
 
-  const Back = () => {
-    setAStep((prevActiveStep) => prevActiveStep - 1);
-  };
-  const cloudSave =(e)=> {
-    props.cloudSave(e, userData.user._id);
-    navigate("/index-page");
-  }
+  // const Back = () => {
+  //   setAStep((prevActiveStep) => prevActiveStep - 1);
+  // };
+  // const cloudSave =(e)=> {
+  //   props.cloudSave(e, userData.user._id);
+  //   navigate("/index-page");
+  // }
   const sound = (e) => {
     const audio = new Audio(e);
     audio.volume= 0.05;
@@ -83,7 +75,7 @@ const [recognition, setRecognition] = useState(null);
         recognition.abort();
       }
     };
-  }, []);
+  }, [recognition.abort,recognition]);
   const toggleListening = () => {
     if (isListening) {
       try {

@@ -26,7 +26,7 @@ function Soz() {
         recognition.abort();
       }
     };
-  }, []);
+  }, [recognition.abort()]);
 
   const toggleListening = () => {
     if (isListening) {

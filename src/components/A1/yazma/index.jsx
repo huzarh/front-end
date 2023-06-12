@@ -1,8 +1,7 @@
 import React from "react";
 import css from "./style.module.css";
-import { BiArrowBack,BiPlayCircle } from "react-icons/bi";
+import { BiArrowBack} from "react-icons/bi";
 import { Link } from "react-router-dom";
-import Voice from "../voice";
 
 function Yazma() {
   const letters = [['A','a'], ['B','b'], ['C','c'], ['Ç','ç'], ['D','d'], ['E','e'], ['F','f'], ['G','g'], ['Ğ','ğ'], ['H','h'], ['İ','i'], ['I','ı'], ['J','j'], ['K','k'], ['L','l'], ['M','m'], ['N','n'], ['O','o'], ['Ö','ö'], ['P','p'], ['R','r'], ['S','s'], ['Ş','ş'], ['T','t'], ['U','u'], ['Ü','ü'], ['V','v'], ['Y','y'], ['Z','z']]

@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import Button from "./button";
 import { getRandomInt } from "./utils";
-import cat from "../../assets/emoji1.png";
-import dog from "../../assets/emoji2.png";
-import cow from "../../assets/emoji3.png";
-import mouse from "../../assets/emoji4.png";
+import Button from "./button";
 import "./style.css";
 
 const images = [

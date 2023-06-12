@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import css from "./style.module.css";
 // import Menu from "../../components/Menu";
 import { BiExit } from "react-icons/bi";
@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import * as actions2 from "../../redux/action/signupActions";
 import * as actions3 from "../../redux/action/loginActions";
-import image from "../../assets/289065768_1141379429761857_3254050950829227489_n.jpeg";
 import img1 from "../../assets/emoji2.png"
 import img2 from "../../assets/emoji1.png"
 import img3 from "../../assets/emoji5.png"
@@ -21,9 +20,9 @@ const IndexPage = (props) => {
     props.logout();
     props.navigate("/");
   };
-  const handleClick = () => {
-    props.setMess(true);
-  };
+  // const handleClick = () => {
+  //   props.setMess(true);
+  // };
   const ders = [
     {
       bgColor: 'darkorange',

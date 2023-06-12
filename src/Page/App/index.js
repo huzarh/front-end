@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useCallback} from "react";
 import FirstPage from "../firstPage/index";
 import css from "./style.module.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -6,7 +6,6 @@ import ForgotPassword from "../../components/forgotPassword";
 import IndexPage from "../indexPage";
 import Login from "../login";
 import Research from "../../components/research";
-import A1 from "../../components/A1";
 import Profile from "../../components/profile";
 import Peaple from "../../components/people";
 import Yazma from "../../components/A1/yazma";
@@ -20,48 +19,51 @@ import * as actions from "../../redux/action/loginActions";
 import Menu from "../../components/Menu";
 import Mess from "../../components/messages";
 import Chat from "../../components/chat";
-import Aa1 from "../indexPage/a1.jsx";
+import A1 from "../indexPage/a1.jsx";
 import "./GlobalCssSlider.css";
 import { AppStore } from "../../components/context/Context";
 import LGame from "../../components/LGame";
 import Soz from "./reactSTT"
 // import CustomizedTimeline from "./timeLine";
-function App(props) {
+function App({autoLogin}) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [messName, setMessName] = useState("");
   const [messText, setMessText] = useState("");
   const userData = JSON.parse(localStorage.getItem("userData"));
-  const ctext = "djsbcevfd";
 
-  useEffect(() => {
+  const handleAutoLogin = useCallback(() => {
     if (userData === null) {
-      navigate("/");
+      navigate('/');
     } else {
-      props.autoLogin(userData);
+      autoLogin(userData);
     }
-  }, []);
-
-  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  }, [autoLogin, userData ,navigate]);
 
   useEffect(() => {
-    function handleNetworkChange() {
-      setIsOnline(navigator.onLine);
-    }
+    handleAutoLogin();
+  }, [handleAutoLogin]);
 
-    window.addEventListener("online", handleNetworkChange);
-    window.addEventListener("offline", handleNetworkChange);
+  // const [isOnline, setIsOnline] = useState(navigator.onLine);
 
-    return () => {
-      window.removeEventListener("online", handleNetworkChange);
-      window.removeEventListener("offline", handleNetworkChange);
-    };
-  }, []);
-  {
+  // useEffect(() => {
+  //   function handleNetworkChange() {
+  //     setIsOnline(navigator.onLine);
+  //   }
+
+  //   window.addEventListener("online", handleNetworkChange);
+  //   window.addEventListener("offline", handleNetworkChange);
+
+  //   return () => {
+  //     window.removeEventListener("online", handleNetworkChange);
+  //     window.removeEventListener("offline", handleNetworkChange);
+  //   };
+  // }, []);
+
     /* {isOnline
         ? (setOpen(true), setMessName("success"), setMessText("You are online"))
         : (setOpen(true), setMessName("error"), setMessText("You are offline"))} */
-  }
+
   return (
     <div className={css.body}>
       {/* <div className={css.appBox}></div> */}
@@ -75,7 +77,7 @@ function App(props) {
           />
 
           <Routes>
-            <Route path="/A1" element={<Aa1 />} />
+            <Route path="/A1" element={<A1 />} />
 
 
             <Route path="/speech" element={<LGame />} />

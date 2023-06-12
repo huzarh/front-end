@@ -1,15 +1,11 @@
 import React from "react";
-import { Link ,useNavigate} from "react-router-dom";
-import { BiArrowBack ,BiShareAlt,BiSpreadsheet,BiEditAlt,BiMessageSquareDetail,BiBookBookmark} from "react-icons/bi";
+import { Link} from "react-router-dom";
+import {BiShareAlt,BiSpreadsheet,BiEditAlt,BiMessageSquareDetail,BiBookBookmark} from "react-icons/bi";
 import css from "./style.module.css";
-import Img from "../../assets/sinav1.jpg";
-// import Menu from "../Menu";
 import { connect } from "react-redux";
-import Sponsors from "../sponser/index";
 import TransitionsModal from "../../components/createPost"
 
 const Profile = (props)=>{
-    const navigate = useNavigate();
     const userData = JSON.parse(localStorage.getItem("userData"));
     const {createdAt,name} = userData.user
 

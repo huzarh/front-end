@@ -1,7 +1,5 @@
-import Box from '@mui/material/Box';
+
 import Button from '@mui/material/Button';
-import { BiArrowBack } from "react-icons/bi";
-import Paper from '@mui/material/Paper';
 import Step from '@mui/material/Step';
 import StepContent from '@mui/material/StepContent';
 import { FcUndo } from "react-icons/fc";
@@ -10,7 +8,7 @@ import Stepper from '@mui/material/Stepper';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import ReactPlayer from "react-player";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import Exam from '../../components/exam';
 import failed from '../../assets/audio1.mp3'
 import vd from '../../assets/Buz Mavisi Eğlenceli Renkli Sunum.mp4';

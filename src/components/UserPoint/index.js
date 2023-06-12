@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import { BiSearch } from "react-icons/bi";
 import Loading from "../loading/index";
 import css from "./style.module.css";

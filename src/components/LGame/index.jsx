@@ -3,8 +3,6 @@ import * as React from 'react';
 import MobileStepper from '@mui/material/MobileStepper';
 import game from "./style.module.css";
 import {useNavigate } from "react-router-dom";
-import LGame1 from '../LGame1';
-import cow from "../../assets/emoji1.png";
 import Game1 from "./Game1";
 const quiz = [
   {
@@ -36,7 +34,6 @@ const LGame = (props)=> {
   const [text, setText] = React.useState('');
   const [puan, setPuan] = React.useState(0);
   const navigate = useNavigate();
-  const userData = JSON.parse(localStorage.getItem("userData"));
   const maxSteps = quiz.length;
 
   const Next = () => {

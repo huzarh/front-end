@@ -27,15 +27,18 @@ const Login = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
-  const Messages = (mess) => {
+ 
+
+  useEffect(() => {
+    const Messages = (mess) => {
     props.setMess(true);
     props.setMessName("error");
     props.setMessText(mess);
-  };
-
-  useEffect(() => {
-    props.error && Messages(props.error.response.data.error.message);
-  }, [props.error]);
+    };
+    if (props.error) {
+      Messages(props.error.response.data.error.message);
+    }
+  }, [props.error, props]);
 
   return (
     <div className={css.all}>

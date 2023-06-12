@@ -8,10 +8,11 @@ import Loading from "../loading/index";
 
 
 const Peaple=(props)=>{
+  const { saveData } = props;
 
   useEffect(() => {
-    props.saveData();
-  }, []);
+    saveData();
+  }, [saveData]);
   var add = [];
 
   props.BackData && props.BackData.data.map((user) => add.push(user));

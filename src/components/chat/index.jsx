@@ -56,7 +56,7 @@ function Chat() {
             );
           })} 
           {/* <p>Yaziyor <iframe style={{wdth:"40px",border:"none"}} src="https://embed.lottiefiles.com/animation/97930"></iframe></p></div> */}
-          {write && <div style={{background:"none"}} id={'ai'}> <iframe style={{height:"30px", width:"96%",border:"none",margin:"0px",padding:"0px" ,borderRadius:'5px',background:"black" }} src="https://embed.lottiefiles.com/animation/74609"></iframe></div>}
+          {write && <div style={{background:"none"}} id={'ai'}> <iframe style={{height:"30px", width:"96%",border:"none",margin:"0px",padding:"0px" ,borderRadius:'5px',background:"black" }} src="https://embed.lottiefiles.com/animation/74609" title="Embedded Content"></iframe></div>}
         </div>
       <div className="chatfooter">
         <input
