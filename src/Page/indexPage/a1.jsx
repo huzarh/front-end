@@ -425,7 +425,7 @@ export default function VerticalLinearStepper() {
                <ReactPlayer url={failed} width="100%" volume={0.05} height="20px" style={{margin:'10px 0'}} playing={false} controls={true} />
               </div>
                
-              <Typography>"Ali yemek pişiriyor." cümlesiyle Ayşe'nin şu anda yemek pişirdiğini ifade ediyoruz. Yani Ali'nin eylemi şu an gerçekleşiyor.</Typography>
+              <Typography>&quot;Ali yemek pişiriyor.&quot; cümlesiyle Ayşe&apos;nin şu anda yemek pişirdiğini ifade ediyoruz. Yani Ali&apos;nin eylemi şu an gerçekleşiyor.</Typography>
 
               {/* ------- Exam ------- */}
 

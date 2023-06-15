@@ -23,8 +23,8 @@ import A1 from "../indexPage/a1.jsx";
 import "./GlobalCssSlider.css";
 import { AppStore } from "../../components/context/Context";
 import LGame from "../../components/LGame";
-import Soz from "./reactSTT"
-// import CustomizedTimeline from "./timeLine";
+import Soz from "./reactSTT";
+import VoiceChat from "./voiceChat";
 function App({autoLogin}) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -61,7 +61,7 @@ function App({autoLogin}) {
             <Route exact path="/" element={<FirstPage />} />
 
             <Route path="/chat" element={<Chat />} />
-            {/* <Route path="/messages" element={<Example />} /> */}
+            <Route path="/vc" element={<VoiceChat />} />
             <Route
               path="/login"
               element={

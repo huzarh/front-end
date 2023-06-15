@@ -5,7 +5,7 @@ import GetStarted from "../getStarted";
 import { connect } from "react-redux";
 // import * as actions from "../../redux/action/loginActions";
 
-const FirstPage = (props) => {
+const FirstPage = () => {
   return (
     <div className={css.all1}>
       <GetStarted />
@@ -15,7 +15,7 @@ const FirstPage = (props) => {
 const mapStateToProps = () => {
   return {};
 };
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = () => {
   return {
     // autoLogin: (token, userId) =>
     //   dispatch(actions.loginUserSuccess(token, userId)),

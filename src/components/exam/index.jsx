@@ -21,7 +21,7 @@ const Exam = (props)=> {
   if (props.storeStep < Number(localStorage.getItem("konu"))) {
     props.nextStep();
     } else {
-    if(true){
+    if(props.quiz[kStep].cevap.toLowerCase() === text.toLowerCase()){
       sound(succ);
         if (puan === 2000){
           localStorage.setItem('konu',props.storeStep + 1); 
@@ -139,7 +139,7 @@ const [recognition, setRecognition] = useState(null);
               &nbsp;&nbsp;&nbsp; 
               <button onClick={toggleListening}  style={{background:"darkred",width:"70px"}}>
                   {isListening ?<BiStopCircle fontSize={25}/> : <BiMicrophone fontSize={25} onClick={toggleListening} />} 
-               </button></div>
+              </button></div>
           
                {/*kStep onTouchStartCapture={()=>recognition.start()} onTouchEndCapture={()=>recognition.abort()} !== maxSteps - 1 &&  <button onClick={()=>kStep !== 0 && Back()||props.onClick()}>BACK</button> */}
           </div>

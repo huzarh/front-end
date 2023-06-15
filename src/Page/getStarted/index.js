@@ -1,7 +1,7 @@
 import React from "react";
 import css from "./style.module.css";
 import { Link } from "react-router-dom";
-import Image from "../../assets/bigLogo.png";
+import Image from "../../assets/char.png";
 
 const GetStarted = () => {
   return (

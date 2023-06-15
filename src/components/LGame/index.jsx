@@ -29,7 +29,7 @@ const quiz = [
 ];
 
 
-const LGame = (props)=> {
+const LGame = ()=> {
   const [aStep, setAStep] = React.useState(0);
   const [text, setText] = React.useState('');
   const [puan, setPuan] = React.useState(0);

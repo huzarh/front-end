@@ -28,7 +28,7 @@ const Profile = (props)=>{
                     <div> 
                         <img src={`https://api.dicebear.com/6.x/initials/svg?seed=${name}`} alt="profile" className={css.box}/>
                         <h2 className={css.h2}>{name}</h2>
-                        <h5 className={css.h5}>{day} {month} {getFullYear}'ten beri katıldı </h5>
+                        <h5 className={css.h5}>{day} {month} {getFullYear}&apos;ten beri katıldı </h5>
                     </div>
                  </div>
                 <div className={css.hr} />

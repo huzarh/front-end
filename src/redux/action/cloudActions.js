@@ -1,6 +1,6 @@
 import axios from "../../api/index";
 export const cloudData = () => {
-  return async function (dispatch, getState) {
+  return async function (dispatch) {
     dispatch(loadOrdersStart());
     try {
       axios.defaults.headers.common[

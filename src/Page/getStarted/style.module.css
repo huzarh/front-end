@@ -4,17 +4,22 @@
 }
 
 .all {
-  text-align: center;
+  height: calc(var(--vh, 1vh) * 90);
+  display: flex;
+  flex-direction: column;
   margin: 0;
-  height: 100%;
   padding-bottom: 20px;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 .Logo {
   margin: 0;
   padding: 0;
-  width: 300px;
-  margin-top: 22px;
-  margin-bottom: 22px;
+  width: 400px;
+  height: auto;
+  background-size:cover;
 }
 .text {
   text-align: center;
@@ -60,6 +65,7 @@
     display: flex;
     padding-bottom: 0px;
     text-align: start;
+    flex-wrap: wrap;
   }
   .gol {
     width: 50%;
