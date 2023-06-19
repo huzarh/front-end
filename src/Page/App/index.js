@@ -23,8 +23,8 @@ import A1 from "../indexPage/a1.jsx";
 import "./GlobalCssSlider.css";
 import { AppStore } from "../../components/context/Context";
 import LGame from "../../components/LGame";
-import Soz from "./reactSTT";
-import VoiceChat from "./voiceChat";
+import Soz from "./example";
+import VoiceChat from "../../components/createPost/sendLessons";
 function App({autoLogin}) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);

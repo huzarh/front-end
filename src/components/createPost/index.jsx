@@ -26,7 +26,7 @@ const TransitionsModal =()=>{
 
   return (
     <div>
-      <Button style={{color:"white"}}  onClick={handleOpen}>Create Post</Button>
+      <Button style={{color:"white"}}  onClick={handleOpen}>Create Konu</Button>
       
       <Modal
         aria-labelledby="transition-modal-title"

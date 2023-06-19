@@ -31,7 +31,7 @@ const Exam = (props)=> {
           setPuan(puan + 500);
         }
     }else{
-      sound(failed);
+      sound(`https://m.freetranslations.org/speak.php?word=merhaba cccc&lang=tr`);
       messContext.setAppStore({
       open: true,
       messName: "error",
@@ -59,10 +59,9 @@ const [isListening, setIsListening] = useState(false);
 const [recognition, setRecognition] = useState(null);
 
   useEffect(() => {
-    // Check if the browser supports the Web Speech API
     if ('webkitSpeechRecognition' in window) {
       const recognitionInstance = new window.webkitSpeechRecognition();
-      recognitionInstance.lang = 'tr-TR'; // Set the language to Turkish
+      recognitionInstance.lang = 'tr-TR';
 
       recognitionInstance.onresult = (event) => {
         const transcript = event.results[0][0].transcript;

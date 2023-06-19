@@ -31,6 +31,7 @@ b {
   display: inline-block;
   border: none;
   background: #f1f1f1;
+  font-size: 18px;
 }
 
 .text:focus {

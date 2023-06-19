@@ -43,7 +43,7 @@ function Post(props) {
       <div className={css.createPost}>
         {/* <button onClick={props.button}>X</button> */}
         <div className={css.container}>
-          <h1>Create a Post</h1>
+          <h1>Create a Konu</h1>
           <hr />
           <label>
             <b className={css.b}>Title:</b>
@@ -65,13 +65,19 @@ function Post(props) {
             placeholder="Enter Description"
           />
 
-          {/* <label for="file-upload">
-            <b>Choose a file:</b>
+
+          <label>
+            <b className={css.b}>Description:</b>
           </label>
-          <label className={css.file}>
-            <input type="file" id="file" aria-label="File browser example" />
-            <span className={css.fileCustom}></span>
-          </label> */}
+          <textarea
+          className={css.text}
+          name="postContent"
+
+          rows={4}
+          cols={40}
+        />
+          
+
           <div style={{ display: "flex" }}>
             <button
               style={{ background: "darkgreen" }}

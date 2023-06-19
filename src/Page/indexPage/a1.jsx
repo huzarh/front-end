@@ -7,10 +7,10 @@ import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 import {  useNavigate } from "react-router-dom";
 import Exam from '../../components/exam';
-import failed from '../../assets/audio1.mp3'
+// import failed from '../../assets/audio1.mp3'
 import vd from '../../assets/Buz Mavisi Eğlenceli Renkli Sunum.mp4';
 import css from "./style.module.css";
 import Research from '../../components/research';
@@ -18,7 +18,21 @@ import Research from '../../components/research';
 const steps = [
   {
     label: 'ALFABE',
-    description: `anlami`,
+    description: `Türk alfabesinde 29 harf vardır.
+    Harflerin 21’i ünsüz, 8’i ünlü harftir. 
+    Ünsüz harfler yanına “e” harfi getirilerek söylenir.
+    Ünsüz harfler: b, c, ç, d, f, g, ğ, h, j, k, l, m, n, p, r, s, ş, t, v, y, z
+    Ünlü harfler (Sesli harfler)             
+    Kalın Ünlüler: a, ı, o, u             
+    İnce Ünlüler: e, i, ö, ü
+    Türkçe ’de “ğ” kelimenin başında bulunmaz, ortasında ve sonunda bulunabilir. (yağmur, dağ, öğretmen, öğrenci)
+    Büyük harflerin kullanıldığı yerler:
+    Cümle başında: Okula gittim.
+    Özel isimlerde: Bugün Ali ve Ahmet kafeye gidiyor.
+    Başlıklarda: “Aile ve Çocuk” başlıklı yazı çok güzeldi.
+    Kısaltmalarda: TC (Türkiye Cumhuriyeti)
+    Küçük harfler her zaman cümle içinde kullanılır: Dün okula gittim.
+    `,
     video:vd,
     quiz:[
       {
@@ -50,7 +64,19 @@ const steps = [
   },
   {
     label: 'TANIŞMA',
-    description: `anlamı`,
+    description: `Tanım 
+Murat: Merhaba!
+İrem: Merhaba!
+Murat: Benim adım Murat. Senin adın ne?
+İrem: Benim adım İrem. 
+Murat: Memnun oldum.
+İrem: Ben de memnun oldum.
+Murat: Nasılsın?
+İrem: İyiyim. Sen nasılsın?
+Murat: Ben de iyiyim.
+İrem: Hoşça kal!
+Murat: Güle güle!
+`,
     quiz:[
       {
         soru: 'Soru cumlesi ?',
@@ -82,6 +108,7 @@ const steps = [
   {
     label: 'NERELİSİN ?',
     description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
+    examples:'	Türkiye, Sakarya, Serdivan, okul, sınıf, öğretmen',
     quiz:[
       {
         soru: 'Simdiki Zaman hangisidir ?',
@@ -409,8 +436,8 @@ export default function VerticalLinearStepper() {
             <StepContent>
                   <Button variant="outlined" onClick={handleBack} sx={{display:i === 0 ? 'none':null,width:'100%', mt: 1, mr: 1 ,background:'oringe'}} >  geri dön </Button>
               <br />
-              <br />
-               <p>{e.description}</p>
+              <Sentence sentence={e.description}/>
+               {/* <p>{}{e.description}</p> */}
                {e.video ? <video  style={{width:"100%",height:"auto",borderRadius:'10px',margin:'10px 0',backgroundSize:'cover'}} controls>
                 <source src={e.video ? e.video : null} type="video/mp4" />
                </video>:
@@ -422,7 +449,7 @@ export default function VerticalLinearStepper() {
                  <h5>Ali yemek pişiriyor.</h5>
                  <h5>Ben şu anda ders çalışıyorum.</h5>
                  
-               <ReactPlayer url={failed} width="100%" volume={0.05} height="20px" style={{margin:'10px 0'}} playing={false} controls={true} />
+               {/* <ReactPlayer url={`https://m.freetranslations.org/speak.php?word=${"Çok ilginç. Arabalarla ilgilenmeyi seviyor musun"}?&lang=tr`} width="100%" volume={0.05} height="20px" style={{margin:'10px 0'}} playing={false} controls={true} /> */}
               </div>
                
               <Typography>&quot;Ali yemek pişiriyor.&quot; cümlesiyle Ayşe&apos;nin şu anda yemek pişirdiğini ifade ediyoruz. Yani Ali&apos;nin eylemi şu an gerçekleşiyor.</Typography>
@@ -454,3 +481,20 @@ export default function VerticalLinearStepper() {
     </div>
   );
 }
+const Sentence  = ({ sentence }) => {
+  const hasNewLine = sentence.includes('\n');
+
+  if (hasNewLine) {
+    const lines = sentence.split('\n');
+
+    return (
+      <div>
+        {lines.map((line, index) => (
+          <p key={index}>{line}</p>
+        ))}
+      </div>
+    );
+  } else {
+    return <p>{sentence}</p>;
+  }
+};

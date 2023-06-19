@@ -1,0 +1,35 @@
+section{
+    padding: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    margin: 10px;
+    max-width: 400px;
+    min-width: 300px;
+    font-size: 19px;
+}
+section textarea{
+    min-height: 50px;
+    max-height: 500px;
+    padding:2px 5px;
+    border-radius: 5px;
+}
+section input{
+    padding:2px 5px;
+    border-radius: 5px;
+}
+.imgDiv {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x:scroll;
+    padding:5px;
+    height:200px;
+    width:100%;
+    background:grey;
+    -webkit-scrollbar: none;
+}
+  section label b{
+    color: white;
+  }
