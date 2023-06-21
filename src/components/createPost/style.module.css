@@ -7,7 +7,7 @@ section{
     align-items: stretch;
     margin: 10px;
     max-width: 400px;
-    min-width: 300px;
+    width: 100%;
     font-size: 19px;
 }
 section textarea{
@@ -17,7 +17,7 @@ section textarea{
     border-radius: 5px;
 }
 section input{
-    padding:2px 5px;
+    padding:3px 5px;
     border-radius: 5px;
 }
 .imgDiv {
@@ -27,7 +27,7 @@ section input{
     padding:5px;
     height:200px;
     width:100%;
-    background:grey;
+    background:rgb(42, 45, 52);
     -webkit-scrollbar: none;
 }
   section label b{

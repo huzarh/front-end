@@ -188,6 +188,25 @@ h5 {
   width: 140px;
   margin-left: 10px;
 }
+.imgs{
+  display: flex;
+  overflow-y: hidden;
+  overflow-x:scroll;
+  height:200px;
+  width:100%;
+  -webkit-scrollbar: none;
+}
+.imgItem {
+  margin-right:7px;
+  border-radius: 10px;
+  background-size: cover;
+}
+
+
+
+
+
+
 @media screen and (min-width: 460px) {
   .column {
     width: 350px;

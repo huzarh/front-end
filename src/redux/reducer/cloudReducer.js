@@ -39,7 +39,7 @@ const reducer = (state = actionObject, action) => {
         loading: true,
       };
     case "CLOUD_SELECT_SUCCESS":
-      return { ...state, loading: false, BooksData: action.booksData };
+      return { ...state, loading: false, BooksData: action.stepsData };
     case "CLOUD_SELECT_ERROR":
       return {
         loading: false,

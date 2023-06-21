@@ -7,13 +7,16 @@ import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
-// import ReactPlayer from "react-player";
+import ReactPlayer from "react-player";
 import {  useNavigate } from "react-router-dom";
 import Exam from '../../components/exam';
 // import failed from '../../assets/audio1.mp3'
 import vd from '../../assets/Buz Mavisi Eğlenceli Renkli Sunum.mp4';
 import css from "./style.module.css";
 import Research from '../../components/research';
+import { connect } from "react-redux";
+import {cloudDataSteps} from "../../redux/action/cloudActions";
+import Loading from "../../components/loading/index";
 
 const steps = [
   {
@@ -104,299 +107,23 @@ Murat: Güle güle!
         ornek: ['ornek','Ornek' ,'ornek'],
       }
     ]
-  },
-  {
-    label: 'NERELİSİN ?',
-    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
-    examples:'	Türkiye, Sakarya, Serdivan, okul, sınıf, öğretmen',
-    quiz:[
-      {
-        soru: 'Simdiki Zaman hangisidir ?',
-        cevap: 'Ali yemek pişiriyor',
-        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
-      },
-      {
-        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
-        cevap: 'Kitap okumak',
-        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
-      },
-      {
-        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
-        cevap: 'Biz geçmişte bekledik',
-        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
-      },
-      {
-        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
-        cevap: 'Şimdiki zaman',
-        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
-      },
-      {
-        soru: 'Ali hangi saatte kalkar ?',
-        cevap: 'Sabah',
-        ornek: ['Sabah','Öğle' ,'Akşam'],
-      }
-    ]
-  },
-  {
-    label: 'GÜNLER – AYLAR - MEVSİMLER',
-    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
-    quiz:[
-      {
-        soru: 'Simdiki Zaman hangisidir ?',
-        cevap: 'Ali yemek pişiriyor',
-        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
-      },
-      {
-        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
-        cevap: 'Kitap okumak',
-        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
-      },
-      {
-        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
-        cevap: 'Biz geçmişte bekledik',
-        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
-      },
-      {
-        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
-        cevap: 'Şimdiki zaman',
-        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
-      },
-      {
-        soru: 'Ali hangi saatte kalkar ?',
-        cevap: 'Sabah',
-        ornek: ['Sabah','Öğle' ,'Akşam'],
-      }
-    ]
-  },
-  {
-    label: 'KİM ? - NE ?',
-    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
-    quiz:[
-      {
-        soru: 'Simdiki Zaman hangisidir ?',
-        cevap: 'Ali yemek pişiriyor',
-        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
-      },
-      {
-        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
-        cevap: 'Kitap okumak',
-        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
-      },
-      {
-        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
-        cevap: 'Biz geçmişte bekledik',
-        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
-      },
-      {
-        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
-        cevap: 'Şimdiki zaman',
-        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
-      },
-      {
-        soru: 'Ali hangi saatte kalkar ?',
-        cevap: 'Sabah',
-        ornek: ['Sabah','Öğle' ,'Akşam'],
-      }
-    ]
-  },
-  {
-    label: 'BU - ŞU - O',
-    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
-    quiz:[
-      {
-        soru: 'Simdiki Zaman hangisidir ?',
-        cevap: 'Ali yemek pişiriyor',
-        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
-      },
-      {
-        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
-        cevap: 'Kitap okumak',
-        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
-      },
-      {
-        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
-        cevap: 'Biz geçmişte bekledik',
-        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
-      },
-      {
-        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
-        cevap: 'Şimdiki zaman',
-        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
-      },
-      {
-        soru: 'Ali hangi saatte kalkar ?',
-        cevap: 'Sabah',
-        ornek: ['Sabah','Öğle' ,'Akşam'],
-      }
-    ]
-  },
-  {
-    label: 'ÇOĞUL EKİ (-lAr)',
-    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
-    quiz:[
-      {
-        soru: 'Simdiki Zaman hangisidir ?',
-        cevap: 'Ali yemek pişiriyor',
-        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
-      },
-      {
-        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
-        cevap: 'Kitap okumak',
-        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
-      },
-      {
-        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
-        cevap: 'Biz geçmişte bekledik',
-        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
-      },
-      {
-        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
-        cevap: 'Şimdiki zaman',
-        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
-      },
-      {
-        soru: 'Ali hangi saatte kalkar ?',
-        cevap: 'Sabah',
-        ornek: ['Sabah','Öğle' ,'Akşam'],
-      }
-    ]
-  },
-  {
-    label: 'SORU EKİ (mI ?)',
-    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
-    quiz:[
-      {
-        soru: 'Simdiki Zaman hangisidir ?',
-        cevap: 'Ali yemek pişiriyor',
-        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
-      },
-      {
-        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
-        cevap: 'Kitap okumak',
-        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
-      },
-      {
-        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
-        cevap: 'Biz geçmişte bekledik',
-        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
-      },
-      {
-        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
-        cevap: 'Şimdiki zaman',
-        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
-      },
-      {
-        soru: 'Ali hangi saatte kalkar ?',
-        cevap: 'Sabah',
-        ornek: ['Sabah','Öğle' ,'Akşam'],
-      }
-    ]
-  },
-  {
-    label: 'BURASI – ŞURASI – ORASI',
-    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
-    quiz:[
-      {
-        soru: 'Simdiki Zaman hangisidir ?',
-        cevap: 'Ali yemek pişiriyor',
-        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
-      },
-      {
-        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
-        cevap: 'Kitap okumak',
-        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
-      },
-      {
-        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
-        cevap: 'Biz geçmişte bekledik',
-        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
-      },
-      {
-        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
-        cevap: 'Şimdiki zaman',
-        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
-      },
-      {
-        soru: 'Ali hangi saatte kalkar ?',
-        cevap: 'Sabah',
-        ornek: ['Sabah','Öğle' ,'Akşam'],
-      }
-    ]
-  },
-  {
-    label: 'EŞYALAR',
-    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
-    quiz:[
-      {
-        soru: 'Simdiki Zaman hangisidir ?',
-        cevap: 'Ali yemek pişiriyor',
-        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
-      },
-      {
-        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
-        cevap: 'Kitap okumak',
-        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
-      },
-      {
-        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
-        cevap: 'Biz geçmişte bekledik',
-        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
-      },
-      {
-        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
-        cevap: 'Şimdiki zaman',
-        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
-      },
-      {
-        soru: 'Ali hangi saatte kalkar ?',
-        cevap: 'Sabah',
-        ornek: ['Sabah','Öğle' ,'Akşam'],
-      }
-    ]
-  },
-  {
-    label: 'RENKLER',
-    description: `Simdiki zaman, şu anda gerçekleşen olayları, alışkanlıkları, genel doğruları ve sabit gerçekleri ifade etmek için kullanılır. Türkçede "-yor" ekini alan fiillerle oluşturulan bir zaman dilimidir.`,
-    quiz:[
-      {
-        soru: 'Simdiki Zaman hangisidir ?',
-        cevap: 'Ali yemek pişiriyor',
-        ornek: ['Ali yemek pişiriyor','Ali yemek pişirdi' ,'Ali yemek pişirecek'],
-      },
-      {
-        soru: '"Ayşe kitap okuyor." cümlesinde hangi fiil kullanılmıştır ?',
-        cevap: 'Kitap okumak',
-        ornek: ['Yemek pişirmek','Film izlemek' ,'Kitap okumak'],
-      },
-      {
-        soru: '"Biz hala bekliyoruz." cümlesi ne anlatmaktadır ?',
-        cevap: 'Biz geçmişte bekledik',
-        ornek: ['Biz geçmişte bekledik','Biz gelecekte bekleyeceğiz' ,'Biz şu anda bekliyoruz'],
-      },
-      {
-        soru: '"Ben ders çalışıyorum" cümlesi hangi zaman kullanılmaktadır ?',
-        cevap: 'Şimdiki zaman',
-        ornek: ['Geçmiş zaman','Şimdiki zaman' ,'Gelecek zaman'],
-      },
-      {
-        soru: 'Ali hangi saatte kalkar ?',
-        cevap: 'Sabah',
-        ornek: ['Sabah','Öğle' ,'Akşam'],
-      }
-    ]
   }
 ];
 
 
-export default function VerticalLinearStepper() {
+const A1 =(props)=> {
+  const { saveData } = props;
+
+  React.useEffect(() => {
+    saveData();
+  }, [saveData]);
+
+  
   
 
   const [activeStep, setActiveStep] = React.useState(Number(localStorage.getItem("konu")));
   const navigate = useNavigate();
-  // React.useEffect(()=>{
-  //   setActiveStep(localStorage.getItem("konu"));
-  // },[])
-
+  
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -411,62 +138,50 @@ export default function VerticalLinearStepper() {
 
   return (
     <div>
+      {props.error && ( <h5>Alldaaa : {props.error}</h5> )}
+      {props.loading && <Loading />}
       <div className={css.head}>
           <FcUndo className={css.icon1} onClick={()=>navigate("/index-page")} /><div>Türkçe A1&nbsp;&nbsp;📕</div>
       </div>
       <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map((e, i) => (
+        {props.BooksData && props.BooksData.data.map((e, i) => (
           <Step key={i}>
-              
             <StepLabel
-            StepIconProps={{
-              sx: {
-                color:'white',
-                '& .MuiStepLabel-root .Mui-active .MuiStepIcon-text': {
-                  color:"red"
-                },
-                text:{fill:'black',fontSize:'16px'}
-              }
-            }}
+              StepIconProps={{ sx: {color:'white', '& .MuiStepLabel-root .Mui-active .MuiStepIcon-text': {   color:"red" }, text:{fill:'black',fontSize:'16px'}}}}
               optional={i === (steps.length - 1) && (<Typography color="darkgoldenrod" variant="caption">son konu</Typography>)}
             > 
-              <p style={{color:'white'}} >{e.label}</p>
+              {/* ------------------ NAME ----------------- */}
+              <p style={{color:'white'}} >{e.name}</p>
             </StepLabel>
  
-            <StepContent>
-                  <Button variant="outlined" onClick={handleBack} sx={{display:i === 0 ? 'none':null,width:'100%', mt: 1, mr: 1 ,background:'oringe'}} >  geri dön </Button>
-              <br />
-              <Sentence sentence={e.description}/>
-               {/* <p>{}{e.description}</p> */}
-               {e.video ? <video  style={{width:"100%",height:"auto",borderRadius:'10px',margin:'10px 0',backgroundSize:'cover'}} controls>
-                <source src={e.video ? e.video : null} type="video/mp4" />
-               </video>:
-               <img src="https://media.tenor.com/mWpYDtV1zTkAAAAC/minions-shh.gif" style={{width:"100%",height:"auto",borderRadius:'10px',margin:'10px 0',backgroundSize:'cover'}} />
-              }<br/>
-               <div style={{margin:'10px 0',padding:'10px',borderRadius:'10px',background:'rgb(32, 29, 41)'}}>
-                 
-                 
-                 <h5>Ali yemek pişiriyor.</h5>
-                 <h5>Ben şu anda ders çalışıyorum.</h5>
-                 
-               {/* <ReactPlayer url={`https://m.freetranslations.org/speak.php?word=${"Çok ilginç. Arabalarla ilgilenmeyi seviyor musun"}?&lang=tr`} width="100%" volume={0.05} height="20px" style={{margin:'10px 0'}} playing={false} controls={true} /> */}
+              <StepContent>
+              <Button variant="outlined" onClick={handleBack} sx={{display:i === 0 ? 'none':null,width:'100%', mt: 1, mr: 1 ,background:'oringe'}} >  geri dön </Button>
+               <br />
+              
+
+              {/* ------------------ DESC ----------------- */}
+              <Sentence sentence={e.desc}/>
+              {/* <p>{e.desc}</p> */}
+
+              {/* ------------------ IMAGE ----------------- */}
+              <div className={css.imgs}>
+                  <img className={css.imgItem} src={e.photo}/>
               </div>
-               
-              <Typography>&quot;Ali yemek pişiriyor.&quot; cümlesiyle Ayşe&apos;nin şu anda yemek pişirdiğini ifade ediyoruz. Yani Ali&apos;nin eylemi şu an gerçekleşiyor.</Typography>
+                <br/>
 
-              {/* ------- Exam ------- */}
+              {/* ------------------ EXAMPLES ----------------- */}
+              <div style={{margin:'10px 0',padding:'10px',borderRadius:'10px',background:'rgb(32, 29, 41)'}}>
+                <h5>{e.exampleSentence}</h5>
+                <ReactPlayer url={e.audio} width="100%" volume={0.05} height="20px" style={{margin:'10px 0'}} playing={false} controls={true} />
+              </div>
 
-               <Exam onClick={handleReset} quiz={e.quiz} nextStep={handleNext} storeStep={activeStep}/>
-               
+              {/* ------------------ DESC2 ----------------- */}
+              <Typography>{e.desc2}</Typography>
 
-              {/* ------- Next step button -------  */}
+              {/* &quot; ------------------ Exam ------------------ */}
 
-              {/* <Box sx={{ mb: 2 }}>
-                <div>
-                  <Button variant="contained" onClick={handleNext}  sx={{ mt: 1, mr: 1 }}  >  {i === e.length - 1 ? 'Sınav' : 'tamam'} </Button>
-                  <Button variant="outlined" disabled={i === 0} onClick={handleBack} sx={{ mt: 1, mr: 1 ,background:'oringe'}} >  gerı dönmek </Button>
-                </div>
-              </Box> */}
+              <Exam onClick={handleReset} quiz={steps[0].quiz} nextStep={handleNext} storeStep={activeStep}/>
+              
             </StepContent>
           </Step>
         ))}
@@ -498,3 +213,17 @@ const Sentence  = ({ sentence }) => {
     return <p>{sentence}</p>;
   }
 };
+
+const actionTsatsruulagch = (dispatch) => {
+  return { saveData: () => dispatch(cloudDataSteps()),};
+};
+
+const getaction = (state) => {
+  return {
+    loading: state.cloudReducer.loading,
+    error: state.cloudReducer.error,
+    BooksData: state.cloudReducer.BooksData,
+  };
+};
+
+export default connect(getaction, actionTsatsruulagch)(A1);

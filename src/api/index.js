@@ -5,6 +5,8 @@ export default axios.create({
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   },
 });
 // .defaults.withCredentials = true /api/v1/categories   // "homepage": "https://huzarh.github.io/front-end",

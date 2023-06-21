@@ -2,8 +2,10 @@ import React,{useState} from 'react';
 import css from "./style.module.css";
 import ReactPlayer from "react-player";
 import { FcFullTrash,FcSynchronize,FcPlus,FcAddImage } from "react-icons/fc";
+import { connect } from "react-redux";
+import { cloudSendStep } from "../../redux/action/cloudSelect";
 
-const SandLessons =()=>{
+function SandLessons(props){
   const [konuIsim,setKonuIsim] = useState('');
   const [konuTanim,setKonuTanim] = useState('');
   const [example,setExample1] = useState('');
@@ -34,7 +36,8 @@ const SandLessons =()=>{
   };
 
   const sendLessonData = () => {
-    console.log("------>\n",konuIsim,"\n",konuTanim,"\n",example,"\n",example2,"\n",audio,"\n",imgs,"\n",konuTanim2,);
+    console.log("------> ok",props);
+    props.cloudSendStep(konuIsim,konuTanim,example,example2,audio,imgs,konuTanim2,"5e90434cd433fa11b078ed8a");
   }
   return (
     <div style={{display:'flex', margin: '0 auto',justifyContent:"center"}}>
@@ -44,6 +47,11 @@ const SandLessons =()=>{
         <input type="text" placeholder="exam" style={{width:"50%"}} onChange={(event) =>setKonuIsim(event.target.value)}/><br/>
         <label> <b>Konu tanımı :</b> </label>
         <textarea style={{resize:"vertical",width:"100%"}} name="postContent" rows={4} cols={40}  onChange={(event) =>setKonuTanim(event.target.value)}/><br/><br/>
+        <input accept='image/' type='file' onChange={convertToBase64} placeholder="img"/> 
+        <div className={css.imgDiv} >{imgs.map((e,i)=>(
+          <img key={i} style={{width:"auto",height:"100%",margin:"auto 5px",backgroundSize:"cover",borderRadius:"10px"}} src={e}/>
+        ))}</div><br/>
+        <label> <b>ornek :</b> </label>
         <input type="text" placeholder="example" onChange={(event) =>setExample1(event.target.value)}/><br/>
         <input type="text" placeholder="example" onChange={(event) =>setExample2(event.target.value)}/><br/>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}} >
@@ -52,19 +60,21 @@ const SandLessons =()=>{
           </label>
             {audio ? <ReactPlayer  url={audio} width="80%" volume={0.05} height="20px" style={{margin:' 0'}} playing controls />:"audio nope  |"}
         </div>
-        <br/>
-        <input accept='image/' type='file' onChange={convertToBase64} placeholder="img"/> 
-        <br/>
-        <div className={css.imgDiv} >{imgs.map((e,i)=>(
-          <img key={i} style={{width:"auto",height:"100%",margin:"auto 5px",backgroundSize:"cover"}} src={e}/>
-        ))}</div><br/>
+        <br/><br/>
+        
         <textarea style={{resize:"vertical",width:"100%"}} name="postContent" rows={4} cols={40} onChange={(event) =>setKonuTanim2(event.target.value)}/><br/>
-        <input type="text" placeholder="example" /><br/>
-        <input type="text" placeholder="example" /><br/>
-        <input type="text" placeholder="example" /><br/>
-        <button onClick={()=>sendLessonData()}>send</button>
+  <br/>
+  <br/>
+        <button onClick={sendLessonData}>send</button>
       </section>
     </div>
   );
 }
-export default SandLessons;
+
+
+const actionTsatsruulagch = (dispatch) => {
+  return {
+    cloudSendStep: (a,b,c,d,e,f,g,h) => dispatch(cloudSendStep(a,b,c,d,e,f,g,h)),
+  };
+};
+export default connect(null, actionTsatsruulagch)(SandLessons);

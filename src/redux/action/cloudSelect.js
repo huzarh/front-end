@@ -14,7 +14,7 @@ export const cloudSave = (userPoint, userId) => {
 
       const response = await axios.patch(`/users/point/${userId}`, data);
 
-      console.log("saveData success ===>", response.data.success);
+      console.log("saveData success ===> ", response.data.success);
 
       dispatch(saveSuccess(response.data));
     } catch (error) {
@@ -42,44 +42,34 @@ export const saveError = (error) => {
 };
 // -------post------//
 
-export const cloudSaveBooks = (
+export const cloudSendStep = (
   name,
+  desc,
+  e,
+  e2,
+  audio,
   photo,
-  author,
-  rating,
-  price,
-  balance,
-  content1,
-  bestseller,
-  available,
+  desc2,
   category
 ) => {
   return async function (dispatch) {
     dispatch(cloudSaveStart());
-
-    let words = content1.split(" ");
-    let content = [];
-
-    words.map((e) => content.push(e));
-
+    const exampleSentence = [e,e2]
     const data1 = {
       name,
+      desc,
+      exampleSentence,
+      audio,
       photo,
-      author,
-      rating,
-      price,
-      balance,
-      content,
-      bestseller,
-      available,
+      desc2,
       category,
     };
-    console.log("<<<<<<<<cloudDataBooks success ===>>>>>>>>>>", data1);
+    console.log("<<<<<<<< cloudDataBooks success ===>>>>>>>>>>", data1);
     try {
       axios.defaults.headers.common[
         "Authorization"
       ] = `Bearer ${localStorage.getItem("token")}`;
-      const response = await axios.post("/books", data1);
+      const response = await axios.post("/steps", data1);
 
       console.log("cloudDataBooks success ===>", response.data);
 

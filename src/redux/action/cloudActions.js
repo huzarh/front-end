@@ -38,14 +38,14 @@ export const loadOrdersError = (error) => {
   };
 };
 
-export const cloudDataBooks = () => {
+export const cloudDataSteps = () => {
   return async function (dispatch) {
     dispatch(cloudSelectStart());
     try {
       axios.defaults.headers.common[
         "Authorization"
       ] = `Bearer ${localStorage.getItem("token")}`;
-      const response = await axios.get("/books?limit=50");
+      const response = await axios.get("/steps?limit=50");
 
       console.log("cloudDataBooks success ===>", response.data);
 
@@ -63,10 +63,10 @@ export const cloudSelectStart = () => {
   };
 };
 
-export const cloudSelectSuccess = (booksData) => {
+export const cloudSelectSuccess = (stepsData) => {
   return {
     type: "CLOUD_SELECT_SUCCESS",
-    booksData: booksData,
+    stepsData: stepsData,
   };
 };
 

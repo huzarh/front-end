@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import css from "./style.module.css";
 import { connect } from "react-redux";
-import { cloudSaveBooks } from "../../redux/action/cloudSelect";
+import { cloudSendStep } from "../../redux/action/cloudSelect";
 
 function Post(props) {
   const [title, setTitle] = useState("");
@@ -25,7 +25,7 @@ function Post(props) {
 
   const post = () => {
     props.button();
-    props.cloudSaveBooks(
+    props.cloudSendStep(
       a1.name,
       a1.photo,
       a1.author,
@@ -110,7 +110,7 @@ function Post(props) {
 // };
 const actionTsatsruulagch = (dispatch) => {
   return {
-    cloudSaveBooks: (
+    cloudSendStep: (
       name,
       photo,
       author,
@@ -123,7 +123,7 @@ const actionTsatsruulagch = (dispatch) => {
       category
     ) =>
       dispatch(
-        cloudSaveBooks(
+        cloudSendStep(
           name,
           photo,
           author,
