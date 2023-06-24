@@ -78,13 +78,13 @@ const IndexPage = (props) => {
 
           <BiExit className={css.icon1} onClick={logout} />
         </div>
-        {/* <div className={css.button}>
-            <button className={css.button1}>Target</button>
+        <div className={css.button}>
+            <button className={css.button2}>PRATIK</button>
             &nbsp;&nbsp;
-            <button className={css.button2}  >
-              Badges
+            <button className={css.button1}  >
+            EZBERLE
             </button>
-          </div> */}
+          </div>
       </div>
       <div className={css.row}>
         

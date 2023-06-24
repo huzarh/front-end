@@ -32,7 +32,7 @@ function Chat() {
     } catch (error) {
       console.error("AI errCatch ===>", error);
     }
-    
+
     setWrite(false);
       
     
@@ -53,6 +53,10 @@ const [recognition, setRecognition] = useState(null);
       recognitionInstance.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
         setValue(transcript);
+      };
+      recognitionInstance.onend = () => {
+        sendMessage()
+        console.log('Recording finished');
       };
 
       setRecognition(recognitionInstance);

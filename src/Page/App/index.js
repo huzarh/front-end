@@ -24,7 +24,7 @@ import "./GlobalCssSlider.css";
 import { AppStore } from "../../components/context/Context";
 import LGame from "../../components/LGame";
 import Soz from "./example";
-import VoiceChat from "../../components/createPost/sendLessons";
+import VoiceChat from "./voiceChat";
 function App({autoLogin}) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -61,7 +61,7 @@ function App({autoLogin}) {
             <Route exact path="/" element={<FirstPage />} />
 
             <Route path="/chat" element={<Chat />} />
-            <Route path="/vc" element={<VoiceChat />} />
+            {/* <Route path="/vc" element={<VoiceChat />} /> */}
             <Route
               path="/login"
               element={
@@ -94,7 +94,7 @@ function App({autoLogin}) {
             <Route path="/A1/yazma" element={<Yazma />} />
             <Route path="/A1/konushma" element={<Konushma />} />
             <Route path="/A1/dinleme" element={<Dinleme />} />
-            <Route path="/posts" element={<Point />} />
+            <Route path="/posts" element={<VoiceChat />} />
             <Route path="/stt" element={<Soz />} />
             {/* <Route path="/time" element={<CustomizedTimeline />} /> */}
             <Route path="*" element={<ErrorPage />} />
