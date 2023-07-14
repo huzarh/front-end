@@ -2,26 +2,9 @@
 import React, { useState } from "react";
 import css from "./style.module.css";
 import { Link } from "react-router-dom";
-import Cevap from './cevap'
+import Cevap from './cevap';
 
-// const style = {
-//   position: 'absolute',
-//   // display:'flex',
-//   // alignItems:'center',
-//   // justifyContent:'center',
-//   top: '50%',
-//   left: '50%',
-//   transform: 'translate(-50%, -50%)',
-//   width: 350,
-//   bgcolor: 'black',
-//   // border: '2px solid #000',
-//   boxShadow: 44,
-// //   p: 4,
-//   margin:' auto',
-//   padding:'320px 15px'
-// };
-
-export default function Research(props) {
+export default function A1sinav(props) {
   const [soru1, setSoru1] = useState("");
   const [soru2, setSoru2] = useState("");
   const [soru3, setSoru3] = useState("");

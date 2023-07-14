@@ -9,3 +9,6 @@
 .css-1xguesj-MuiAutocomplete-root {
   border-radius: 10px;
 }
+.MuiTabs-indicator{
+  display: none;
+}

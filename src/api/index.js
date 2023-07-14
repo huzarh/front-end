@@ -2,11 +2,12 @@ import axios from "axios";
 
 export default axios.create({
   baseURL: "http://localhost:5000/api/v1",
+  method: 'POST',
+  mode: 'cors',
+  cache: 'no-cache',
+  credentials: 'same-origin' ,
   headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    'content-type': 'application/json'
   },
 });
 // .defaults.withCredentials = true /api/v1/categories   // "homepage": "https://huzarh.github.io/front-end",

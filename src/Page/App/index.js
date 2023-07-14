@@ -5,7 +5,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import ForgotPassword from "../../components/forgotPassword";
 import IndexPage from "../indexPage";
 import Login from "../login";
-import Research from "../../components/research";
+import A1sinav from "../../components/KonuSnv";
 import Profile from "../../components/profile";
 import Peaple from "../../components/people";
 import Yazma from "../../components/A1/yazma";
@@ -24,7 +24,8 @@ import "./GlobalCssSlider.css";
 import { AppStore } from "../../components/context/Context";
 import LGame from "../../components/LGame";
 import Soz from "./example";
-import VoiceChat from "./voiceChat";
+import SendLessons from "../../components/createPost/sendLessons"
+import VoiceChat from "./voiceChat"
 function App({autoLogin}) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -61,7 +62,7 @@ function App({autoLogin}) {
             <Route exact path="/" element={<FirstPage />} />
 
             <Route path="/chat" element={<Chat />} />
-            {/* <Route path="/vc" element={<VoiceChat />} /> */}
+            <Route path="/vc" element={<SendLessons />} />
             <Route
               path="/login"
               element={
@@ -81,7 +82,7 @@ function App({autoLogin}) {
             <Route
               path="/A1/snv"
               element={
-                <Research
+                <A1sinav
                   setMess={setOpen}
                   setMessName={setMessName}
                   setMessText={setMessText}
@@ -96,7 +97,6 @@ function App({autoLogin}) {
             <Route path="/A1/dinleme" element={<Dinleme />} />
             <Route path="/posts" element={<VoiceChat />} />
             <Route path="/stt" element={<Soz />} />
-            {/* <Route path="/time" element={<CustomizedTimeline />} /> */}
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </AppStore>

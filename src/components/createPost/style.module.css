@@ -1,5 +1,4 @@
-section{
-    padding: 10px;
+.lesSec{
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -15,6 +14,12 @@ section textarea{
     max-height: 500px;
     padding:2px 5px;
     border-radius: 5px;
+}
+::-webkit-resizer {
+  border: 2px solid darkslateblue;
+  background: darkslateblue;
+  border-radius: 5px 0px 5px 0px;
+  box-shadow: -2px -2px 0px 3px darkslateblue;
 }
 section input{
     padding:3px 5px;

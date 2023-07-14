@@ -6,8 +6,9 @@ import exam from "./style.module.css";
 import { connect } from "react-redux";
 import { cloudSave } from "../../redux/action/cloudSelect";
 import Context from '../context/Context';
-import failed from '../../assets/audio2.mp3'
-import succ from '../../assets/audio1.mp3'
+import failed from '../../assets/audio2.mp3';
+import succ from '../../assets/audio1.mp3';
+import ReactPlayer from "react-player";
 
 
 const Exam = (props)=> {
@@ -15,23 +16,29 @@ const Exam = (props)=> {
   const [kStep, setKStep] = useState(0);
   const [text, setText] = useState('');
   const [puan, setPuan] = useState(0);
-  const maxSteps = props.quiz.length;
-// props.quiz[kStep].cevap.toLowerCase() === text.toLowerCase()
-  const Next = () => {
+  const maxSteps = props.quiz.length-1;
+  
+  // console.log(props.quiz,'kstepppppp00',kStep,'maxstep',maxSteps,'puan',puan)
+  const Next = (a) => {
   if (props.storeStep < Number(localStorage.getItem("konu"))) {
     props.nextStep();
+
     } else {
-    if(props.quiz[kStep].cevap.toLowerCase() === text.toLowerCase()){
+
+    if(props.quiz[kStep].answer.toLowerCase() === text.toLowerCase()){
       sound(succ);
-        if (puan === 2000){
-          localStorage.setItem('konu',props.storeStep + 1); 
+      setPuan(puan + 500);
+      // console.log('steep =>',kStep,'odoo puan =>',puan,'niitpuan =>',maxSteps*500);
+        if (puan === maxSteps*500){
+          localStorage.setItem('konu',props.storeStep + 1);
           props.nextStep();
+          setKStep(0);
+          setPuan(0);
         }else{
           setKStep((changeDinlemeStep) => changeDinlemeStep + 1);
-          setPuan(puan + 500);
         }
     }else{
-      sound(`https://m.freetranslations.org/speak.php?word=merhaba cccc&lang=tr`);
+      sound(failed);
       messContext.setAppStore({
       open: true,
       messName: "error",
@@ -50,9 +57,11 @@ const Exam = (props)=> {
   // }
   const sound = (e) => {
     const audio = new Audio(e);
-    audio.volume= 0.05;
+    audio.volume= 0.03;
     audio.play();
   };
+
+  
 // record exam
 
 const [isListening, setIsListening] = useState(false);
@@ -97,54 +106,43 @@ const [recognition, setRecognition] = useState(null);
       setIsListening(true);
     }
   };
-
   return (
     <div>
       {/* ---- EXAM ---- */}
       <div className={exam.body}>
-      <MobileStepper 
-      LinearProgressProps={{
-        sx: {
-          width:'100%',
-          bgcolor:'darkorange',
-          '& .MuiLinearProgress-bar': {
-            bgcolor:"blue",
-            borderRadius:'10px'
-          },
-          height:'10px',
-          borderRadius:'10px'
-          
-        }// and set this class
-      }}
+      <div  className={exam.line}><div style={{width:`${100*puan/(maxSteps*500)}%`}}></div></div>
       
-      
-      variant="progress" steps={maxSteps} position="static" activeStep={kStep} sx={{bgcolor:'transparent', flexGrow: 1,p:'10px 0'}} />
-      {/* <div style={{width:'100%',height:'10px',background:'grey'}}><div style={{background:'blue',width:`${puan*100/2000}%`,height:'100%'}}></div></div> */}
       <div style={{padding:'10px',height:'auto'}}> 
-       <div style={{display:'flex',justifyContent:'space-between'}}><p>{props.quiz[kStep].soru}</p>&nbsp;&nbsp;&nbsp;&nbsp;<p>{puan}</p></div><br />
-        {/* <p>çalışıyorlar</p><p  >Onlar</p><p>sınava</p> */}
-        
-        <div className={exam.word}>{props.quiz[kStep].ornek.map((e,i)=><button key={i} onClick={()=>setText(text !== '' ? text + ' ' + e : text+e)}>{e}</button>)}</div>
-        </div> 
+          <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+
+            {props.quiz[kStep].type === 'audio' ? <ReactPlayer url={`https://m.freetranslations.org/speak.php?word=${props.quiz[kStep].question}&lang=tr`} width="80%" volume={0.05} height="20px" style={{margin:'10px 0'}} playing={false} controls={true} /> :<p>{props.quiz[kStep].question}</p>}
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <p>{puan}</p>
+          </div><br />
+        {/* {props.quiz[kStep].type === 'voice' ? */}
+         {props.quiz[kStep].type === 'voice' &&  <img src={props.quiz[kStep].options[0]} width='50%'/>}
+         {props.quiz[kStep].options && props.quiz[kStep].type !== 'voice' && <div className={exam.word}>{props.quiz[kStep].options.map((e,i)=><button key={i} onClick={()=>setText(text !== '' ? text + ' ' + e : text+e)}>{e}</button>)}</div>}
+      </div>
       <Box>
           <div className={exam.item}>
-        
               <input
+              // style={{display:props.quiz[kStep].type === 'audio' ? 'none' : 'flex'}}
                placeholder=' ___   ____   ____   ____   ____   ____   ___'
                value={text}
                onChange={(event) =>setText(event.target.value)}
                type="text" onKeyDown={(event) => event.key === "Enter" && kStep !== maxSteps - 1 && Next()}/> 
-              <div style={{display:"flex",alignItems:"center"}}> <button onClick={()=>Next()}>NEXT</button> 
-              &nbsp;&nbsp;&nbsp; 
+
+              <div style={{display:"flex",alignItems:"center"}}> <button onClick={()=>Next(puan)}>NEXT</button> 
+             {props.quiz[kStep].type === 'voice' && <>&nbsp;&nbsp;&nbsp; 
               <button onClick={toggleListening}  style={{background:"darkred",width:"70px"}}>
                   {isListening ?<BiStopCircle fontSize={25}/> : <BiMicrophone fontSize={25} onClick={toggleListening} />} 
-              </button></div>
-          
-               {/*kStep onTouchStartCapture={()=>recognition.start()} onTouchEndCapture={()=>recognition.abort()} !== maxSteps - 1 &&  <button onClick={()=>kStep !== 0 && Back()||props.onClick()}>BACK</button> */}
+              </button>
+              </>}</div>
           </div>
       </Box>
       </div>
-      {/* <h1>...</h1> */}
     </div>
   );
 }

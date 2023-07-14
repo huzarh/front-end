@@ -5,10 +5,60 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import * as actions2 from "../../redux/action/signupActions";
 import * as actions3 from "../../redux/action/loginActions";
+import Box from '@mui/material/Box';
+import AppBar from '@mui/material/AppBar';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types';
+import SwipeableViews from 'react-swipeable-views';
+import { useTheme } from '@mui/material/styles';
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <Typography
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`action-tabpanel-${index}`}
+      aria-labelledby={`action-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box sx={{ pt: 3 }}>{children}</Box>}
+    </Typography>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `action-tab-${index}`,
+    'aria-controls': `action-tabpanel-${index}`,
+  };
+}
 
 
 
 const IndexPage = (props) => {
+
+  const theme = useTheme();
+  const [value, setValue] = React.useState(0);
+  // const [activeBtn, setActiveBtn] = React.useState(1);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const handleChangeIndex = (index) => {
+    setValue(index);
+  };
+  
   const logout = () => {
     props.logout();
     props.navigate("/");
@@ -70,51 +120,73 @@ const IndexPage = (props) => {
         return bonusV;
       },
     }]
+    
+    // transparent
   return (
-    <div>
+    <Box>
       <div className={css.top}>
         <div className={css.head}>
           <div>📚&nbsp;&nbsp;Seviyeler</div>
 
           <BiExit className={css.icon1} onClick={logout} />
         </div>
-        <div className={css.button}>
-            <button className={css.button2}>PRATIK</button>
-            &nbsp;&nbsp;
-            <button className={css.button1}  >
-            EZBERLE
-            </button>
-          </div>
       </div>
-      <div className={css.row}>
-        
+      <AppBar sx={{bgcolor:'transparent'}} position="static" color="default">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          variant="fullWidth"
+          aria-label="action tabs example"
+        >
+          <Tab sx={{p:'0 8px 0 0',outline:'none'}}label={<div className={value !== 0 ? css.button1 : css.button2}>PRATIK</div>} {...a11yProps(0)} />&nbsp;&nbsp;
+          <Tab sx={{p:'0 0 0 8px'}} label={<div className={value !== 0 ? css.button2 : css.button1}>EZBERLE</div>} {...a11yProps(1)} />
+        </Tabs>
+      </AppBar>
+      <SwipeableViews
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        index={value}
+        onChangeIndex={handleChangeIndex}
+      >
+        <TabPanel sx={{padding:'0',margin:'0'}} value={value} index={0} dir={theme.direction}>
+        <div className={css.row}>
           
-              {ders.map((e,i) => (
-              <div className={css.column} key={i}>
-              <div className={css.card} style={e.bonus === 0 ? {opacity:'0.3'} : {opacity:'1'}}>
-                <div style={{background: e.bgColor}} className={css.cardTop1}>
-                <div>
-                 <div className={css.cardButton}>Ders</div>
-                    <h3 className={css.h3}>{e.name} Konuları</h3>
-                    <p className={css.p}>{e.text}</p>
-                </div>
-                <div>
-                  <img className={css.bg} src={`https://api.dicebear.com/6.x/initials/svg?seed=${e.name}`} alt="emoji" />
-                </div>
-                </div>
-                <div className={css.cardBottom}>
-                  <div className={css.container}>
-                    <div style={{width:`${e.bonusValue(e.bonus)}%`}} className={css.bonus}></div>
-                  </div>
-                  <div className={css.cardItem1}><h4 className={css.cardItemH3}>{e.bonusValue(e.bonus)*10}/1000</h4><p>0 min</p></div>
-                  <div className={css.hr} />
-                  <Link to={e.bonus && e.url}><div className={css.cardItem1}><h4>Başla !</h4><p>〉</p></div></Link>
-                </div>
+          {ders.map((e,i) => (
+          <div className={css.column} key={i}>
+          <Link to={e.bonus && e.url}><div className={css.card} style={e.bonus === 0 ? {opacity:'0.3'} : {opacity:'1'}}>
+            <div style={{background: e.bgColor}} className={css.cardTop1}>
+            <div>
+             <div className={css.cardButton}>Ders</div>
+                <h3 className={css.h3}>{e.name} Konuları</h3>
+                <p className={css.p}>{e.text}</p>
+            </div>
+            <div>
+              <img className={css.bg} src={`https://api.dicebear.com/6.x/initials/svg?seed=${e.name}`} alt="emoji" />
+            </div>
+            </div>
+            <div className={css.cardBottom}>
+              <div className={css.container}>
+                <div style={{width:`${e.bonusValue(e.bonus)}%`}} className={css.bonus}></div>
               </div>
-              </div>
-              ))}
-      </div>
-    </div>
+              <div className={css.cardItem1}><h4 className={css.cardItemH3}>{e.bonusValue(e.bonus)*10}/1000</h4><p>0 min</p></div>
+              {/* <div className={css.hr} /> */}
+              {/* <div className={css.cardItem1}><h4>Başla !</h4><p>〉</p></div> */}
+            </div>
+          </div></Link>
+          </div>
+          ))}
+
+  </div>
+        </TabPanel>
+        <TabPanel value={value} index={1} dir={theme.direction}>
+        <section style={{width:'100%',height:'400px',display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
+          <div style={{background:'transparent',width:'100%',height:'70px',borderRadius:'10px',padding:'10px',border:'2px solid var(--protocolor)'}}>hasdf</div>
+          <div style={{background:'grey'}}>hasdf2</div>
+        </section>
+        </TabPanel>
+      </SwipeableViews>
+    </Box>
   );
 };
 const mapStateToProps = (state) => {

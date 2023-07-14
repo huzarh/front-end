@@ -2,6 +2,7 @@
   "name": "Türkçe Öğretimi",
   "version": "0.1.0",
   "private": true,
+  "author": "Khuzair",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -31,6 +32,7 @@
     "react-speech": "^1.0.2",
     "react-speech-kit": "^3.0.1",
     "react-stt": "^1.0.4",
+    "react-swipeable-views": "^0.14.0",
     "react-timeago": "^7.1.0",
     "react-translate": "^7.0.1",
     "reactjs-bottom-navigation": "^1.0.4",

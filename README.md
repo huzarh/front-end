@@ -69,14 +69,34 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-### shinchilelt 1
 
-### shinchilelt 1
 
-### shinchilelt 1
+<style>
+  .pushable {
+    background: hsl(340deg 100% 32%);
+    border-radius: 12px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+  }
+  .front {
+    display: block;
+    padding: 12px 42px;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    background: hsl(345deg 100% 47%);
+    color: white;
+    transform: translateY(-6px);
+  }
 
-### shinchilelt 1
+  .pushable:active .front {
+    transform: translateY(-2px);
+  }
+</style>
 
-### shinchilelt 2
-
-### shinchilelt 1
+<button class="pushable">
+  <span class="front">
+    Push me
+  </span>
+</button>

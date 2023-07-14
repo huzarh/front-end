@@ -13,103 +13,97 @@ import Exam from '../../components/exam';
 // import failed from '../../assets/audio1.mp3'
 import vd from '../../assets/Buz Mavisi Eğlenceli Renkli Sunum.mp4';
 import css from "./style.module.css";
-import Research from '../../components/research';
+import A1sinav from '../../components/KonuSnv';
 import { connect } from "react-redux";
 import {cloudDataSteps} from "../../redux/action/cloudActions";
 import Loading from "../../components/loading/index";
+import Avatar from '@mui/material/Avatar';
+import Skeleton from '@mui/material/Skeleton';
 
 const steps = [
   {
-    label: 'ALFABE',
-    description: `Türk alfabesinde 29 harf vardır.
-    Harflerin 21’i ünsüz, 8’i ünlü harftir. 
-    Ünsüz harfler yanına “e” harfi getirilerek söylenir.
-    Ünsüz harfler: b, c, ç, d, f, g, ğ, h, j, k, l, m, n, p, r, s, ş, t, v, y, z
+    name: 'ALFABE',
+    desc: `~ Türk alfabesinde 29 harf vardır.
+    Harflerin 21’i ünsüz, 8’i ünlü harftir. Ünsüz harfler yanına “e” harfi getirilerek söylenir.
+    
+    ~ Ünsüz harfler: b, c, ç, d, f, g, ğ, h, j, k, l, m, n, p, r, s, ş, t, v, y, z
+    
     Ünlü harfler (Sesli harfler)             
     Kalın Ünlüler: a, ı, o, u             
-    İnce Ünlüler: e, i, ö, ü
-    Türkçe ’de “ğ” kelimenin başında bulunmaz, ortasında ve sonunda bulunabilir. (yağmur, dağ, öğretmen, öğrenci)
-    Büyük harflerin kullanıldığı yerler:
+    İnce Ünlüler: e, i, ö, ü`,
+    photo:'',
+    exampleSentence:'',
+    desc2:`~ Türkçe’de “ğ” kelimenin başında bulunmaz, ortasında ve sonunda bulunabilir. (yağmur, dağ, öğretmen, öğrenci)
+
+    ~ Büyük harflerin kullanıldığı yerler:
     Cümle başında: Okula gittim.
+    
     Özel isimlerde: Bugün Ali ve Ahmet kafeye gidiyor.
     Başlıklarda: “Aile ve Çocuk” başlıklı yazı çok güzeldi.
     Kısaltmalarda: TC (Türkiye Cumhuriyeti)
-    Küçük harfler her zaman cümle içinde kullanılır: Dün okula gittim.
+    ~ Küçük harfler her zaman cümle içinde kullanılır: Dün okula gittim.
     `,
-    video:vd,
     quiz:[
       {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
+        type:'audio',
+        question: 'Ç',
+        answer: 'Ç',
+        options:['T','H','Ç' ,'C'],
       },
       {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
+        type:'input',
+        question: 'Cüzdan kelimesi hangi harfiyle başlıyor ?',
+        answer: 'C',
+        options: '',
       },
       {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
-      },
-      {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
-      },
-      {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
+        type:'voice',
+        question: 'Resme göre isimin söyleyin.',
+        answer: 'Elma',
+        options: ['https://www.verita.com.tr/wp-content/uploads/2014/08/elma.jpg'],
       }
     ]
   },
   {
-    label: 'TANIŞMA',
-    description: `Tanım 
-Murat: Merhaba!
-İrem: Merhaba!
-Murat: Benim adım Murat. Senin adın ne?
-İrem: Benim adım İrem. 
-Murat: Memnun oldum.
-İrem: Ben de memnun oldum.
-Murat: Nasılsın?
-İrem: İyiyim. Sen nasılsın?
-Murat: Ben de iyiyim.
-İrem: Hoşça kal!
-Murat: Güle güle!
-`,
+    name: 'TANIŞMA',
+    desc: `
+    Murat: Merhaba!
+    İrem: Merhaba!
+    Murat: Benim adım Murat. Senin adın ne?
+    İrem: Benim adım İrem. 
+    Murat: Memnun oldum.
+    İrem: Ben de memnun oldum.
+    Murat: Nasılsın?
+    İrem: İyiyim. Sen nasılsın?
+    Murat: Ben de iyiyim.
+    İrem: Hoşça kal!
+    Murat: Güle güle!
+    `,
+    photo:'',
+    exampleSentence:'',
+    desc2:``,
     quiz:[
       {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
+        type:'audio',
+        question: 'İyi yolculuklar',
+        answer: 'İyi yolculuklar',
+        options:'',
       },
       {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
+        type:'input',
+        question: 'Cüzdan kelimesi hangi harfiyle başlıyor ?',
+        answer: 'C',
+        options: '',
       },
       {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
-      },
-      {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
-      },
-      {
-        soru: 'Soru cumlesi ?',
-        cevap: 'Ornek ornek ornek',
-        ornek: ['ornek','Ornek' ,'ornek'],
+        type:'voice',
+        question: 'Resme göre isimin söyleyin.',
+        answer: 'Elma',
+        options: [],
       }
     ]
   }
 ];
-
 
 const A1 =(props)=> {
   const { saveData } = props;
@@ -121,7 +115,7 @@ const A1 =(props)=> {
   
   
 
-  const [activeStep, setActiveStep] = React.useState(Number(localStorage.getItem("konu")));
+  const [activeStep, setActiveStep] = React.useState(0);
   const navigate = useNavigate();
   
   const handleNext = () => {
@@ -135,63 +129,78 @@ const A1 =(props)=> {
   const handleReset = () => {
     setActiveStep(0);
   };
-
+//  console.log('====> niit',props.BooksData.data )
   return (
     <div>
       {props.error && ( <h5>Alldaaa : {props.error}</h5> )}
-      {props.loading && <Loading />}
+      {props.loading && <Loading/>}
       <div className={css.head}>
           <FcUndo className={css.icon1} onClick={()=>navigate("/index-page")} /><div>Türkçe A1&nbsp;&nbsp;📕</div>
       </div>
-      <Stepper activeStep={activeStep} orientation="vertical">
-        {props.BooksData && props.BooksData.data.map((e, i) => (
+     {/* {props.BooksData && props.BooksData.data.length !== activeStep ?   */}
+     {props.BooksData && <Stepper activeStep={activeStep} orientation="vertical">
+         {props.BooksData.data.map((e, i) => (
           <Step key={i}>
             <StepLabel
               StepIconProps={{ sx: {color:'white', '& .MuiStepLabel-root .Mui-active .MuiStepIcon-text': {   color:"red" }, text:{fill:'black',fontSize:'16px'}}}}
-              optional={i === (steps.length - 1) && (<Typography color="darkgoldenrod" variant="caption">son konu</Typography>)}
+              optional={i === (e.length - 1) && (<Typography color="darkgoldenrod" variant="caption">son konu</Typography>)}
             > 
               {/* ------------------ NAME ----------------- */}
-              <p style={{color:'white'}} >{e.name}</p>
+              
+              {props.loading ? <Skeleton width="60%" sx={{bgcolor:'rgb(34, 36, 46)'}}>
+                                <Typography variant='h4'>.</Typography>
+                             </Skeleton> : 
+                             <p style={{color:'white'}} >{e.name}</p> 
+                             }
             </StepLabel>
  
               <StepContent>
-              <Button variant="outlined" onClick={handleBack} sx={{display:i === 0 ? 'none':null,width:'100%', mt: 1, mr: 1 ,background:'oringe'}} >  geri dön </Button>
-               <br />
+              <Button m={10} variant="outlined" onClick={handleBack} sx={{display:i === 0 ? 'none':null,width:'100%', mt: 1, mr: 1 ,background:'oringe'}} >  geri dön </Button>
+               <br /><br/>
               
 
               {/* ------------------ DESC ----------------- */}
-              <Sentence sentence={e.desc}/>
-              {/* <p>{e.desc}</p> */}
+              
+              {props.loading ?  <Skeleton sx={{bgcolor:'rgb(34, 36, 46)'}} variant="rectangular" width='100%' height={150} /> : <Sentence sentence={e.desc}/>}
+              <br />
 
               {/* ------------------ IMAGE ----------------- */}
-              <div className={css.imgs}>
-                  <img className={css.imgItem} src={e.photo}/>
-              </div>
-                <br/>
 
-              {/* ------------------ EXAMPLES ----------------- */}
-              <div style={{margin:'10px 0',padding:'10px',borderRadius:'10px',background:'rgb(32, 29, 41)'}}>
-                <h5>{e.exampleSentence}</h5>
-                <ReactPlayer url={e.audio} width="100%" volume={0.05} height="20px" style={{margin:'10px 0'}} playing={false} controls={true} />
-              </div>
+              {/* <img  className={css.imgItem} src={el}/> */}
+              {/* {e.photo && <> <div className={css.imgs}>{e.photo.map((el,index)=><img key={index} className={css.imgItem} src={el}/>)}</div>
+                   <br/></>} */}
+
+              {/* ------------------ EXAMPLES SENTENCE----------------- */}
+              
+              {props.loading ?  <Skeleton sx={{bgcolor:'rgb(34, 36, 46)'}} variant="rectangular" width='100%' height={100} /> : <div style={{margin:'10px 0',padding:'10px',borderRadius:'10px',background:'rgb(32, 29, 41)'}}>
+                <p>Örnek :</p>
+                {/* {e.exampleSentence.map((el2,index2)=>(
+                  <><p key={index2}>{el2}</p><br/></>
+                ))} */}
+                <ReactPlayer url={`https://m.freetranslations.org/speak.php?word=${` a b c ç d e f g ğ h i ı j k l m n o ö p r s ş t u ü v y z`}&lang=tr`} width="100%" volume={0.05} height="20px" style={{margin:'10px 0'}} playing={false} controls={true} />
+              </div>}
+              <br />
 
               {/* ------------------ DESC2 ----------------- */}
-              <Typography>{e.desc2}</Typography>
+              {props.loading ?  <Skeleton sx={{bgcolor:'rgb(34, 36, 46)'}} variant="rectangular" width='100%' height={200} /> : <Sentence sentence={e.desc2}/>}
 
-              {/* &quot; ------------------ Exam ------------------ */}
+              <br />
 
-              <Exam onClick={handleReset} quiz={steps[0].quiz} nextStep={handleNext} storeStep={activeStep}/>
+              {/* &quot; {props.BooksData.data[activeStep].stepExam.length !== 0 &&------------------ Exam ------------------ &&  <Skeleton sx={{bgcolor:'rgb(34, 36, 46)'}} variant="rectangular" width='100%' height={200} />*/}
+
+              {props.BooksData.data[activeStep].stepExam.length === 0 ? <Skeleton sx={{bgcolor:'rgb(34, 36, 46)'}} variant="rectangular" width='100%' height={200} /> :  <Exam onClick={handleReset} quiz={props.BooksData.data[activeStep].stepExam} nextStep={handleNext} storeStep={activeStep}/>}
+              <button onClick={()=>handleNext()}>next</button>
               
             </StepContent>
           </Step>
         ))}
-      </Stepper>
+      </Stepper> }
 
-      {activeStep === steps.length && (
+      {/* {activeStep === 2 && (
         <>
-        <Research/>
+         <A1sinav/>
         </>
-      )}
+      )} */}
     
     </div>
   );

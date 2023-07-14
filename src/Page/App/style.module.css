@@ -31,3 +31,15 @@
   background-size: cover;
   color: rgb(38, 39, 49);
 }
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 23px;
+  margin-bottom: 25px;
+  /* background-color: aliceblue; */
+}
+.icon1 {
+  font-size: 30px;
+  color: var(--textcolor);
+}

@@ -50,6 +50,7 @@ export const cloudSendStep = (
   audio,
   photo,
   desc2,
+  stepExam,
   category
 ) => {
   return async function (dispatch) {
@@ -62,6 +63,7 @@ export const cloudSendStep = (
       audio,
       photo,
       desc2,
+      stepExam,
       category,
     };
     console.log("<<<<<<<< cloudDataBooks success ===>>>>>>>>>>", data1);

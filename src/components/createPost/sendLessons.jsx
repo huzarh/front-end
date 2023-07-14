@@ -5,7 +5,7 @@ import { FcFullTrash,FcSynchronize,FcPlus,FcAddImage } from "react-icons/fc";
 import { connect } from "react-redux";
 import { cloudSendStep } from "../../redux/action/cloudSelect";
 
-function SandLessons(props){
+function SendLessons(props){
   const [konuIsim,setKonuIsim] = useState('');
   const [konuTanim,setKonuTanim] = useState('');
   const [example,setExample1] = useState('');
@@ -13,6 +13,34 @@ function SandLessons(props){
   const [audio,setAudio] = useState('');
   const [imgs,setImgs] = useState([]);
   const [konuTanim2,setKonuTanim2] = useState('');
+  const [quiz,setQuiz] = useState([
+    {
+      soru: 'Soru cumlesi ?',
+      cevap: 'Ornek ornek ornek',
+      ornek: ['ornek','Ornek' ,'ornek'],
+    },
+    {
+      soru: 'Soru cumlesi ?',
+      cevap: 'Ornek ornek ornek',
+      ornek: ['ornek','Ornek' ,'ornek'],
+    },
+    {
+      soru: 'Soru cumlesi ?',
+      cevap: 'Ornek ornek ornek',
+      ornek: ['ornek','Ornek' ,'ornek'],
+    },
+    {
+      soru: 'Soru cumlesi ?',
+      cevap: 'Ornek ornek ornek',
+      ornek: ['ornek','Ornek' ,'ornek'],
+    },
+    {
+      soru: 'Soru cumlesi ?',
+      cevap: 'Ornek ornek ornek',
+      ornek: ['ornek','Ornek' ,'ornek'],
+    }
+  ]);
+
   const convertToBase64 = (e) => {
     var reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
@@ -29,20 +57,14 @@ function SandLessons(props){
     }
   };
 
-  const sound = (e) => {
-    const audio = new Audio(e);
-    audio.volume= 0.05;
-    audio.play();
-  };
-
   const sendLessonData = () => {
     console.log("------> ok",props);
-    props.cloudSendStep(konuIsim,konuTanim,example,example2,audio,imgs,konuTanim2,"5e90434cd433fa11b078ed8a");
+    props.cloudSendStep(konuIsim,konuTanim,example,example2,audio,imgs,konuTanim2,quiz,"5e90434cd433fa11b078ed8a");
   }
   return (
     <div style={{display:'flex', margin: '0 auto',justifyContent:"center"}}>
       
-      <section>
+      <section className={css.lesSec}>
         <label> <b>Konu ismi :</b> </label>
         <input type="text" placeholder="exam" style={{width:"50%"}} onChange={(event) =>setKonuIsim(event.target.value)}/><br/>
         <label> <b>Konu tanımı :</b> </label>
@@ -74,7 +96,7 @@ function SandLessons(props){
 
 const actionTsatsruulagch = (dispatch) => {
   return {
-    cloudSendStep: (a,b,c,d,e,f,g,h) => dispatch(cloudSendStep(a,b,c,d,e,f,g,h)),
+    cloudSendStep: (a,b,c,d,e,f,g,h,j) => dispatch(cloudSendStep(a,b,c,d,e,f,g,h,j)),
   };
 };
-export default connect(null, actionTsatsruulagch)(SandLessons);
+export default connect(null, actionTsatsruulagch)(SendLessons);

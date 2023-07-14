@@ -1,6 +1,9 @@
 
-import React,{ useState,useEffect} from "react";
+import React,{ useState,useEffect,useRef} from "react";
 import axios from "../../api";
+import css from "./style.module.css";
+import { FcAssistant } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
 
 const speechRecognition = window.webkitSpeechRecognition;
 const recognition = new speechRecognition();
@@ -10,16 +13,32 @@ recognition.interimResults = true;
 recognition.partial = true;
 
 export default function voiceChat() {
+  const navigate = useNavigate();
+  const listRef = useRef();
   const [chat, setChat] = useState([
-    { author:"you", text:"Etkileşimli diyalog test ...", correct:"0" }
+    { author:"you", text:"Merhaba ... 🙋🏻‍♀️", correct:"0" }
   ]);
   const [text,setText] = useState('');
   const [isRecording, setIsRecording] = useState(false);
   const Send = async() => {
-      
-      chat.push({author:"Ahmet",text:text})
+     chat.push({author:"Ahmet",text:text})
+    //  switch (key) {
+    //   case value:
+        
+    //     break;
+     
+    //   default:
+    //     break;
+    //  }maksimum 20 kelimeli
+    
+    if (chat[chat.length - 1].text.includes('Türkçe ders')) {
+      console.log('yeeee')
+      navigate('/A1');
+    }else if (chat[chat.length - 1].text.includes('benim')) {
+      navigate('/profile');
+    }else {
       setText('');
-      const data = {prompt: `${chat[chat.length-1].text} maksimum 20 kelimeli`};
+      const data = {prompt: `${chat[chat.length-1].text} `};
       try {
         const response = await axios.post("/books/aichat", data);
         const res = {data:response.data.data};
@@ -29,8 +48,12 @@ export default function voiceChat() {
       } catch (error) {
         console.error("AI errCatch ===>", error);
       }
+     }
   }
 
+  useEffect(() => {
+    listRef.current.scrollTop = listRef.current.scrollHeight;
+  }, [chat])
   // -------record
   recognition.onstart = () => {
     console.log("speech start");
@@ -81,21 +104,21 @@ export default function voiceChat() {
     audio.play();
   };
   return (<div>
-  <div style={{background:"transparent",inset: "10px",padding: "0px",display: "flex",flexDirection: "column",flexWrap: "nowrap",height:"83vh",justifyContent:"space-between",overflowX:"scroll"}}>
+    <div className={css.head}>
+          <div>📚&nbsp;&nbsp;AI Yardımcı</div>
+          <FcAssistant className={css.icon1} />
+        </div>
+    <div ref={listRef} style={{background:"transparent",inset: "10px",padding: "0px",display: "flex",flexDirection: "column",flexWrap: "nowrap",height:"73vh",justifyContent:"space-between",overflowX:"scroll"}}>
    
-   <div className="box" style={{display: "flex",flexDirection: "column"}}>
+    <div className="box" style={{display: "flex",flexDirection: "column"}}>
       {chat.map((e,i)=>(
-       <div key={i} className="msg"  style={{borderRadius:"10px",background:"rgb(38, 39, 49)",color:"white",width:"70%",alignSelf:e.author === 'you'?'start':'end',marginBottom:"10px",padding:'10px'}}>{e.text}</div>
-  ))}
-      {/* <ReactPlayer text={bot[2].text} play={play}/> */}
+       <div key={i} className="msg"  style={{borderRadius:"10px",background:"rgb(38, 39, 49)",color:"white",width:"70%",alignSelf:e.author !== 'you'?'start':'end',marginBottom:"10px",padding:'10px'}}>{e.text}</div>
+    ))} 
     </div> 
-    {/* https://m.freetranslations.org/speak.php?word=merhaba&lang=tr */}
     
       </div>
       <div style={{Bottom:"20px",right:"10px",left:"10px",width:"auto",bottom:"0", display:"flex",height:"45px",background:"",alignItems:"center",margin:"10px 0",justifyContent:"space-between"}}>
         <button onClick={handleClick}  style={{background:"darkred",width:"100%",height:"100%",borderRadius:"10px"}}>{isRecording ? "RECORDING":"RECORD"}</button>
-        {/* <input onChange={(e) => setText(e.target.value)} value={text} style={{fontSize:"20px",height:"100%",outline: 'none',borderRadius:"10px",border:"2px solid  rgb(38, 39, 49)",background:"rgb(4, 10, 20)",color:"white",width:"78%",alignSelf:'center',padding:'10px',textJustify:"auto"}}/>
-        <button onClick={Send} style={{textAlign:"center",fontSize:"20px",height:"100%",width:"20%",color:"white",border:"2px solid  rgb(38, 39, 49)",borderRadius:"10px",background:"rgb(4, 10, 20)"}}>send</button> */}
       </div>
       </div>
   );
