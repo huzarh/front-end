@@ -120,7 +120,7 @@ const IndexPage = (props) => {
         return bonusV;
       },
     }]
-    
+  const level = ['a','b','c','d','e']
     // transparent
   return (
     <Box>
@@ -180,9 +180,21 @@ const IndexPage = (props) => {
   </div>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-        <section style={{width:'100%',height:'400px',display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
-          <div style={{background:'transparent',width:'100%',height:'70px',borderRadius:'10px',padding:'10px',border:'2px solid var(--protocolor)'}}>hasdf</div>
-          <div style={{background:'grey'}}>hasdf2</div>
+        <section style={{width:'100%',height:'auto',display:'flex',borderRadius:'10px',flexDirection:'column',background:'#262731'}}>
+          <div className={css.unite}  >
+            <div>
+            <h2>1. Ünite</h2>
+            <p>Kişileri betimle, yiyecekleri adlandır</p>
+            </div>
+            <BiExit className={css.uniteIcon}/>
+          </div>
+          <div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',padding:"10px"}}> 
+               
+                <img className={css.imgI} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEzfBQAxZkt9VsnjPQ4jjESDDM0PYItqPVUQ&usqp=CAU" alt="3D" />
+              
+              {level.map((e,i)=><button className={css.uniteBox} key={i}><span >{e}</span></button>)}
+          </div>
+          
         </section>
         </TabPanel>
       </SwipeableViews>

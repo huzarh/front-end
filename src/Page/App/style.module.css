@@ -19,6 +19,7 @@
   background-color: rgb(4, 10, 20);
   inset: 0;
   scroll-margin-block: none;
+  /* width: 380px; */
 }
 .firstScreen {
   background-color: rgb(19, 20, 25);
@@ -42,4 +43,10 @@
 .icon1 {
   font-size: 30px;
   color: var(--textcolor);
+}
+@media screen and (min-width: 460px) {
+  .firstScreen{
+    display:flex;
+    flex-direction: row-reverse;
+  }
 }

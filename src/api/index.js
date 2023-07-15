@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: "https://back-end-9zp5.onrender.com/api/v1",
   method: 'POST',
   mode: 'cors',
   cache: 'no-cache',

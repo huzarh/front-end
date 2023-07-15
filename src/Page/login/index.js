@@ -51,7 +51,7 @@ const Login = (props) => {
           <BiArrowBack className={css.icon1} />
         </Link>
       </h3>
-      <h2 className={css.h2}>Hello there 👋</h2>
+      <h2 className={css.h2}>Hello There 👋</h2>
       <form className={css.form} onSubmit={handleSubmit}>
         <label>
           <p className={css.p}>Email</p>
