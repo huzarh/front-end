@@ -44,6 +44,7 @@ function App({autoLogin}) {
 
   return (
     <div className={css.body}>
+      <div style={{position:'fixed',background:'black',fontSize:'40px',width:'100%',height:'100%',zIndex:'999',display:window.innerWidth > 500 ? 'flex':'none',justifyContent:'center',alignItems:'center'}}><h1>şimdilik sadece mobil telefon için yapıldı</h1></div>
       {/* <div className={css.appBox}></div> */}
       <div className={css.firstScreen}>
         <AppStore>
