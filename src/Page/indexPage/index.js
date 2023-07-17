@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./style.module.css";
-import { BiExit } from "react-icons/bi";
+import { BiExit ,BiLayerPlus} from "react-icons/bi";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import * as actions2 from "../../redux/action/signupActions";
@@ -58,6 +58,7 @@ const IndexPage = (props) => {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
+  
   
   const logout = () => {
     props.logout();
@@ -120,8 +121,30 @@ const IndexPage = (props) => {
         return bonusV;
       },
     }]
-  const level = ['a','b','c','d','e']
+
+   
+  const unite = [
+    {
+      color:'rgb( 205,121,0 )',
+      level : ['a','b','c','d','e']
+    },
+    {
+      color:'#9a242f',
+      level : ['a','b','c','d','e']
+    }
+  ]
     // transparent
+    console.error = (message) => {
+      if (message.startsWith('Warning: Using UNSAFE_componentWillReceiveProps')) {
+        // Ignore the warning
+        return message;
+      }
+      // Log other error messages
+      originalError(message);
+    };
+    const originalError =(e)=>{
+      console.log('catch you fuck : ',e)
+    }
   return (
     <Box>
       <div className={css.top}>
@@ -180,22 +203,20 @@ const IndexPage = (props) => {
   </div>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-        <section style={{width:'100%',height:'auto',display:'flex',borderRadius:'10px',flexDirection:'column',background:'#262731'}}>
-          <div className={css.unite}  >
+        {unite.map((e,i)=><>
+        <section key={i} style={{width:'100%',height:'auto',display:'flex',borderRadius:'10px',flexDirection:'column',background:'#262731'}}>
+          <div className={css.unite}  style={{background:e.color}}>
             <div>
-            <h2>1. Ünite</h2>
+            <h2>{i+1}. Ünite</h2>
             <p>Kişileri betimle, yiyecekleri adlandır</p>
             </div>
-            <BiExit className={css.uniteIcon}/>
+            <BiLayerPlus className={css.uniteIcon}/>
           </div>
-          <div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',padding:"10px"}}> 
-               
-                <img className={css.imgI} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEzfBQAxZkt9VsnjPQ4jjESDDM0PYItqPVUQ&usqp=CAU" alt="3D" />
-              
-              {level.map((e,i)=><button className={css.uniteBox} key={i}><span >{e}</span></button>)}
+          <div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',padding:"10px"}}>               
+              {e.level.map((el,il)=><button className={css.uniteBox} key={il} style={{marginLeft:il == 0 ? `100px`:`${20/il}0px`}}><span >{el}</span></button>)}
           </div>
-          
-        </section>
+        </section><br/></>
+        )}
         </TabPanel>
       </SwipeableViews>
     </Box>
