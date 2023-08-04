@@ -4,6 +4,7 @@ import axios from "../../api";
 import css from "./style.module.css";
 import { FcAssistant } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
+import { BiMicrophone,BiMicrophoneOff} from "react-icons/bi";
 
 const speechRecognition = window.webkitSpeechRecognition;
 const recognition = new speechRecognition();
@@ -22,21 +23,13 @@ export default function voiceChat() {
   const [isRecording, setIsRecording] = useState(false);
   const Send = async() => {
      chat.push({author:"Ahmet",text:text})
-    //  switch (key) {
-    //   case value:
-        
-    //     break;
-     
-    //   default:
-    //     break;
-    //  }maksimum 20 kelimeli
     
     if (chat[chat.length - 1].text.includes('Türkçe ders')) {
       console.log('yeeee')
       navigate('/A1');
     }else if (chat[chat.length - 1].text.includes('benim')) {
       navigate('/profile');
-    }else {
+    }else  {
       setText('');
       const data = {prompt: `${chat[chat.length-1].text} `};
       try {
@@ -80,9 +73,9 @@ export default function voiceChat() {
         interimTranscript += event.results[i][0].transcript;
       }
     }
-    console.log("final", finalTranscript);
-    console.log("interim", interimTranscript);
-    setText(finalTranscript + interimTranscript);
+    // console.log("final", finalTranscript);
+    // console.log("interim", interimTranscript);
+    finalTranscript + interimTranscript !== '' && setText(finalTranscript + interimTranscript);
   };
 
   const handleClick = () => {
@@ -117,9 +110,12 @@ export default function voiceChat() {
     </div> 
     
       </div>
-      <div style={{Bottom:"20px",right:"10px",left:"10px",width:"auto",bottom:"0", display:"flex",height:"45px",background:"",alignItems:"center",margin:"10px 0",justifyContent:"space-between"}}>
-        <button onClick={handleClick}  style={{background:"darkred",width:"100%",height:"100%",borderRadius:"10px"}}>{isRecording ? "RECORDING":"RECORD"}</button>
-      </div>
+      <div style={{Bottom:"20px",width:"auto",bottom:"0", display:"flex",height:"45px",background:"",alignItems:"center",margin:"10px 0",justifyContent:"space-between"}}>
+        <button onClick={handleClick}  style={{background:"rgb(38, 39, 49)",width:"60px",height:"100%",borderRadius:"10px 0 0 10px",fontSize:'25px',color:'white',textAlign:'center',paddingTop:'5px'}}>{isRecording ? <BiMicrophoneOff/> :<BiMicrophone/>}</button>
+        <input style={{margin:"0 10px 0 0",width:"100%",height:"100%",borderRadius:"0 10px 10px 0",fontSize:'19px',paddingLeft:'5px'}} type="text" onChange={(e)=>setText(e.target.value)}/>
+        <button style={{background:"darkred",width:"80px",height:"100%",borderRadius:"10px",fontSize:'20px',color:"white"}} onClick={Send}>Send</button>
+      </div> 
+      
       </div>
   );
 }

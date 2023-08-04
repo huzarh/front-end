@@ -62,7 +62,7 @@ const IndexPage = (props) => {
   
   const logout = () => {
     props.logout();
-    props.navigate("/");
+    props.navigate("/first-page");
   };
   const ders = [
     {
@@ -140,11 +140,8 @@ const IndexPage = (props) => {
         return message;
       }
       // Log other error messages
-      originalError(message);
+      console.warn(message);
     };
-    const originalError =(e)=>{
-      console.log('catch you fuck : ',e)
-    }
   return (
     <Box>
       <div className={css.top}>
@@ -203,11 +200,11 @@ const IndexPage = (props) => {
   </div>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-        {unite.map((e,i)=><>
-        <section key={i} style={{width:'100%',height:'auto',display:'flex',borderRadius:'10px',flexDirection:'column',background:'#262731'}}>
+        {unite.map((e,e_id)=><>
+        <section key={e.color} style={{width:'100%',height:'auto',display:'flex',borderRadius:'10px',flexDirection:'column',background:'#262731'}}>
           <div className={css.unite}  style={{background:e.color}}>
             <div>
-            <h2>{i+1}. Ünite</h2>
+            <h2>{e_id+1}. Ünite</h2>
             <p>Kişileri betimle, yiyecekleri adlandır</p>
             </div>
             <BiLayerPlus className={css.uniteIcon}/>

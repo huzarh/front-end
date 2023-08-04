@@ -19,9 +19,8 @@
   background-color: rgb(4, 10, 20);
   inset: 0;
   scroll-margin-block: none;
-  /* width: 380px; */
 }
-.firstScreen {
+.App {
   background-color: rgb(19, 20, 25);
   width: 100%;
   color: var(--textcolor);
@@ -44,9 +43,15 @@
   font-size: 30px;
   color: var(--textcolor);
 }
+.device{
+  display:none;
+}
 @media screen and (min-width: 460px) {
   .firstScreen{
     display:flex;
     flex-direction: row-reverse;
+  }
+  .device{
+  display:flex;
   }
 }

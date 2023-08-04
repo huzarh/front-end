@@ -21,7 +21,7 @@ const Login = (props) => {
   // };
   useEffect(() => {
     if (props.authSuccess === true) {
-      navigate("/index-page");
+      navigate("/");
     }
   }, [props.authSuccess, navigate]);
   const handleSubmit = (event) => {
@@ -47,19 +47,19 @@ const Login = (props) => {
       {/* {props.error && Messages(props.error.response.data.error.message)} */}
 
       <h3 className={css.h3}>
-        <Link to={"/"}>
+        <Link to={"/first-page"}>
           <BiArrowBack className={css.icon1} />
         </Link>
       </h3>
-      <h2 className={css.h2}>Hello There 👋</h2>
+      <h2 className={css.h2}>Merhaba! 👋</h2>
       <form className={css.form} onSubmit={handleSubmit}>
         <label>
-          <p className={css.p}>Email</p>
+          <p className={css.p}>E-posta</p>
           <input
             onChange={(e) => setEmail(e.target.value)}
             className={css.input}
             type="email"
-            placeholder="example@gmail.com"
+            // placeholder="örnek@gmail.com"
             required
           />
         </label>
@@ -67,34 +67,34 @@ const Login = (props) => {
         <br />
         <br />
         <label>
-          <p className={css.p}>Password</p>
+          <p className={css.p}>Şifre</p>
           <input
             onChange={(e) => setPassword(e.target.value)}
             className={css.input}
             type="password"
-            placeholder="!xHw*#qw92"
+            // placeholder="!xHw*#qw92"
             required
           />
         </label>
         <label>
-          <p>
+          <p className={css.p}>
             <input className={css.check} type="checkbox" />
-            Remember me
+            beni hatırla
           </p>
         </label>
         {/* <hr /> */}
         <div className={css.signup}>
           <Link to="/signup">
-            <h4 className={css.h4}>signup</h4>
+            <h4 className={css.h4}>kaydolmak</h4>
           </Link>
           <Link to="/forgot-password">
-            <h4 className={css.h4}>Forgot Password?</h4>
+            <h4 className={css.h4}>şifremi unuttum?</h4>
           </Link>
         </div>
         <hr />
         <br />
         <button className={css.button} onClick={login} type="submit">
-          SIGN IN
+        GİRİŞ YAPIN
         </button>
         {/* <input className={css.button} type="submit" value="SIGN IN" /> */}
       </form>

@@ -1,9 +1,6 @@
 {
   "projects": {
-    "default": "learntoturkish-c4a14",
-    "y": "learntoturkish-c4a14",
-    "e": "learntoturkish-c4a14",
-    "learn": "learntoturkish-c4a14"
+    "default": "learntoturkish-c4a14"
   },
   "targets": {},
   "etags": {}

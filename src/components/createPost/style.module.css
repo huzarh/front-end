@@ -18,8 +18,8 @@ section textarea{
 ::-webkit-resizer {
   border: 2px solid darkslateblue;
   background: darkslateblue;
-  border-radius: 5px 0px 5px 0px;
-  box-shadow: -2px -2px 0px 3px darkslateblue;
+  border-radius: 2px 0px 2px 0px;
+  box-shadow: -5px -5px 0px 5px darkslateblue;
 }
 section input{
     padding:3px 5px;

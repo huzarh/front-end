@@ -53,7 +53,7 @@ const Profile = (props)=>{
                 <div className={css.button}>
               <button className={css.button1}><BiEditAlt className={css.icon3}/>Edit Profile</button>
               &nbsp;&nbsp;
-             <div className={css.button2}> <BiMessageSquareDetail className={css.icon4}/><TransitionsModal /></div>
+             <div className={css.button2}> <BiMessageSquareDetail className={css.icon4}/><Link to="/OCR"><TransitionsModal /></Link></div>
             </div>
             </section>
             <h3 className={css.h3}>Your Statistics&nbsp;<BiBookBookmark/></h3>

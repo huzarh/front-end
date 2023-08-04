@@ -12,7 +12,7 @@ const Menu =()=> {
     // }, []);
 
     const Active = () => {
-      navigate("/index-page");
+      navigate("/");
     };
     const Active1 = () => {
       navigate("/posts");
@@ -27,7 +27,7 @@ const Menu =()=> {
         return(
             <div className={css.menu}>
                 <div className={css.icons}>
-                 <BiBookBookmark className={ window.location.pathname === '/index-page' ? css.active : css.icon} onClick={Active}/>
+                 <BiBookBookmark className={ window.location.pathname === '/' ? css.active : css.icon} onClick={Active}/>
                 {/* <BiBarChartAlt2 className={css.icon2}/> */}
                  <BiMessageSquareDetail  className={window.location.pathname === '/posts' ? css.active : css.icon} onClick={Active1}/>
                 {/* <BiBadgeCheck className={css.icon4}/> */}

@@ -26,7 +26,7 @@ const Signup =(props)=> {
   };
   useEffect(() => {
     if (props.authSuccess === true) {
-      navigate("/index-page");
+      navigate("/");
     }
   },[props.authSuccess, navigate]);
 

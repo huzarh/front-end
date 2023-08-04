@@ -19,6 +19,7 @@ import {cloudDataSteps} from "../../redux/action/cloudActions";
 import Loading from "../../components/loading/index";
 import Avatar from '@mui/material/Avatar';
 import Skeleton from '@mui/material/Skeleton';
+import YoutubeVideoPlayer from '../../components/youtube';
 
 const steps = [
   {
@@ -135,7 +136,7 @@ const A1 =(props)=> {
       {props.error && ( <h5>Alldaaa : {props.error}</h5> )}
       {props.loading && <Loading/>}
       <div className={css.head}>
-          <FcUndo className={css.icon1} onClick={()=>navigate("/index-page")} /><div>Türkçe A1&nbsp;&nbsp;📕</div>
+          <FcUndo className={css.icon1} onClick={()=>navigate("/")} /><div>Türkçe A1&nbsp;&nbsp;📕</div>
       </div>
      {/* {props.BooksData && props.BooksData.data.length !== activeStep ?   */}
      {props.BooksData && <Stepper activeStep={activeStep} orientation="vertical">
@@ -167,12 +168,14 @@ const A1 =(props)=> {
               {/* ------------------ IMAGE ----------------- */}
 
               {/* <img  className={css.imgItem} src={el}/> */}
-              {/* {e.photo && <> <div className={css.imgs}>{e.photo.map((el,index)=><img key={index} className={css.imgItem} src={el}/>)}</div>
+              {/* {e.photo && <> {e.photo.map((el,index)=>)} 
                    <br/></>} */}
+              {/* <div className={css.imgs}><img  className={css.imgItem} src={'https://res.cloudinary.com/dlsutojvh/image/upload/v1690215141/A1/tenzxnhorkpygg00kozv'}/></div> */}
+              {e.video && <ReactPlayer url={`//www.youtube.com/embed/${e.video}`} width='100%'height='auto'/>}
 
-              {/* ------------------ EXAMPLES SENTENCE----------------- */}
+              {/* ------------------ EXAMPLES SENTENCE ----------------- */}
               
-              {props.loading ?  <Skeleton sx={{bgcolor:'rgb(34, 36, 46)'}} variant="rectangular" width='100%' height={100} /> : <div style={{margin:'10px 0',padding:'10px',borderRadius:'10px',background:'rgb(32, 29, 41)'}}>
+              {props.loading && !e.audio ?  <Skeleton sx={{bgcolor:'rgb(34, 36, 46)'}} variant="rectangular" width='100%' height={100} /> : <div style={{margin:'10px 0',padding:'10px',borderRadius:'10px',background:'rgb(32, 29, 41)'}}>
                 <p>Örnek :</p>
                 {/* {e.exampleSentence.map((el2,index2)=>(
                   <><p key={index2}>{el2}</p><br/></>
@@ -182,7 +185,7 @@ const A1 =(props)=> {
               <br />
 
               {/* ------------------ DESC2 ----------------- */}
-              {props.loading ?  <Skeleton sx={{bgcolor:'rgb(34, 36, 46)'}} variant="rectangular" width='100%' height={200} /> : <Sentence sentence={e.desc2}/>}
+              {props.loading && !e.desc2 ?  <Skeleton sx={{bgcolor:'rgb(34, 36, 46)'}} variant="rectangular" width='100%' height={200} /> : <Sentence sentence={e.desc2}/>}
 
               <br />
 
@@ -205,23 +208,23 @@ const A1 =(props)=> {
     </div>
   );
 }
-const Sentence  = ({ sentence }) => {
-  const hasNewLine = sentence.includes('\n');
-
-  if (hasNewLine) {
-    const lines = sentence.split('\n');
-
-    return (
-      <div>
-        {lines.map((line, index) => (
-          <p key={index}>{line}</p>
-        ))}
-      </div>
-    );
-  } else {
+const Sentence = ({ sentence }) => {
+  if (!sentence) {
     return <p>{sentence}</p>;
   }
+
+  const hasNewLine = sentence.includes('\n');
+  const lines = sentence.split('\n');
+
+  return (
+    <div>
+      {lines.map((line, index) => (
+        <p key={index}>{line}</p>
+      ))}
+    </div>
+  );
 };
+
 
 const actionTsatsruulagch = (dispatch) => {
   return { saveData: () => dispatch(cloudDataSteps()),};

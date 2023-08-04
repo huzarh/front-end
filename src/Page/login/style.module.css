@@ -4,10 +4,14 @@
 .signup {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 290px;
 }
 .p,
 .h2 {
   text-align: start;
+}
+.p{
+  color: rgb(157, 157, 157);
 }
 hr {
   width: 100%;
@@ -28,7 +32,6 @@ h3 {
 }
 .h4 {
   color: var(--protocolor);
-  margin-bottom: 290px;
 }
 
 .button {

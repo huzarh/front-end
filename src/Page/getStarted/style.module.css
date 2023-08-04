@@ -2,14 +2,13 @@
   --protocolor: rgb(94, 19, 255);
   --textcolor: white;
 }
-
+/* calc(var(--vh, 1vh) * 90) */
 .all {
-  height: calc(var(--vh, 1vh) * 90);
+  height:100vh;
   display: flex;
   flex-direction: column;
   margin: 0;
   padding-bottom: 20px;
-  align-content: center;
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
