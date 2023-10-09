@@ -5,7 +5,7 @@ import MobileStepper from '@mui/material/MobileStepper';
 import exam from "./style.module.css";
 import { connect } from "react-redux";
 import { cloudSave } from "../../redux/action/cloudSelect";
-import Context from '../context/Context';
+import Context from '../../context';
 import failed from '../../assets/audio2.mp3';
 import succ from '../../assets/audio1.mp3';
 import ReactPlayer from "react-player";

@@ -6,7 +6,7 @@ export const AppStore = (props) => {
   const [appStore, setAppStore] = React.useState({
     open: false,
     messName: "",
-    messText: "",
+    messText: "", 
   });
 
   return (

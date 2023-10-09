@@ -4,7 +4,7 @@ import axios from "../../api";
 import css from "./style.module.css";
 import { FcAssistant } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
-import { BiMicrophone,BiMicrophoneOff} from "react-icons/bi";
+import { BiMicrophone,BiRadioCircleMarked} from "react-icons/bi";
 
 const speechRecognition = window.webkitSpeechRecognition;
 const recognition = new speechRecognition();
@@ -17,7 +17,7 @@ export default function voiceChat() {
   const navigate = useNavigate();
   const listRef = useRef();
   const [chat, setChat] = useState([
-    { author:"you", text:"Merhaba ... 🙋🏻‍♀️", correct:"0" }
+    { author:"you", text:"Merhaba ... 🙋🏻‍♀️" }
   ]);
   const [text,setText] = useState('');
   const [isRecording, setIsRecording] = useState(false);
@@ -111,7 +111,7 @@ export default function voiceChat() {
     
       </div>
       <div style={{Bottom:"20px",width:"auto",bottom:"0", display:"flex",height:"45px",background:"",alignItems:"center",margin:"10px 0",justifyContent:"space-between"}}>
-        <button onClick={handleClick}  style={{background:"rgb(38, 39, 49)",width:"60px",height:"100%",borderRadius:"10px 0 0 10px",fontSize:'25px',color:'white',textAlign:'center',paddingTop:'5px'}}>{isRecording ? <BiMicrophoneOff/> :<BiMicrophone/>}</button>
+        <button onClick={handleClick}  style={{background:"rgb(38, 39, 49)",width:"60px",height:"100%",borderRadius:"10px 0 0 10px",fontSize:'25px',color:'white',textAlign:'center',paddingTop:'5px'}}>{isRecording ? <BiRadioCircleMarked fontSize='35px'/> :<BiMicrophone/>}</button>
         <input style={{margin:"0 10px 0 0",width:"100%",height:"100%",borderRadius:"0 10px 10px 0",fontSize:'19px',paddingLeft:'5px'}} type="text" onChange={(e)=>setText(e.target.value)}/>
         <button style={{background:"darkred",width:"80px",height:"100%",borderRadius:"10px",fontSize:'20px',color:"white"}} onClick={Send}>Send</button>
       </div> 

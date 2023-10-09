@@ -6,8 +6,8 @@ h6 {
   background-color: transparent;
 }
 .icon1 {
-  font-size: 30px;
-  color: var(--textcolor);
+  font-size: 24px;
+  color: var(--protocolor);
 }
 div,
 h5 {
@@ -17,6 +17,7 @@ h5 {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  align-items: center;
   font-size: 23px;
   margin-bottom: 25px;
   /* background-color: aliceblue; */
@@ -170,12 +171,13 @@ h5 {
   height: 10px;
   background: blue;
 }
-.hr {
+hr {
   width: 100%;
   height: 1.5px;
-  background-color: rgb(40, 42, 51);
-  margin-top: 10px;
-  margin-bottom: 10px;
+  background-color: rgb(255, 255, 255);
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .h3 {
   margin-bottom: 10px;
@@ -246,11 +248,18 @@ h5 {
   font-size: 1.25rem;
   background: darkcyan;
   color: white;
-  /* border: 5px solid darkcyan; */
   transform: translateY(-6px);
   align-items: center;
   justify-content: center;
 
+}
+.notif{ 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /* align-content: center; */
+  justify-content: space-between;
+  align-items: center;
 }
 
 .uniteBox:active span {
@@ -269,4 +278,15 @@ h5 {
   .section {
     margin: 10px;
   }
+}
+.head input {
+  background: transparent;
+  text-align: start;
+  padding: 5px 10px;
+  border: none;
+  border-bottom: 1px solid var(--protocolor);
+  width:40%;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+  outline: none;
 }

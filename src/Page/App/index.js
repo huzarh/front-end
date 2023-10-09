@@ -20,7 +20,7 @@ import Mess from "../../components/messages";
 import Chat from "../../components/chat";
 import A1 from "../indexPage/a1.jsx";
 import "./GlobalCssSlider.css";
-import { AppStore } from "../../components/context/Context";
+import { AppStore } from "../../context";
 import LGame from "../../components/LGame";
 import Youtube from "../../components/youtube";
 import Soz from "./example";
@@ -50,7 +50,7 @@ function App({autoLogin}) {
       
       <div className={css.device} style={{position:'fixed',background:'#1e1f24',width:'100%',height:'100%',zIndex:'999',justifyContent:"space-between",textAlign:'start',padding:'40px'}}>
        <img src={back2 } style={{backgroundSize:'cover',height:'16vw'}}/>
-       <img src={back } style={{backgroundSize:'cover',width:'500px',height:'85vh',marginTop:'20px'}}/>
+       <img src={back } style={{backgroundSize:'cover',height:'auto',marginTop:'20px'}}/>
       </div>
     
       <div className={css.App}>
@@ -64,7 +64,7 @@ function App({autoLogin}) {
             <Route path="/speech" element={<LGame />} />
             <Route path="/OCR" element={<OCR />} />
             <Route path="/chat" element={<Chat />} />
-            <Route path="/vc" element={<SendLessons />} />
+            <Route path="/addexam" element={<SendLessons />} />
             <Route exact path="/" element={<IndexPage navigate={navigate} />}/>
             <Route path="/A1/snv"   element={     <A1sinav   setMess={setOpen}   setMessName={setMessName} setMessText={setMessText} /> }/>
             <Route path="/profile" element={<Profile />} />

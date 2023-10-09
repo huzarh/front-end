@@ -1,11 +1,6 @@
-
-import Button from '@mui/material/Button';
-import Step from '@mui/material/Step';
-import StepContent from '@mui/material/StepContent';
+   
 import { FcUndo } from "react-icons/fc";
-import StepLabel from '@mui/material/StepLabel';
-import Stepper from '@mui/material/Stepper';
-import Typography from '@mui/material/Typography';
+import {StepLabel,Stepper,StepContent,Step,Button,Typography,TextField,Skeleton} from '@mui/material';  
 import * as React from 'react';
 import ReactPlayer from "react-player";
 import {  useNavigate } from "react-router-dom";
@@ -17,8 +12,7 @@ import A1sinav from '../../components/KonuSnv';
 import { connect } from "react-redux";
 import {cloudDataSteps} from "../../redux/action/cloudActions";
 import Loading from "../../components/loading/index";
-import Avatar from '@mui/material/Avatar';
-import Skeleton from '@mui/material/Skeleton';
+
 import YoutubeVideoPlayer from '../../components/youtube';
 
 const steps = [
@@ -136,9 +130,13 @@ const A1 =(props)=> {
       {props.error && ( <h5>Alldaaa : {props.error}</h5> )}
       {props.loading && <Loading/>}
       <div className={css.head}>
-          <FcUndo className={css.icon1} onClick={()=>navigate("/")} /><div>Türkçe A1&nbsp;&nbsp;📕</div>
+          <FcUndo className={css.icon1} onClick={()=>navigate("/")} /><input type="search" placeholder="🔍 Search ... "/><div>Türkçe A1&nbsp;&nbsp;📕</div>
       </div>
      {/* {props.BooksData && props.BooksData.data.length !== activeStep ?   */}
+     <h4>Search result:</h4>
+     <div style={{height:"auto",minHeight:"50px",padding:"10px",width:"100%",background:'rgb(31 33 42)',borderRadius:"10px",textAlign:"justify"}}>
+     {/* “Nerelisin?” sorusu bir kişinin milletini öğrenmek için sorulur. Millet ismini söylemek için ülke isminin son sesli harfine göre “+lı, +li, +lu, +lü” eklerinden biri getirilir.  */}
+     </div>
      {props.BooksData && <Stepper activeStep={activeStep} orientation="vertical">
          {props.BooksData.data.map((e, i) => (
           <Step key={i}>

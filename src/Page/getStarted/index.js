@@ -25,7 +25,7 @@ const GetStarted = () => {
           </Link>
           <br />
           <Link to="/login">
-            <button className={css.button2}>ZATEN HESABIM VAR</button>
+            <button className={css.button2}>HESABIM VAR</button>
           </Link>
         </div>
       </div>

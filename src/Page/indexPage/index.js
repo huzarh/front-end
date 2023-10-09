@@ -1,18 +1,21 @@
 import React from "react";
 import css from "./style.module.css";
-import { BiExit ,BiLayerPlus} from "react-icons/bi";
+import { BiSolidBell } from "react-icons/bi";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import * as actions2 from "../../redux/action/signupActions";
 import * as actions3 from "../../redux/action/loginActions";
-import Box from '@mui/material/Box';
-import AppBar from '@mui/material/AppBar';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
-import { useTheme } from '@mui/material/styles';
+import Box from "@mui/material/Box";
+import AppBar from "@mui/material/AppBar";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import PropTypes from "prop-types";
+import SwipeableViews from "react-swipeable-views";
+import { useTheme } from "@mui/material/styles";
+import DotsMenu from "../../components/dots_menu";
+import { Divider } from "@mui/material";
+import ActiveAvatar from "../../components/activeAvatar";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -39,14 +42,11 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `action-tab-${index}`,
-    'aria-controls': `action-tabpanel-${index}`,
+    "aria-controls": `action-tabpanel-${index}`,
   };
 }
 
-
-
 const IndexPage = (props) => {
-
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   // const [activeBtn, setActiveBtn] = React.useState(1);
@@ -58,100 +58,108 @@ const IndexPage = (props) => {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
-  
-  
+
   const logout = () => {
     props.logout();
     props.navigate("/first-page");
   };
   const ders = [
     {
-      bgColor: 'darkorange',
-      buttonValue:'Sınava girmek',
-      name: 'A1',
-      url:"/A1",
-      text:'şu an yok',
-      bonus:Number(localStorage.getItem("konu"))+0.1,
-      bonusValue:(p)=>{
-        const bonusV = p*100/11
+      bgColor: "darkorange",
+      buttonValue: "Sınava girmek",
+      name: "A1",
+      url: "/A1",
+      text: "şu an yok",
+      bonus: Number(localStorage.getItem("konu")) + 0.1,
+      bonusValue: (p) => {
+        const bonusV = (p * 100) / 11;
         return Math.floor(bonusV);
       },
-    },{
-      bgColor: 'darkorchid',
-      buttonValue:'Sınava girmek',
-      name: 'A2',
-      url:"/A2",
-      text:'2000P kazanın ve konulardan özel bir bonus alın!',
-      bonus:0,
-      bonusValue:(p)=>{
-        const bonusV = p*100/2000
-        return bonusV;
-      },
-    },{
-      bgColor: 'darkturquoise',
-      buttonValue:'Sınava girmek',
-      name: 'B1',
-      url:"/B1",
-      text:'2000P kazanın ve konulardan özel bir bonus alın!',
-      bonus:0,
-      bonusValue:(p)=>{
-        const bonusV = p*100/2000
-        return bonusV;
-      },
-    },{
-      bgColor: 'darkorange',
-      buttonValue:'Sınava girmek',
-      name: 'B2',
-      url:"/B2",
-      text:'2000P kazanın ve konulardan özel bir bonus alın!',
-      bonus:0,
-      bonusValue:(p)=>{
-        const bonusV = p*100/2000
-        return bonusV;
-      },
-    },{
-      bgColor: 'darkorange',
-      buttonValue:'Sınava girmek',
-      name: 'C1',
-      url:"/C1",
-      text:'2000P kazanın ve konulardan özel bir bonus alın!',
-      bonus:0,
-      bonusValue:(p)=>{
-        const bonusV = p*100/2000
-        return bonusV;
-      },
-    }]
-
-   
-  const unite = [
-    {
-      color:'rgb( 205,121,0 )',
-      level : ['a','b','c','d','e']
     },
     {
-      color:'#9a242f',
-      level : ['a','b','c','d','e']
+      bgColor: "darkorchid",
+      buttonValue: "Sınava girmek",
+      name: "A2",
+      url: "/A2",
+      text: "2000P kazanın ve konulardan özel bir bonus alın!",
+      bonus: 0,
+      bonusValue: (p) => {
+        const bonusV = (p * 100) / 2000;
+        return bonusV;
+      },
+    },
+    {
+      bgColor: "darkturquoise",
+      buttonValue: "Sınava girmek",
+      name: "B1",
+      url: "/B1",
+      text: "2000P kazanın ve konulardan özel bir bonus alın!",
+      bonus: 0,
+      bonusValue: (p) => {
+        const bonusV = (p * 100) / 2000;
+        return bonusV;
+      },
+    },
+    {
+      bgColor: "darkorange",
+      buttonValue: "Sınava girmek",
+      name: "B2",
+      url: "/B2",
+      text: "2000P kazanın ve konulardan özel bir bonus alın!",
+      bonus: 0,
+      bonusValue: (p) => {
+        const bonusV = (p * 100) / 2000;
+        return bonusV;
+      },
+    },
+    {
+      bgColor: "darkorange",
+      buttonValue: "Sınava girmek",
+      name: "C1",
+      url: "/C1",
+      text: "2000P kazanın ve konulardan özel bir bonus alın!",
+      bonus: 0,
+      bonusValue: (p) => {
+        const bonusV = (p * 100) / 2000;
+        return bonusV;
+      },
+    },
+  ];
+
+  // transparent
+  console.error = (message) => {
+    if (message.startsWith("Warning: Using UNSAFE_componentWillReceiveProps")) {
+      // Ignore the warning
+      return message;
     }
-  ]
-    // transparent
-    console.error = (message) => {
-      if (message.startsWith('Warning: Using UNSAFE_componentWillReceiveProps')) {
-        // Ignore the warning
-        return message;
-      }
-      // Log other error messages
-      console.warn(message);
-    };
+    // Log other error messages
+    console.warn(message);
+  };
   return (
     <Box>
       <div className={css.top}>
         <div className={css.head}>
-          <div>📚&nbsp;&nbsp;Seviyeler</div>
-
-          <BiExit className={css.icon1} onClick={logout} />
+          <div>📚&nbsp;&nbsp;Bi-Turk</div>
+          <div className={css.notif}>
+            <BiSolidBell className={css.icon1} onClick={logout} />
+            <DotsMenu logout={logout} />
+          </div>
         </div>
       </div>
-      <AppBar sx={{bgcolor:'transparent'}} position="static" color="default">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 10,
+          alignItems: "start",
+        }}
+      >
+        <p className={css.p}>Aktif kullancilar</p>
+        <ActiveAvatar />
+      </div> 
+      <hr /> 
+      <AppBar sx={{ bgcolor: "transparent" }} position="static" color="default">
+       
         <Tabs
           value={value}
           onChange={handleChange}
@@ -160,47 +168,89 @@ const IndexPage = (props) => {
           variant="fullWidth"
           aria-label="action tabs example"
         >
-          <Tab sx={{p:'0 8px 0 0',outline:'none'}}label={<div className={value !== 0 ? css.button1 : css.button2}>PRATIK</div>} {...a11yProps(0)} />&nbsp;&nbsp;
-          <Tab sx={{p:'0 0 0 8px'}} label={<div className={value !== 0 ? css.button2 : css.button1}>EZBERLE</div>} {...a11yProps(1)} />
+          <Tab
+            sx={{ p: "0 8px 0 0", outline: "none" }}
+            label={
+              <div className={value !== 0 ? css.button1 : css.button2}>
+                PRATIK
+              </div>
+            }
+            {...a11yProps(0)}
+          />
+          &nbsp;&nbsp;
+          <Tab
+            sx={{ p: "0 0 0 8px" }}
+            label={
+              <div className={value !== 0 ? css.button2 : css.button1}>
+                EZBERLE
+              </div>
+            }
+            {...a11yProps(1)}
+          />
         </Tabs>
       </AppBar>
       <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        <TabPanel sx={{padding:'0',margin:'0'}} value={value} index={0} dir={theme.direction}>
-        <div className={css.row}>
-          
-          {ders.map((e,i) => (
-          <div className={css.column} key={i}>
-          <Link to={e.bonus && e.url}><div className={css.card} style={e.bonus === 0 ? {opacity:'0.3'} : {opacity:'1'}}>
-            <div style={{background: e.bgColor}} className={css.cardTop1}>
-            <div>
-             <div className={css.cardButton}>Ders</div>
-                <h3 className={css.h3}>{e.name} Konuları</h3>
-                <p className={css.p}>{e.text}</p>
-            </div>
-            <div>
-              <img className={css.bg} src={`https://api.dicebear.com/6.x/initials/svg?seed=${e.name}`} alt="emoji" />
-            </div>
-            </div>
-            <div className={css.cardBottom}>
-              <div className={css.container}>
-                <div style={{width:`${e.bonusValue(e.bonus)}%`}} className={css.bonus}></div>
+        <TabPanel
+          sx={{ padding: "0", margin: "0" }}
+          value={value}
+          index={0}
+          dir={theme.direction}
+        >
+          <div className={css.row}>
+            {ders.map((e, i) => (
+              <div className={css.column} key={i}>
+                <Link to={e.bonus && e.url}>
+                  <div
+                    className={css.card}
+                    style={
+                      e.bonus === 0 ? { opacity: "0.3" } : { opacity: "1" }
+                    }
+                  >
+                    <div
+                      style={{ background: e.bgColor }}
+                      className={css.cardTop1}
+                    >
+                      <div>
+                        <div className={css.cardButton}>Ders</div>
+                        <h3 className={css.h3}>{e.name} Konuları</h3>
+                        <p className={css.p}>{e.text}</p>
+                      </div>
+                      <div>
+                        <img
+                          className={css.bg}
+                          src={`https://api.dicebear.com/6.x/initials/svg?seed=${e.name}`}
+                          alt="emoji"
+                        />
+                      </div>
+                    </div>
+                    <div className={css.cardBottom}>
+                      <div className={css.container}>
+                        <div
+                          style={{ width: `${e.bonusValue(e.bonus)}%` }}
+                          className={css.bonus}
+                        ></div>
+                      </div>
+                      <div className={css.cardItem1}>
+                        <h4 className={css.cardItemH3}>
+                          {e.bonusValue(e.bonus) * 10}/1000
+                        </h4>
+                        <p>0 min</p>
+                      </div>
+                      {/* <div className={css.hr} /> */}
+                      {/* <div className={css.cardItem1}><h4>Başla !</h4><p>〉</p></div> */}
+                    </div>
+                  </div>
+                </Link>
               </div>
-              <div className={css.cardItem1}><h4 className={css.cardItemH3}>{e.bonusValue(e.bonus)*10}/1000</h4><p>0 min</p></div>
-              {/* <div className={css.hr} /> */}
-              {/* <div className={css.cardItem1}><h4>Başla !</h4><p>〉</p></div> */}
-            </div>
-          </div></Link>
+            ))}
           </div>
-          ))}
-
-  </div>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-        {unite.map((e,e_id)=><>
+          {/* {unite.map((e,e_id)=><>
         <section key={e.color} style={{width:'100%',height:'auto',display:'flex',borderRadius:'10px',flexDirection:'column',background:'#262731'}}>
           <div className={css.unite}  style={{background:e.color}}>
             <div>
@@ -213,7 +263,7 @@ const IndexPage = (props) => {
               {e.level.map((el,il)=><button className={css.uniteBox} key={il} style={{marginLeft:il == 0 ? `100px`:`${20/il}0px`}}><span >{el}</span></button>)}
           </div>
         </section><br/></>
-        )}
+        )} */}
         </TabPanel>
       </SwipeableViews>
     </Box>
