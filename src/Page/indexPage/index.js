@@ -16,6 +16,7 @@ import { useTheme } from "@mui/material/styles";
 import DotsMenu from "../../components/dots_menu";
 import { Divider } from "@mui/material";
 import ActiveAvatar from "../../components/activeAvatar";
+import SearchDocs from "../../components/searchDocs";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -154,6 +155,8 @@ const IndexPage = (props) => {
           alignItems: "start",
         }}
       >
+        <p className={css.p}>Filtre</p>
+        <SearchDocs />
         <p className={css.p}>Aktif kullancilar</p>
         <ActiveAvatar />
       </div> 
